@@ -1,6 +1,3 @@
-/*! Hugo Blox Builder v5.9.6 | https://hugoblox.com/ */
-/*! Copyright 2016-present George Cushen (https://georgecushen.com/) */
-/*! License: https://github.com/HugoBlox/hugo-blox-builder/blob/main/LICENSE.md */
 
 ;
 (()=>{(()=>{var t,i,c,l,d,m,p,y,_,O,E,e=Object.assign||function(e){for(var t,s,n=1;n<arguments.length;n++){t=arguments[n];for(s in t)Object.prototype.hasOwnProperty.call(t,s)&&(e[s]=t[s])}return e},s=function(t){return t.tagName==="IMG"},A=function(t){return NodeList.prototype.isPrototypeOf(t)},o=function(t){return t&&t.nodeType===1},v=function(t){var n=t.currentSrc||t.src;return n.substr(-4).toLowerCase()===".svg"},C=function(t){try{return Array.isArray(t)?t.filter(s):A(t)?[].slice.call(t).filter(s):o(t)?[t].filter(s):typeof t=="string"?[].slice.call(document.querySelectorAll(t)).filter(s):[]}catch{throw new TypeError(`The provided selector is invalid.

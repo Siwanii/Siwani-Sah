@@ -28,6 +28,10 @@
     onload="this.media='all'">
   <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'"
     disabled>
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TVT962Q9F"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -63,86 +67,1294 @@
     document.addEventListener('click', onClickCallback, false);
   </script>
 
-  <meta name="author" content="Satyam Thakur" />
+  <meta name="author" content="Siwani Sah" />
   <meta name="description" content="Graduate Assistant | Computer Science |Engineer" />
-  <!-- <link rel="alternate" hreflang="en-us" href="https://mmel099.github.io/" />
-  <link rel="canonical" href="https://mmel099.github.io/" /> -->
   <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="icon" type="image/png" href="/media/s_symbol.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/s_symbol.png" />
   <meta name="theme-color" content="#1565c0" />
   <meta property="twitter:card" content="summary" />
-  <!-- <meta property="twitter:image"
-    content="https://mmel099.github.io/media/icon_hubd979b96828314d34ff1ac73d4ae29ee_17978_512x512_fill_lanczos_center_3.png" /> -->
-  <meta property="profile:first_name" content="Satyam Thakur">
-  <!-- <meta property="profile:last_name" content="Melnikas"> -->
+  <meta property="profile:first_name" content="Siwani">
   <meta property="og:type" content="profile" />
-  <meta property="og:site_name" content="Welcome!" />
-  <!-- <meta property="og:url" content="https://mmel099.github.io/" /> -->
-  <meta property="og:title" content="Welcome!" />
+  <meta property="og:site_name" content="SiwaniProfile" />
+  <meta property="og:title" content="SiwaniProfile" />
   <meta property="og:description" content="Graduate Assistant | Computer Science |Engineer" />
-  <!-- <meta property="og:image"
-    content="https://mmel099.github.io/media/icon_hubd979b96828314d34ff1ac73d4ae29ee_17978_512x512_fill_lanczos_center_3.png" /> -->
   <meta property="og:locale" content="en-us" />
   <meta property="og:updated_time" content="2022-10-24T00:00:00&#43;00:00" />
-  <script type="application/ld+json">
-<!-- {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://mmel099.github.io/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  },
-  "url": "https://mmel099.github.io/"
-} -->
-</script>
-  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Welcome!" />
-  <title>Welcome!</title>
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="SiwaniProfile" />
+  <title>Siwani Sah</title>
+  <style>
+    /* Multicolor moving smoke background for ALL cards (About/Skills/Experience/Projects/Contact) */
+    #about .about-card,
+    #section-skills .about-card,
+    #section-experience .about-card,
+    #projects .about-card,
+    #contact .about-card {
+      position: relative;
+      border: 0;
+      border-radius: 1rem;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.30);
+      backdrop-filter: saturate(110%);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    /* All cards sharp edges (About/Skills/Experience/Projects/Contact) */
+    #about .about-card,
+    #section-skills .about-card,
+    #section-experience .about-card,
+    #projects .about-card,
+    #contact .about-card {
+      border-radius: 0 !important;
+    }
+
+    /* Outer border for ALL cards (About/Skills/Experience/Projects/Contact) */
+    #about .about-card,
+    #section-skills .about-card,
+    #section-experience .about-card,
+    #projects .about-card,
+    #contact .about-card {
+      border: 1.5px solid rgba(255, 255, 255, 0.45) !important;
+    }
+
+    /* Hover effect for Skills cards (transparent) */
+    #section-skills .about-card:hover {
+      box-shadow: none !important;
+      transform: none;
+    }
+
+    /* Dark mode hover effect for Skills cards */
+    [data-theme="dark"] #section-skills .about-card:hover,
+    .dark #section-skills .about-card:hover,
+    html.dark #section-skills .about-card:hover {
+      box-shadow: none !important;
+      transform: none;
+    }
+
+    /* Hover shadow effect for Projects cards - removed overlapping */
+    #projects .about-card:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+      transition: all 0.3s ease;
+    }
+
+    /* Dark mode hover effect for Projects cards - removed overlapping */
+    [data-theme="dark"] #projects .about-card:hover,
+    .dark #projects .about-card:hover,
+    html.dark #projects .about-card:hover {
+      box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15) !important;
+      transition: all 0.3s ease;
+    }
+
+    /* Hover shadow effect for About card (same as Skills/Projects) */
+    #about .about-card:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
+
+    /* Dark mode hover effect for About card */
+    [data-theme="dark"] #about .about-card:hover,
+    .dark #about .about-card:hover,
+    html.dark #about .about-card:hover {
+      box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15) !important;
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
+
+    /* Hover shadow effect for Experience card (same as other sections) */
+    #section-experience .about-card:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
+
+    /* Dark mode hover effect for Experience card */
+    [data-theme="dark"] #section-experience .about-card:hover,
+    .dark #section-experience .about-card:hover,
+    html.dark #section-experience .about-card:hover {
+      box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15) !important;
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
+
+    /* Hover effect for Contact card - same as About section */
+    #contact .about-card:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
+
+    /* Dark mode hover effect for Contact card */
+    [data-theme="dark"] #contact .about-card:hover,
+    .dark #contact .about-card:hover,
+    html.dark #contact .about-card:hover {
+      box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15) !important;
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
+
+
+    /* Align Experience cards to the right */
+    #section-experience .col-lg-8 {
+      margin-left: auto;
+    }
+    #section-experience .experience {
+      justify-content: flex-end;
+    }
+
+    /* Remove extra space above and below Experience section */
+    #section-experience {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+      padding-bottom: 1rem !important;
+      margin-bottom: 1rem !important;
+    }
+    #section-experience .container {
+      padding-top: 0 !important;
+      padding-bottom: 1rem !important;
+    }
+    #section-experience .section-heading {
+      margin-top: 0 !important;
+    }
+
+    /* Increase Experience card-text font size to match Projects */
+    #section-experience .card-text {
+      font-size: 0.9rem !important;
+      line-height: 1.5 !important;
+    }
+
+    /* Add space above About section card */
+    #about {
+      padding-top: 1rem !important;
+      padding-bottom: 2rem !important;
+    }
+
+    #about .container {
+      padding-top: 2rem !important;
+    }
+
+    /* About section card width */
+    #about .about-card {
+      max-width: 1050px;
+      margin-left: auto;
+      margin-right: auto;
+      background: transparent !important;
+      backdrop-filter: none !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Hide gradient border in About section */
+    #about .gradient-border {
+      display: none !important;
+    }
+
+    /* Dark mode for About card */
+    [data-theme="dark"] #about .about-card,
+    .dark #about .about-card,
+    html.dark #about .about-card {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Add space above Experience section header */
+    #section-experience {
+      padding-top: 3rem !important;
+    }
+
+    #section-experience .container {
+      padding-top: 1rem !important;
+    }
+
+    /* Contact card styling - same as About section */
+    #contact .about-card {
+      min-height: 650px !important;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      background: transparent !important;
+      backdrop-filter: none !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Hide gradient border in Contact section */
+    #contact .gradient-border {
+      display: none !important;
+    }
+
+    /* Dark mode for Contact card */
+    [data-theme="dark"] #contact .about-card,
+    .dark #contact .about-card,
+    html.dark #contact .about-card {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    #contact .card-body {
+      min-height: 550px !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Fix Contact Information icon alignment */
+    #contact .fa-ul {
+      margin-left: 0;
+    }
+
+    #contact .fa-li {
+      left: 0;
+      top: 0.25em;
+      vertical-align: middle;
+    }
+
+    #contact .fa-ul li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.25rem;
+    }
+
+    #contact .fa-ul li i.fa-li {
+      position: relative;
+      left: 0;
+      margin-right: 0.75rem;
+      vertical-align: middle;
+    }
+
+    /* Remove extra space above and below Contact section */
+    #contact {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+      padding-bottom: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    #contact .container {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    #contact .section-heading {
+      margin-top: 0 !important;
+    }
+
+    /* width utilities for 60%/70% since Bootstrap lacks them */
+    .w-60 { width: 60% !important; }
+    .w-70 { width: 70% !important; }
+    .w-85 { width: 85% !important; }
+    .w-95 { width: 95% !important; }
+
+    /* Skills layout */
+    #section-skills { position: relative; z-index: auto; }
+    #section-skills .skills-stack { position: relative; padding-bottom: 0; }
+    #section-skills .stack-item { position: relative; z-index: auto; }
+    #section-skills .stack-item + .stack-item { margin-top: 2rem; }
+    @media (min-width: 768px) {
+      #section-skills .stack-item + .stack-item { margin-top: 2.5rem; }
+      #section-skills .skills-stack { padding-bottom: 0; }
+    }
+
+    /* Heading rule line extending to the right */
+    #section-skills .section-heading .heading-rule {
+      flex: 1 1 auto;
+      height: 2px;
+      margin-left: 12px;
+      background: linear-gradient(90deg,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0));
+    }
+
+    /* Dark mode: white line when dark theme is active */
+    [data-theme="dark"] #section-skills .section-heading .heading-rule,
+    .dark #section-skills .section-heading .heading-rule,
+    html.dark #section-skills .section-heading .heading-rule {
+      background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0));
+    }
+
+    /* Experience heading rule line extending to the right (same as Skills) */
+    #section-experience .section-heading .heading-rule {
+      flex: 1 1 auto;
+      height: 2px;
+      margin-left: 12px;
+      background: linear-gradient(90deg,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0));
+    }
+
+    /* Dark mode: white line for Experience when dark theme is active */
+    [data-theme="dark"] #section-experience .section-heading .heading-rule,
+    .dark #section-experience .section-heading .heading-rule,
+    html.dark #section-experience .section-heading .heading-rule {
+      background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0));
+    }
+
+    /* Contact heading rule line extending to the right (same as Skills/Experience) */
+    #contact .section-heading .heading-rule {
+      flex: 1 1 auto;
+      height: 2px;
+      margin-left: 12px;
+      background: linear-gradient(90deg,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0));
+    }
+
+    /* Dark mode: white line for Contact when dark theme is active */
+    [data-theme="dark"] #contact .section-heading .heading-rule,
+    .dark #contact .section-heading .heading-rule,
+    html.dark #contact .section-heading .heading-rule {
+      background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0));
+    }
+
+    /* Projects heading rule line extending to the right (same as other sections) */
+    #projects .section-heading .heading-rule {
+      flex: 1 1 auto;
+      height: 2px;
+      margin-left: 12px;
+      background: linear-gradient(90deg,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0));
+    }
+
+    /* Dark mode: white line for Projects when dark theme is active */
+    [data-theme="dark"] #projects .section-heading .heading-rule,
+    .dark #projects .section-heading .heading-rule,
+    html.dark #projects .section-heading .heading-rule {
+      background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0));
+    }
+
+    /* Align Projects content to the right */
+    #projects .col-lg-8 {
+      margin-left: auto;
+    }
+    #projects .projects-container {
+      justify-content: flex-end;
+    }
+
+    /* Remove overlapping effect from Projects cards */
+    
+    #projects .about-card {
+      margin-bottom: 0 !important;
+      position: relative;
+      z-index: 1;
+    }
+    
+
+    /* Optimize Projects section for one-page fit */
+    #projects {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+      padding-bottom: 1rem !important;
+      margin-bottom: 0 !important;
+    }
+    #projects .container {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    #projects .section-heading {
+      margin-top: 0 !important;
+    }
+
+    /* Remove extra space below project cards */
+    #projects .projects-container {
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    
+    
+    #projects .about-card:last-child {
+      margin-bottom: 0 !important;
+    }
+    
+    /* Add proper spacing after projects section */
+    #projects .col-lg-8 {
+      margin-bottom: 1rem !important;
+      padding-bottom: 0 !important;
+    }
+
+    /* Add space above contact section to prevent overlap */
+    #contact {
+      margin-top: 1rem !important;
+      padding-top: 1rem !important;
+    }
+
+    /* Project Sticky Card Layout Styles */
+    .project-sticky-container {
+      position: relative;
+      padding-top: 6rem;
+    }
+
+    .sticky-project-card {
+      position: sticky;
+      top: 6rem;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      z-index: 1;
+    }
+
+    /* Reverse z-index so later cards appear on top when stacking */
+    .sticky-project-card:nth-child(1) { 
+      z-index: 10; 
+      top: 6rem;
+    }
+    .sticky-project-card:nth-child(2) { 
+      z-index: 20; 
+      top: calc(6rem + 1.5rem);
+    }
+    .sticky-project-card:nth-child(3) { 
+      z-index: 30; 
+      top: calc(6rem + 3rem);
+    }
+    .sticky-project-card:nth-child(4) { 
+      z-index: 40; 
+      top: calc(6rem + 4.5rem);
+    }
+    .sticky-project-card:nth-child(5) { 
+      z-index: 50; 
+      top: calc(6rem + 6rem);
+    }
+    .sticky-project-card:nth-child(6) { 
+      z-index: 60; 
+      top: calc(6rem + 7.5rem);
+    }
+    .sticky-project-card:nth-child(7) { 
+      z-index: 70; 
+      top: calc(6rem + 9rem);
+    }
+    .sticky-project-card:nth-child(8) { 
+      z-index: 80; 
+      top: calc(6rem + 10.5rem);
+    }
+
+    .sticky-project-card:last-child {
+      margin-bottom: 4rem;
+    }
+
+    /* Project Gradient Border */
+    .project-gradient-border {
+      height: 2px;
+      width: 100%;
+      background: linear-gradient(90deg, 
+        transparent, 
+        #ff69b4 20%, 
+        #9400d3 50%, 
+        #ff69b4 80%, 
+        transparent
+      );
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Project Header */
+    .project-header {
+      padding: 0.75rem 1rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: transparent;
+      z-index: 3;
+      border-bottom: none;
+    }
+
+    .project-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 50%, #ff69b4 100%);
+    }
+
+    .project-title-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 1;
+    }
+
+    .project-icon-placeholder {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .project-name {
+      color: #2F2F2F;
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .project-name:hover {
+      color: #ff69b4;
+      text-decoration: none;
+    }
+
+    /* Dark mode project name */
+    [data-theme="dark"] .project-name,
+    .dark .project-name,
+    html.dark .project-name {
+      color: #fff;
+    }
+
+    [data-theme="dark"] .project-name:hover,
+    .dark .project-name:hover,
+    html.dark .project-name:hover {
+      color: #ff69b4;
+    }
+
+    /* Hover effects for sticky project cards */
+    .sticky-project-card .about-card {
+      transition: all 0.3s ease !important;
+      position: relative;
+      z-index: 2;
+    }
+
+    .sticky-project-card .about-card:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+      transform: translateY(-2px) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    /* Dark mode hover effect for sticky project cards */
+    [data-theme="dark"] .sticky-project-card .about-card:hover,
+    .dark .sticky-project-card .about-card:hover,
+    html.dark .sticky-project-card .about-card:hover {
+      box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15) !important;
+      transform: translateY(-2px) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    /* Ensure smoke animations work for sticky project cards */
+    .sticky-project-card .about-card .rainbow-smoke {
+      position: absolute;
+      inset: -14%;
+      border-radius: inherit;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      background: radial-gradient(40% 35% at 50% 50%, rgba(88, 0, 120, 0.10), transparent 70%);
+      filter: blur(20px);
+      opacity: 0.8;
+      will-change: transform, opacity;
+      animation: centerPulse 8s ease-in-out infinite alternate;
+    }
+
+    /* Enhanced hover effects for sticky project cards */
+    .sticky-project-card .about-card:hover .rainbow-smoke {
+      filter: blur(25px) saturate(1.2) !important;
+      opacity: 0.9 !important;
+      animation: centerPulseHover 6s ease-in-out infinite alternate !important;
+    }
+
+    /* Ensure sticky project cards have solid backgrounds and equal height */
+    .sticky-project-card .about-card {
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.3) !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+      position: relative;
+      isolation: isolate;
+      min-height: 550px;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sticky-project-card .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: transparent;
+      position: relative;
+      z-index: 3;
+    }
+
+    .sticky-project-card .card-text {
+      flex: 1;
+      overflow-y: auto;
+      max-height: 420px;
+    }
+
+    /* Scrollbar styling for card text */
+    .sticky-project-card .card-text::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sticky-project-card .card-text::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 3px;
+    }
+
+    .sticky-project-card .card-text::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 3px;
+    }
+
+    .sticky-project-card .card-text::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    /* Dark mode backgrounds */
+    [data-theme="dark"] .sticky-project-card .about-card,
+    .dark .sticky-project-card .about-card,
+    html.dark .sticky-project-card .about-card {
+      background: rgba(20, 20, 20, 0.98) !important;
+      border: 2px solid rgba(255, 255, 255, 0.15) !important;
+    }
+
+    .sticky-project-card .project-header {
+      background: transparent;
+      position: relative;
+      z-index: 3;
+      border-bottom: none;
+    }
+
+    /* Dark mode border for project header - brighter gradient */
+    [data-theme="dark"] .project-header::after,
+    .dark .project-header::after,
+    html.dark .project-header::after {
+      background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 50%, #ff69b4 100%);
+    }
+
+    /* Ensure rainbow-smoke doesn't interfere with card visibility */
+    .sticky-project-card .rainbow-smoke {
+      z-index: 0 !important;
+      opacity: 0.5;
+    }
+
+    /* Remove gap above Skills */
+    #section-skills {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+    }
+    #section-skills .container { padding-top: 0 !important; }
+    #section-skills .section-heading { margin-top: 0 !important; }
+
+    /* Skills section card width and center it */
+    #section-skills .about-card {
+      width: 90% !important;
+      max-width: 90% !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      background: transparent !important;
+      backdrop-filter: none !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Hide gradient border in Skills section */
+    #section-skills .gradient-border {
+      display: none !important;
+    }
+
+    /* Dark mode for Skills card */
+    [data-theme="dark"] #section-skills .about-card,
+    .dark #section-skills .about-card,
+    html.dark #section-skills .about-card {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Dark mode styling for Skills header box */
+    [data-theme="dark"] .skills-header-box,
+    .dark .skills-header-box,
+    html.dark .skills-header-box {
+      background-color: white !important;
+      color: #2F2F2F !important;
+    }
+
+    /* Dark mode styling for Skills header lines */
+    [data-theme="dark"] .skills-header-line,
+    .dark .skills-header-line,
+    html.dark .skills-header-line {
+      background-color: white !important;
+    }
+
+
+    #about .about-card .card-body,
+    #section-skills .about-card .card-body,
+    #section-experience .about-card .card-body,
+    #projects .about-card .card-body,
+    #contact .about-card .card-body {
+      position: relative;
+      z-index: 2; /* above rainbow-smoke */
+      padding: 1rem 1.5rem;
+    }
+
+    /* Tweak About spacing: add space inside card, remove extra section gap */
+    #about .about-card .card-body { padding-top: 0.75rem !important; padding-bottom: 1.25rem !important; }
+    #about { padding-bottom: 0 !important; margin-bottom: 0 !important; }
+    #about .container { padding-bottom: 0 !important; }
+
+    /* Trim extra space in Skills card bodies */
+    #section-skills .about-card .card-body { padding-bottom: 0.75rem !important; }
+    #section-skills .about-card .card-body > *:last-child { margin-bottom: 0 !important; }
+
+    /* Remove extra space below text in Projects cards */
+    #projects .about-card .card-body { padding-bottom: 0.75rem !important; }
+    #projects .about-card .card-body > *:last-child { margin-bottom: 0 !important; }
+    #projects .card-text { margin-bottom: 0 !important; }
+    #projects .card-text ul { margin-bottom: 0 !important; }
+    #projects .card-text li:last-child { margin-bottom: 0 !important; }
+
+
+    /* Skills Horizontal Scroll Styles */
+    .skills-scroll-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+      width: 100%;
+      padding: 20px 0;
+      scroll-behavior: smooth;
+      position: relative;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .skills-scroll-container::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+
+    .skills-scroll {
+      display: flex;
+      gap: 2rem;
+      white-space: nowrap;
+      width: max-content;
+      animation: scroll-left 20s linear infinite;
+    }
+
+    .skills-scroll-container:hover .skills-scroll {
+      animation-play-state: paused;
+    }
+
+    .skill-item {
+      text-align: center;
+      min-width: 80px;
+      flex-shrink: 0;
+    }
+
+    .skill-item img,
+    .skill-item i {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s ease;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .skill-item:hover img,
+    .skill-item:hover i {
+      transform: scale(1.2);
+    }
+
+    .skill-name {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: inherit;
+    }
+
+    .skills-scroll-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+      backdrop-filter: blur(10px);
+      color: rgba(223, 178, 178, 0.9);
+      font-size: 1.2rem;
+    }
+
+    .skills-scroll-nav-btn:hover {
+      background: rgba(16, 15, 15, 0.414) !important;
+    }
+
+    .skills-scroll-nav-left {
+      left: 10px;
+    }
+
+    .skills-scroll-nav-right {
+      right: 10px;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Experience Sticky Card Layout Styles */
+    .experience-sticky-container {
+      position: relative;
+      padding-top: 6rem;
+    }
+
+    .sticky-experience-card {
+      position: sticky;
+      top: 6rem;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      z-index: 1;
+    }
+
+
+    /* Reverse z-index so later cards appear on top when stacking */
+    .sticky-experience-card:nth-child(1) { 
+      z-index: 10; 
+      top: 6rem;
+    }
+    .sticky-experience-card:nth-child(2) { 
+      z-index: 20; 
+      top: calc(6rem + 1.5rem);
+    }
+    .sticky-experience-card:nth-child(3) { 
+      z-index: 30; 
+      top: calc(6rem + 3rem);
+    }
+    .sticky-experience-card:nth-child(4) { 
+      z-index: 40; 
+      top: calc(6rem + 4.5rem);
+    }
+
+    .sticky-experience-card:last-child {
+      margin-bottom: 4rem;
+    }
+
+    /* Gradient Border */
+    .experience-gradient-border,
+    .gradient-border {
+      height: 2px;
+      width: 100%;
+      background: linear-gradient(90deg, 
+        transparent, 
+        #ff69b4 20%, 
+        #9400d3 50%, 
+        #ff69b4 80%, 
+        transparent
+      );
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Company Header */
+    .experience-header {
+      padding: 0.75rem 1rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: transparent;
+      z-index: 3;
+      border-bottom: none;
+    }
+
+    .experience-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 50%, #ff69b4 100%);
+    }
+
+    .company-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 1;
+    }
+
+    .company-logo-placeholder {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .company-name {
+      color: #2F2F2F;
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .company-name:hover {
+      color: #ff69b4;
+      text-decoration: none;
+    }
+
+    /* Dark mode company name */
+    [data-theme="dark"] .company-name,
+    .dark .company-name,
+    html.dark .company-name {
+      color: #fff;
+    }
+
+    [data-theme="dark"] .company-name:hover,
+    .dark .company-name:hover,
+    html.dark .company-name:hover {
+      color: #ff69b4;
+    }
+
+    /* Hover effects for sticky experience cards */
+    .sticky-experience-card .about-card {
+      transition: all 0.3s ease !important;
+      position: relative;
+      z-index: 2;
+    }
+
+    .sticky-experience-card .about-card:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+      transform: translateY(-2px) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    /* Dark mode hover effect for sticky experience cards */
+    [data-theme="dark"] .sticky-experience-card .about-card:hover,
+    .dark .sticky-experience-card .about-card:hover,
+    html.dark .sticky-experience-card .about-card:hover {
+      box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15) !important;
+      transform: translateY(-2px) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    /* Ensure smoke animations work for sticky experience cards */
+    .sticky-experience-card .about-card .rainbow-smoke {
+      position: absolute;
+      inset: -14%;
+      border-radius: inherit;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      background: radial-gradient(40% 35% at 50% 50%, rgba(88, 0, 120, 0.10), transparent 70%);
+      filter: blur(20px);
+      opacity: 0.8;
+      will-change: transform, opacity;
+      animation: centerPulse 8s ease-in-out infinite alternate;
+    }
+
+    /* Enhanced hover effects for sticky experience cards */
+    .sticky-experience-card .about-card:hover .rainbow-smoke {
+      filter: blur(25px) saturate(1.2) !important;
+      opacity: 0.9 !important;
+      animation: centerPulseHover 6s ease-in-out infinite alternate !important;
+    }
+
+    /* Ensure sticky cards have solid backgrounds and equal height */
+    .sticky-experience-card .about-card {
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.3) !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+      position: relative;
+      isolation: isolate;
+      min-height: 400px;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sticky-experience-card .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: transparent;
+      position: relative;
+      z-index: 3;
+    }
+
+    .sticky-experience-card .card-text {
+      flex: 1;
+      overflow-y: auto;
+      max-height: 280px;
+    }
+
+    /* Scrollbar styling for card text */
+    .sticky-experience-card .card-text::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sticky-experience-card .card-text::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 3px;
+    }
+
+    .sticky-experience-card .card-text::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 3px;
+    }
+
+    .sticky-experience-card .card-text::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    /* Dark mode backgrounds */
+    [data-theme="dark"] .sticky-experience-card .about-card,
+    .dark .sticky-experience-card .about-card,
+    html.dark .sticky-experience-card .about-card {
+      background: rgba(20, 20, 20, 0.98) !important;
+      border: 2px solid rgba(255, 255, 255, 0.15) !important;
+    }
+
+
+    .sticky-experience-card .experience-header {
+      background: transparent;
+      position: relative;
+      z-index: 3;
+      border-bottom: none;
+    }
+
+    /* Dark mode border for experience header - brighter gradient */
+    [data-theme="dark"] .experience-header::after,
+    .dark .experience-header::after,
+    html.dark .experience-header::after {
+      background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 50%, #ff69b4 100%);
+    }
+
+    /* Ensure rainbow-smoke doesn't interfere with card visibility */
+    .sticky-experience-card .rainbow-smoke {
+      z-index: 0 !important;
+      opacity: 0.5;
+    }
+
+
+    /* Keep only a little space below each Skills card */
+    #section-skills .stack-item { margin-bottom: -0.5rem  !important; }
+    #section-skills .stack-item:last-child { margin-bottom: 0 !important; }
+
+    /* Reduce spacing between Skills card text items */
+    #section-skills .skills-content {
+      margin-bottom: 0.25rem !important;
+    }
+    #section-skills .skills-content:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    /* Requested: adjust last card overlap and desktop stack spacing */
+    #section-skills .stack-item:last-child { margin-bottom: -80px !important; }
+    @media (min-width: 768px) {
+      #section-skills .stack-item + .stack-item { margin-top: 0.5rem !important; }
+    }
+
+
+    /* Click/move smoke particles (global) */
+    .smoke-particle {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      opacity: 0.8;
+      filter: blur(2.5px);
+      will-change: transform, opacity;
+      z-index: 2;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      animation: aboutSmokeParticle 1400ms ease-out forwards;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 65%);
+    }
+
+    @keyframes aboutSmokeParticle {
+      0%   { opacity: 0.85; transform: translate(calc(-50% + 0px), calc(-50% + 0px)) scale(1); }
+      60%  { opacity: 0.4; transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, -30px))) scale(var(--s, 2.2)); }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, -60px))) scale(var(--s, 3.2)); }
+    }
+
+    /* Large multicolor smoke burst (global) */
+    .smoke-burst {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(0.6);
+      opacity: 0.75;
+      filter: blur(26px) hue-rotate(0deg);
+      mix-blend-mode: screen;
+      z-index: 1;
+      background:
+        radial-gradient(closest-side at 35% 35%, hsla(350, 100%, 62%, 0.35), transparent 70%),
+        radial-gradient(closest-side at 70% 30%, hsla(45, 100%, 60%, 0.30), transparent 70%),
+        radial-gradient(closest-side at 30% 70%, hsla(165, 100%, 55%, 0.30), transparent 70%),
+        radial-gradient(closest-side at 75% 75%, hsla(265, 100%, 66%, 0.32), transparent 70%),
+        radial-gradient(closest-side at 50% 50%, hsla(200, 100%, 60%, 0.26), transparent 70%);
+      animation: aboutSmokeBurst 2200ms ease-out forwards;
+    }
+
+    /* Full-page overlay container for global particles */
+    #fx-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 50;
+      overflow: hidden;
+    }
+
+    @keyframes aboutSmokeBurst {
+      0%   { opacity: 0.85; transform: translate(-50%, -50%) scale(0.45) rotate(0deg);    filter: blur(24px) hue-rotate(0deg); }
+      40%  { opacity: 0.60; transform: translate(-50%, -50%) scale(1.00) rotate(8deg);   filter: blur(28px) hue-rotate(120deg); }
+      100% { opacity: 0.00; transform: translate(-50%, -50%) scale(1.55) rotate(18deg);  filter: blur(30px) hue-rotate(240deg); }
+    }
+
+    /* --- Colliding plumes like your reference image --- */
+
+    /* Re-style rainbow-smoke container to render two side plumes that move inward and mix */
+    #about .about-card .rainbow-smoke,
+    #section-skills .about-card .rainbow-smoke,
+    #section-experience .about-card .rainbow-smoke,
+    #projects .about-card .rainbow-smoke,
+    #contact .about-card .rainbow-smoke {
+      position: absolute;
+      inset: -14%;
+      border-radius: inherit;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      background: radial-gradient(40% 35% at 50% 50%, rgba(88, 0, 120, 0.10), transparent 70%);
+      animation: centerPulse 12s ease-in-out infinite alternate;
+      filter: saturate(115%);
+    }
+
+    /* Left plume (magenta/pink) */
+    #about .about-card .rainbow-smoke::before,
+    #section-skills .about-card .rainbow-smoke::before,
+    #section-experience .about-card .rainbow-smoke::before,
+    #projects .about-card .rainbow-smoke::before,
+    #contact .about-card .rainbow-smoke::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      bottom: -20%;
+      left: -18%;
+      width: 60%;
+      background:
+        radial-gradient(60% 55% at 85% 50%, rgba(255, 0, 150, 0.40), transparent 72%),
+        radial-gradient(45% 40% at 100% 50%, rgba(255, 100, 200, 0.32), transparent 72%),
+        radial-gradient(35% 30% at 70% 30%, rgba(255, 60, 120, 0.28), transparent 72%);
+      filter: blur(30px) hue-rotate(0deg);
+      opacity: 0.9;
+      animation: plumeLeft 18s ease-in-out infinite;
+    }
+
+    /* Right plume (cyan/blue) */
+    #about .about-card .rainbow-smoke::after,
+    #section-skills .about-card .rainbow-smoke::after,
+    #section-experience .about-card .rainbow-smoke::after,
+    #projects .about-card .rainbow-smoke::after,
+    #contact .about-card .rainbow-smoke::after {
+      content: "";
+      position: absolute;
+      top: -20%;
+      bottom: -20%;
+      right: -18%;
+      width: 60%;
+      background:
+        radial-gradient(60% 55% at 15% 50%, rgba(0, 185, 255, 0.40), transparent 72%),
+        radial-gradient(45% 40% at 0% 50%, rgba(0, 255, 220, 0.32), transparent 72%),
+        radial-gradient(35% 30% at 30% 70%, rgba(60, 120, 255, 0.28), transparent 72%);
+      filter: blur(30px) hue-rotate(0deg);
+      opacity: 0.9;
+      animation: plumeRight 18s ease-in-out infinite;
+    }
+
+    @keyframes plumeLeft {
+      0%   { transform: translateX(0%) scale(1.00);  filter: blur(28px) hue-rotate(0deg); }
+      35%  { transform: translateX(18%) scale(1.05); filter: blur(29px) hue-rotate(20deg); }
+      50%  { transform: translateX(24%) scale(1.08); filter: blur(30px) hue-rotate(40deg); }
+      70%  { transform: translateX(18%) scale(1.06); filter: blur(29px) hue-rotate(60deg); }
+      100% { transform: translateX(0%)  scale(1.02); filter: blur(28px) hue-rotate(80deg); }
+    }
+
+    @keyframes plumeRight {
+      0%   { transform: translateX(0%) scale(1.00);  filter: blur(28px) hue-rotate(0deg); }
+      35%  { transform: translateX(-18%) scale(1.05); filter: blur(29px) hue-rotate(20deg); }
+      50%  { transform: translateX(-24%) scale(1.08); filter: blur(30px) hue-rotate(40deg); }
+      70%  { transform: translateX(-18%) scale(1.06); filter: blur(29px) hue-rotate(60deg); }
+      100% { transform: translateX(0%)  scale(1.02); filter: blur(28px) hue-rotate(80deg); }
+    }
+
+    @keyframes centerPulse {
+      0%   { transform: scale(1);   opacity: 0.20; }
+      50%  { transform: scale(1.06); opacity: 0.28; }
+      100% { transform: scale(1.12); opacity: 0.22; }
+    }
+  </style>
 </head>
 
 <body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main" class="page-wrapper   "
   data-wc-page-id="3976528693a0108357f4928017600865">
   <script src="/js/wowchemy-init.min.3a6bdbdff5d8a89d6e651adb3deec035.js"></script>
-  <aside class="search-modal" id="search">
-    <div class="container">
-
-      <section class="search-header">
-        <div class="row no-gutters justify-content-between mb-3">
-          <div class="col-6">
-            <h1>Search</h1>
-          </div>
-          <div class="col-6 col-search-close">
-            <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted"
-                aria-hidden="true"></i></a>
-          </div>
-        </div>
-        <div id="search-box">
-          <input name="q" id="search-query" placeholder="Search..." autocapitalize="off" autocomplete="off"
-            autocorrect="off" spellcheck="false" type="search" class="form-control" aria-label="Search...">
-        </div>
-      </section>
-
-      <section class="section-search-results">
-        <div id="search-hits">
-        </div>
-      </section>
-
-    </div>
-  </aside>
   <div class="page-header header--fixed">
     <header>
       <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
         <div class="container-xl">
           <div class="d-none d-lg-inline-flex">
-            <a class="navbar-brand" href="/">Welcome!</a>
+            <a class="navbar-brand" href="/">Siwani Sah</a>
           </div>
           <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content"
             aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
             <span><i class="fas fa-bars"></i></span>
           </button>
           <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-            <a class="navbar-brand" href="/">Welcome!</a>
+            <a class="navbar-brand" href="/">Siwani Sah</a>
           </div>
           <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
             <ul class="navbar-nav d-md-inline-flex">
@@ -153,31 +1365,20 @@
                 <a class="nav-link " href="/#section-skills" data-target="#section-skills"><span>Skills</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/#projects" data-target="#projects"><span>Projects</span></a>
+                <a class="nav-link " href="/#section-experience" data-target="#section-experience"><span>Experience</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/#section-accomplishments"
-                  data-target="#section-accomplishments"><span>Certificate</span></a>
+                <a class="nav-link " href="/#projects" data-target="#projects"><span>Projects</span></a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link " href="/#talks" data-target="#talks"><span>Talks</span></a>
-              </li> -->
-              <!-- <li class="nav-item">
-                <a class="nav-link " href="/#posts" data-target="#posts"><span>Posts</span></a>
-              </li> -->
               <li class="nav-item">
                 <a class="nav-link " href="/#contact" data-target="#contact"><span>Contact</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/uploads/resume.pdf"><span></span></a>
+                <a class="nav-link " href="/uploads/Siwani_Sah_Resume.pdf"><span></span></a>
               </li>
             </ul>
           </div>
           <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
-            <li class="nav-item">
-              <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search"
-                  aria-hidden="true"></i></a>
-            </li>
             <li class="nav-item dropdown theme-dropdown">
               <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
                 <i class="fas fa-moon" aria-hidden="true"></i>
@@ -203,33 +1404,38 @@
     <span class="js-widget-page d-none"></span>
 
 
-    <section id="about" class="home-section wg-about-biography  ">
+    <section id="about">
       <div class="home-section-bg ">
       </div>
       <div class="container">
-        <div class="row">
-          <div class="col-12 col-lg-4">
-            <div id="profile">
-              <img class="avatar avatar-circle" width="270" height="270" src="/authors/admin/profileimg.jpg"
-                alt="Satyam Thakur">
+        <div class="card about-card shadow-sm border-0">
+          <div class="rainbow-smoke" aria-hidden="true"></div>
+          <!-- Gradient Border -->
+          <div class="gradient-border"></div>
+          <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start">
+            <div id="profile" class="text-center">
+              <img class="avatar avatar-circle" width="270" height="270" src="/authors/admin/Siwani.png"
+                alt="Siwani Sah">
               <div class="portrait-title">
-                <h2>Satyam Thakur</h2>
+                <h2>Siwani Sah</h2>
                 <h3>Graduate Assistant | Computer Science |Engineer</h3>
                 <h3>
                   <a href="https://floridapoly.edu/" target="_blank" rel="noopener">
-                    <span>Currently Graduate Student,Lakeland, FL</span>
+                    <span>Lakeland, FL</span>
                   </a>
                 </h3>
               </div>
               <ul class="network-icon" aria-hidden="true">
                 <li>
-                  <a href="https://www.linkedin.com/in/satyam-thakur-6265b4197/" target="_blank" rel="noopener"
+                  <a href="https://www.linkedin.com/in/siwanisah/" target="_blank" rel="noopener"
                     aria-label="linkedin">
                     <i class="fab fa-linkedin big-icon"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="https://github.com/satyam-thakur" target="_blank" rel="noopener" aria-label="github">
+                  <a href="https://github.com/Siwanii" target="_blank" rel="noopener" aria-label="github">
                     <i class="fab fa-github big-icon"></i>
                   </a>
                 </li>
@@ -239,503 +1445,278 @@
                   </a>
                 </li>
                 <li>
-                  <a href="/uploads/resume.pdf" aria-label="cv">
+                  <a href="/uploads/Siwani_Sah_Resume.pdf" aria-label="cv">
                     <i class="ai ai-cv big-icon"></i>
                   </a>
                 </li>
-                <!-- <li>
-                  <a href="/uploads/transcript_merged.pdf" aria-label="graduation-cap">
-                    <i class="fas fa-graduation-cap big-icon"></i>
-                  </a>
-                </li> -->
               </ul>
             </div>
           </div>
-          <div class="col-12 col-lg-8">
-            <h1>Biography</h1>
+          <div class="col-12 col-md-8">
             <div class="article-style">
-              <p style="text-align: justify;">Hi and You are welcome to my personal website! I am a Computer Science
-                Graduate Student seeking research opportunities on computer networks and systems,
-                distributed, cloud technologies, and artificial intelligence. Before my graduate program I worked with
-                Huawei Technologies for three years as a dedicated, self-motivated and hardworking network engineering
-                professional with a strong problem solving, leadership, and solid commitment to achieving excellence in
-                every endeavor, specializing in designing, implementation, and maintaining results-driven network
-                infrastructures with a deep understanding of network protocols, security, and network performance
-                optimization techniques.</p>
+              <p style="text-align: justify;">I'm Siwani Sah, a passionate Software Engineer and Graduate Assistant pursuing my Master's in Computer Science at Florida Polytechnic University. With a strong foundation in full-stack development, I specialize in designing and deploying scalable web applications and enterprise-level ERP systems that solve real-world business challenges.</p>
+              <p style="text-align: justify;">My journey in technology has been driven by a commitment to excellence and innovation. I excel at translating complex business requirements into efficient, high-performance solutions that deliver measurable results. Currently, I serve as a Technical Lead at Google Developer Group (GDG) at campus.</p>
+              <p style="text-align: justify;">As a lifelong learner, I'm continuously expanding my expertise and am currently pursuing certification in Prompt Design with Vertex AI to stay at the forefront of AI-driven solutions. When I'm not coding or researching, I'm passionate about sharing knowledge, mentoring peers, and contributing to the tech community.</p>
             </div>
             <div class="row">
-              <div class="col-md-5">
-                <div class="section-subheading">Interests</div>
-                <ul class="ul-interests fa-ul mb-0">
-                  <li>
-                  <i class="fa-li fa-solid fa-book-open"></i>
-                    Networking and System Administration
-                  </li>
-                  <li>
-                   <i class="fa-li fa-solid fa-book-open"></i>
-                   Cloud Computing
-                  </li>
-                  <li>
-                  <i class="fa-li fa-solid fa-book-open"></i>
-                    DevOps
-                  </li>
-                   <li>
-                  <i class="fa-li fa-solid fa-book-open"></i>
-                   Distributed Technology and AI.
-                  </li>
-                  <li>
-                    <i class="fa-li fa-solid fa-book-open"></i>
-                    Learning new Technology
-                  </li>
-                  <li>
-                    <i class="fa-li fa-solid fa-book-open"></i>
-                    Travelling and Exploring
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-7">
+           
+           
                 <div class="section-subheading">Education</div>
                 <ul class="ul-edu fa-ul mb-0">
                   <li>
                     <i class="fa-li fa-solid fa-graduation-cap"></i>
                     <div class="description">
-                      <p class="course">Masters of Science, Major: Computer Science,(Aug 2024-May 2026)</p>
+                      <p class="course">Masters of Science, Major: Computer Science (Aug 2025-May 2027)</p>
                       <p class="institution">Florida Polytechnic University, Florida, USA</p>
                     </div>
                   </li>
                   <li>
                     <i class="fa-li fa-solid fa-graduation-cap"></i>
                     <div class="description">
-                      <p class="course">Bachelor of Engineering, Major: Electronics and Communication, (Dec 2016-Oct
-                        2021)</p>
-                      <p class="institution">Tribhuvan University, Institute of Engineering, Kathmandu, Nepal</p>
+                      <p class="course">Bachelor of Engineering, Major: Computer Science Engineering (sept 2017-Oct 2021)</p>
+                      <p class="institution">visvesvaraya technological university, Bangalore Technological Institute, Bangalore, India</p>
                     </div>
                   </li>
                 </ul>
-              </div>
+              
             </div>
+          </div>
+        </div>
           </div>
         </div>
       </div>
     </section>
 
 
-
-    <section id="section-skills" class="home-section wg-skills  ">
+    <section id="section-skills">
       <div class="home-section-bg ">
       </div>
       <div class="container">
-        <div class="row  justify-content-center">
-          <div class="section-heading col-12 mb-3 text-center">
-            <h1 class="mb-0">Skills</h1>
-          </div>
-          <div class="col-12 ">
-            <div class="row">
-
-              <div class="col-12 col-md-6">
-                <div class="skill-group-title">
-                  Programming Languages
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    C Programming
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width: 65%; "></div>
-                  </div>
-                </div>
-
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    C++
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width: 60%; "></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    Go
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width: 80%; "></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    PHP
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width: 75%; "></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    HTML,CSS
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width: 90%; "></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    Java
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width: 80%; "></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    SQL
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width: 70%; "></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    bash shell scripting.
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width: 90%; "></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    Object-Oriented Programming
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width: 55%; "></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-md-6">
-                <div class="skill-group-title">
-                  Software
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fab fa-v"></i></span>
-                  <span class="skills-name">
-                    Visual Studio
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 75%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fab fa-v"></i></span>
-                  <span class="skills-name">
-                    VS Code
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 70%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fab fa-github"></i></span>
-                  <span class="skills-name">
-                    Git and Github
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 75%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-file-excel"></i></span>
-                  <span class="skills-name">
-                    Excel
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 75%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fa fa-globe"></i></span>
-                  <span class="skills-name">
-                    PyCharm
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 60%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fa fa-globe"></i></span>
-                  <span class="skills-name">
-                    Eclipse
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 75%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fa fa-globe"></i></span>
-                  <span class="skills-name">
-                    Docker
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 70%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fa fa-globe"></i></span>
-                  <span class="skills-name">
-                    Ansible
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 50%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fa fa-file-powerpoint"></i></span>
-                  <span class="skills-name">
-                    PowerPoint
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 75%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fa fa-globe"></i></span>
-                  <span class="skills-name">
-                    GNS3
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 75%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fa fa-globe"></i></span>
-                  <span class="skills-name">
-                    ENSP
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 80%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fa fa-globe"></i></span>
-                  <span class="skills-name">
-                    Wireshark
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 80%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fa fa-globe"></i></span>
-                  <span class="skills-name">
-                    Vim
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 80%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fa fa-globe"></i></span>
-                  <span class="skills-name">
-                    Office 365
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 80%; background-color: #eeac02"></div>
+        <div class="row">
+            <div class="section-heading col-12 mb-3 text-center d-flex align-items-center justify-content-center">
+              <span class="skills-header-line" style="width: 60px; height: 2px; background-color: #2F2F2F; display: inline-block; margin: 0 15px;"></span>
+              <h1 class="mb-0 skills-header-box" style="background-color: #2F2F2F; width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;">Skills</h1>
+              <span class="skills-header-line" style="width: 60px; height: 2px; background-color: #2F2F2F; display: inline-block; margin: 0 15px;"></span>
+            </div>
+         
+          <div class="col-12 col-lg-10 mx-auto">
+            <div class="card about-card shadow-sm border-0" style="position: relative;">
+              <div class="rainbow-smoke" aria-hidden="true"></div>
+              <!-- Gradient Border -->
+              <div class="gradient-border"></div>
+              <div class="card-body" style="position: relative; padding: 2rem;">
+                <button onclick="scrollSkills('left')" class="skills-scroll-nav-btn skills-scroll-nav-left" aria-label="Previous skills">
+                  <span>&lt;</span>
+                </button>
+                <button onclick="scrollSkills('right')" class="skills-scroll-nav-btn skills-scroll-nav-right" aria-label="Next skills">
+                  <span>&gt;</span>
+                </button>
+                <div class="skills-scroll-container" id="skillsContainer">
+                  <div class="skills-scroll">
+                    <!-- C# -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" />
+                      <div class="skill-name">C#</div>
+                    </div>
+                    <!-- Dot NET -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt=".NET" />
+                      <div class="skill-name">.NET</div>
+                    </div>
+                    <!-- React.js -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js" />
+                      <div class="skill-name">React.js</div>
+                    </div>
+                    <!-- NodeJS -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="NodeJS" />
+                      <div class="skill-name">NodeJS</div>
+                    </div>
+                    <!-- Python -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+                      <div class="skill-name">Python</div>
+                    </div>
+                    <!-- C -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />
+                      <div class="skill-name">C</div>
+                    </div>
+                    <!-- HTML5 -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+                      <div class="skill-name">HTML5</div>
+                    </div>
+                    <!-- CSS -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
+                      <div class="skill-name">CSS</div>
+                    </div>
+                    <!-- Knockout.js -->
+                    <div class="skill-item">
+                      <i class="fab fa-js" style="font-size: 50px; color: #e42e14;"></i>
+                      <div class="skill-name">Knockout.js</div>
+                    </div>
+                    <!-- Git/GitHub -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+                      <div class="skill-name">Git/GitHub</div>
+                    </div>
+                    <!-- GitBase -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="GitBase" />
+                      <div class="skill-name">GitBase</div>
+                    </div>
+                    <!-- PostgreSQL -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
+                      <div class="skill-name">PostgreSQL</div>
+                    </div>
+                    <!-- MySQL -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+                      <div class="skill-name">MySQL</div>
+                    </div>
+                    <!-- MSSQL -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="MSSQL" />
+                      <div class="skill-name">MSSQL</div>
+                    </div>
+                    <!-- Linux -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
+                      <div class="skill-name">Linux</div>
+                    </div>
+                    
+                    <!-- Duplicate set for seamless loop -->
+                    <!-- C# -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" />
+                      <div class="skill-name">C#</div>
+                    </div>
+                    <!-- Dot NET -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt=".NET" />
+                      <div class="skill-name">.NET</div>
+                    </div>
+                    <!-- React.js -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js" />
+                      <div class="skill-name">React.js</div>
+                    </div>
+                    <!-- NodeJS -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="NodeJS" />
+                      <div class="skill-name">NodeJS</div>
+                    </div>
+                    <!-- Python -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+                      <div class="skill-name">Python</div>
+                    </div>
+                    <!-- C -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />
+                      <div class="skill-name">C</div>
+                    </div>
+                    <!-- HTML5 -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+                      <div class="skill-name">HTML5</div>
+                    </div>
+                    <!-- CSS -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
+                      <div class="skill-name">CSS</div>
+                    </div>
+                    <!-- Knockout.js -->
+                    <div class="skill-item">
+                      <i class="fab fa-js" style="font-size: 50px; color: #e42e14;"></i>
+                      <div class="skill-name">Knockout.js</div>
+                    </div>
+                    <!-- Git/GitHub -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+                      <div class="skill-name">Git/GitHub</div>
+                    </div>
+                    <!-- GitBase -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="GitBase" />
+                      <div class="skill-name">GitBase</div>
+                    </div>
+                    <!-- PostgreSQL -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
+                      <div class="skill-name">PostgreSQL</div>
+                    </div>
+                    <!-- MySQL -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+                      <div class="skill-name">MySQL</div>
+                    </div>
+                    <!-- MSSQL -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="MSSQL" />
+                      <div class="skill-name">MSSQL</div>
+                    </div>
+                    <!-- Linux -->
+                    <div class="skill-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
+                      <div class="skill-name">Linux</div>
+                    </div>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
-
-          <div class="col-12 ">
-            <div class="row">
-
-              <div class="col-12 col-md-6">
-                <div class="skill-group-title">
-                  Cloud and Operating Systems
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    AWS
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width: 55%; "></div>
-                  </div>
-                </div>
-
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    Azure
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width: 55%; "></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    Google Cloud
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width: 60%; "></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    Cisco IOS
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width: 55%; "></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    Huawei VRP,
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width: 70%; "></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    Linux
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width: 70%; "></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    Ubuntu
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width:75%; "></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fas fa-laptop-code"></i></span>
-                  <span class="skills-name">
-                    Windows
-                  </span>
-                  <div class="skills-wrapper">
-                    <div class="skills-percent" style="width: 90%; "></div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-12 col-md-6">
-                <div class="skill-group-title">
-                  Network Devices
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fa fa-globe"></i></span>
-                  <span class="skills-name">
-                    Switches (Huawei S9000, CE6800, Cisco 2960-S)
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 90%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fa fa-globe"></i></span>
-                  <span class="skills-name">
-                    OLT (MA5800 Series) Routers(Huawei NE40E, ATN900, CX600-X, Cisco ASR, Nokia SR, Juniper MX)
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 85%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fa fa-globe"></i></span>
-                  <span class="skills-name">
-                    Firewalls (Eudemon 8000E-X/1000-E)
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 80%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fa fa-globe"></i></span>
-                  <span class="skills-name">
-                    NMS (i-manager u2000, NCE-IP)
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 85%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-                <div class="skills-content">
-                  <span class="skills-icon"><i class="fa fa-globe"></i></span>
-                  <span class="skills-name">
-                    BRAS (NE40E)
-                  </span>
-                  <div class="skills-wrapper" style="border-color: #f0bf23">
-                    <div class="skills-percent" style="width: 80%; background-color: #eeac02"></div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
 
 
-    <section id="section-experience" class="home-section wg-experience  ">
+    <section id="section-experience">
       <div class="home-section-bg ">
       </div>
       <div class="container">
         <div class="row  ">
-          <div
-            class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
-            <h1 class="mb-0">Experience</h1>
-          </div>
-          <div class="col-12 col-lg-8">
-            <div class="row experience">
-              <div class="col-auto text-center flex-column d-none d-sm-flex">
-                <div class="row h-50">
-                  <div class="col ">&nbsp;</div>
-                  <div class="col">&nbsp;</div>
-                </div>
-                <div class="m-2">
-                  <span class="badge badge-pill border exp-fill">&nbsp;</span>
-                </div>
-                <div class="row h-50">
-                  <div class="col border-right">&nbsp;</div>
-                  <div class="col">&nbsp;</div>
-                </div>
-              </div>
-              <div class="col py-2">
-                <div class="card">
+            <div class="section-heading col-12 mb-3 mb-lg-0 d-flex align-items-center">
+              <h1 class="mb-0 skills-header-box" style="background-color: #2F2F2F; width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;">Experience</h1>
+              <div class="heading-rule" aria-hidden="true"></div>
+            </div>
+          <div class="col-12 col-lg-10 ml-auto">
+            <!-- Sticky Experience Cards -->
+            <div class="experience-sticky-container">
+              <!-- Experience 1: Graduate Assistant -->
+              <div class="sticky-experience-card">
+                <div class="card about-card shadow-sm border-0">
+                  <div class="rainbow-smoke" aria-hidden="true"></div>
+                  <!-- Gradient Border -->
+                  <div class="experience-gradient-border"></div>
+                  <!-- Company Header -->
+                  <div class="experience-header">
+                    <div class="company-header">
+                      <div class="company-logo-placeholder">
+                        <i class="fas fa-university" style="font-size: 24px; color: #2F2F2F;"></i>
+                      </div>
+                      <a href="https://floridapoly.edu/" target="_blank" rel="noopener" class="company-name">
+                        Florida Polytechnic University
+                      </a>
+                    </div>
+                  </div>
                   <div class="card-body">
                     <div class="section-subheading card-title exp-title text-muted my-0">Graduate Assistant</div>
-                    <div class="section-subheading card-title exp-company text-muted my-0"><a
-                        href="https://floridapoly.edu/" target="_blank" rel="noopener">Florida Polytechnic University
-                        ,Florida, USA</a></div>
                     <div class="text-muted exp-meta">
-                      Aug 2024-Current
+                      Aug 2025-Current
                       <span class="middot-divider"></span>
-                      <span>USA</span>
+                      <span>Florida, USA</span>
                     </div>
                     <div class="card-text">
                       <ul>
-                        <li>Collaborate with faculty, Conducting literature reviews, assisting with data collection and
-                          analysis,experiments, and utilizing relevant tools and techniques to support research
-                          objectives based on Network security in 5G NR, Enterprise Blockchain, and Distributed System.
+                        <li>Collaborating with professor on research initiatives in AI/ML projects and supporting lab work.
+                        </li>
+                        <li>Teaching Assistant for Machine Learning CAP4612 and C Programming COP2271, grading assignments for 40+ students and providing hands-
+                          on coding support to undergraduate students.
                         </li>
                         <li>Maintaining detailed and accurate research records, preparing and contributing to reports
                           and publications,and handling administrative tasks related to grading assignments and lab
@@ -745,134 +1726,111 @@
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="row experience">
-              <div class="col-auto text-center flex-column d-none d-sm-flex">
-                <div class="row h-50">
-                  <div class="col border-right">&nbsp;</div>
-                  <div class="col">&nbsp;</div>
-                </div>
-                <div class="m-2">
-                  <span class="badge badge-pill border ">&nbsp;</span>
-                </div>
-                <div class="row h-50">
-                  <div class="col border-right">&nbsp;</div>
-                  <div class="col">&nbsp;</div>
-                </div>
-              </div>
-              <div class="col py-2">
-                <div class="card">
+              <!-- Experience 2: Software Engineer -->
+              <div class="sticky-experience-card">
+                <div class="card about-card shadow-sm border-0">
+                  <div class="rainbow-smoke" aria-hidden="true"></div>
+                  <!-- Gradient Border -->
+                  <div class="experience-gradient-border"></div>
+                  <!-- Company Header -->
+                  <div class="experience-header">
+                    <div class="company-header">
+                      <div class="company-logo-placeholder">
+                        <i class="fas fa-building" style="font-size: 24px; color: #2F2F2F;"></i>
+                      </div>
+                      <a href="https://pcs.com.np/" target="_blank" rel="noopener" class="company-name">
+                        Professional Computer System (P) Ltd
+                      </a>
+                    </div>
+                  </div>
                   <div class="card-body">
-                    <div class="section-subheading card-title exp-title text-muted my-0">Network Engineer</div>
-                    <div class="section-subheading card-title exp-company text-muted my-0"><a href="" target="_blank"
-                        rel="noopener">Huawei Technologies Co,Ltd.,Kathmandu, Nepal</a></div>
+                    <div class="section-subheading card-title exp-title text-muted my-0">Software Engineer</div>
                     <div class="text-muted exp-meta">
-                      Jul 2021 – Jul 2024
+                      Jul 2022 – Jul 2025
                       <span class="middot-divider"></span>
-                      <span>Nepal</span>
+                      <span>Kathmandu, Nepal</span>
                     </div>
                     <div class="card-text">
                       <ul>
-                        <li>Conducted successful 5G NSA POC tests in IP networks, achieving a 200% increase in uplink
-                          throughput and latency reduction by 40%.</li>
-                        <li>Developed high-level design (HLD) and low-level design (LLD) for NCELL IPRAN and CG ISP,
-                          with improved network efficiency.</li>
-                        <li>Conducted successful POC tests in IP networks and BRAS, Optimizing Data Communication
-                          Systems(DCS), reviewing a design for network security, administering network devices.</li>
-                        <li>Managed routine network operations and health checks of Axiata IPRAN Network serving 15M+
-                          users, reducing network downtime by 30%.</li>
-                        <li>Resolved complex network & protocol issues, including latency, packet loss (2G/3G/4G
-                          services), and call drops, collaborating with Global TAC (Egypt, Malaysia) and China R&D teams
-                          to restore & improve service quality and maintain subsequent KPI.</li>
-                        <li>Executed NCE (DR NMS) software installations, migrations, and upgrades in SUSE Linux & Euler
-                          OS on VMs, cloud, and on-premises servers.</li>
-                        <li>Mentored junior, significantly improving skills through discussions of Network Cases and
-                          training on key topics such as Network Optimization, Troubleshooting, and Potential Network
-                          Upgrades.</li>
+                        <li>Led full stack development in microservices architecture of ICAN enterprise applications for the Chartered Accountants of Nepal, improving data
+                          processing speeds by 25% using .NET Core, React.js, PostgreSQL.</li>
+                        <li>Managed hosting and deployment of client projects on Windows Server (IIS), ensuring 92.9% availability and 20% increase in system perfor-
+                          mance.</li>
+                        <li>Collaborated with clients and stakeholders to implement new features that reduced manual data entry by 30% and optimized workflows.</li>
+                        <li>Performed the development and maintenance of a 15+ module of ERP system to streamline and automate business workflows, resulting in a
+                          significant reduction in manual processes and enhanced organizational productivity.</li>
+                        <li>Built interactive and responsive user interface using React.js components integrated with .NET backend and relational databases, decreasing page
+                          load times by 40%.</li>
                       </ul>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="row experience">
-              <div class="col-auto text-center flex-column d-none d-sm-flex">
-                <div class="row h-50">
-                  <div class="col border-right">&nbsp;</div>
-                  <div class="col">&nbsp;</div>
-                </div>
-                <div class="m-2">
-                  <span class="badge badge-pill border ">&nbsp;</span>
-                </div>
-                <div class="row h-50">
-                  <div class="col border-right">&nbsp;</div>
-                  <div class="col">&nbsp;</div>
-                </div>
-              </div>
-              <div class="col py-2">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="section-subheading card-title exp-title text-muted my-0">IT Engineer</div>
-                    <div class="section-subheading card-title exp-company text-muted my-0"><a href="" target="_blank"
-                        rel="noopener">Huawei Technologies Co,Ltd.,Kathmandu, Nepal</a>
+              <!-- Experience 3: Software Engineer Trainee / Intern -->
+              <div class="sticky-experience-card">
+                <div class="card about-card shadow-sm border-0">
+                  <div class="rainbow-smoke" aria-hidden="true"></div>
+                  <!-- Gradient Border -->
+                  <div class="experience-gradient-border"></div>
+                  <!-- Company Header -->
+                  <div class="experience-header">
+                    <div class="company-header">
+                      <div class="company-logo-placeholder">
+                        <i class="fas fa-building" style="font-size: 24px; color: #2F2F2F;"></i>
+                      </div>
+                      <a href="https://pcs.com.np/" target="_blank" rel="noopener" class="company-name">
+                        Professional Computer System (P) Ltd
+                      </a>
                     </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="section-subheading card-title exp-title text-muted my-0">Software Engineer Trainee</div>
                     <div class="text-muted exp-meta">
-                      Jul 2021–Dec 2021
+                      March 2022–july 2022
                       <span class="middot-divider"></span>
-                      <span>Nepal</span>
+                      <span>Kathmandu, Nepal</span>
                     </div>
                     <div class="card-text">
                       <ul>
-                        <li>Used Docker for managing containers, registries, networks, images and utilized Kubernetes to
-                          enhance application efficiency and scalability.</li>
-                        <li>Managed customer services on multiple cloud platforms, such as AWS, Azure, and Huawei Cloud
-                          stack,utilizing key cloud features.</li>
-                        <li>Automated IT tasks and server management using Ansible, reducing manual workload by 20%.
-                        </li>
-                        <li>Assisted in setting up CI/CD pipelines in Azure, working with artifacts and releases to
-                          streamline the development process.</li>
+                        <li>Contributed to the successful delivery of the Nepal Election Commission ERP project, resolving over 30 critical bugs before launch by assisting
+                          in design, debugging, and client support using C#, .NET, Knockout.js, and Oracle DB.</li>
+                        <li>Developed full-stack MVP solution with C#, .NET, React.js for an employee management system.</li>
                       </ul>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="row experience">
-              <div class="col-auto text-center flex-column d-none d-sm-flex">
-                <div class="row h-50">
-                  <div class="col border-right">&nbsp;</div>
-                  <div class="col">&nbsp;</div>
-                </div>
-                <div class="m-2">
-                  <span class="badge badge-pill border ">&nbsp;</span>
-                </div>
-                <div class="row h-50">
-                  <div class="col ">&nbsp;</div>
-                  <div class="col">&nbsp;</div>
-                </div>
-              </div>
-              <div class="col py-2">
-                <div class="card">
+              <!-- Experience 4: Intern -->
+              <div class="sticky-experience-card">
+                <div class="card about-card shadow-sm border-0">
+                  <div class="rainbow-smoke" aria-hidden="true"></div>
+                  <!-- Gradient Border -->
+                  <div class="experience-gradient-border"></div>
+                  <!-- Company Header -->
+                  <div class="experience-header">
+                    <div class="company-header">
+                      <div class="company-logo-placeholder">
+                        <i class="fas fa-building" style="font-size: 24px; color: #2F2F2F;"></i>
+                      </div>
+                      <a href="https://pcs.com.np/" target="_blank" rel="noopener" class="company-name">
+                        Professional Computer System (P) Ltd
+                      </a>
+                    </div>
+                  </div>
                   <div class="card-body">
-                    <div class="section-subheading card-title exp-title text-muted my-0">IT Operation Engineer</div>
-                    <div class="section-subheading card-title exp-company text-muted my-0"><a href="" target="_blank"
-                        rel="noopener">Siparrow Technology Ltd.,Itahari, Nepal</a></div>
+                    <div class="section-subheading card-title exp-title text-muted my-0">Intern</div>
                     <div class="text-muted exp-meta">
-                      Oct 2020-Jul 2021
+                      Dec 2021-March 2022
                       <span class="middot-divider"></span>
-                      <span>Nepal</span>
+                      <span>Kathmandu, Nepal</span>
                     </div>
                     <div class="card-text">
                       <ul>
-                        <li>Execute ticketing systems to manage and process support actions and requests for the client
-                          billing system,improving customer satisfaction.</li>
-                        <li>Managed cloud and on-premise-based ERP systems and infrastructure for 20+ clients, ensuring
-                          smooth daily operations and resource optimization.</li>
-                        <li>Developed and maintained technical documentation, enhancing support quality for internal
-                          teams and customers.</li>
+                        <li>Developed full-stack MVP solution with C#, .NET, React.js for an employee management system.</li>
+                        <li>Enhanced user experience by debugging and improving UI, resulting in a 15% reduction in user-reported issues.</li>
                       </ul>
                     </div>
                   </div>
@@ -884,241 +1842,250 @@
       </div>
     </section>
 
-    <section id="projects" class="home-section wg-portfolio  ">
+    <section id="projects">
       <div class="home-section-bg ">
       </div>
       <div class="container">
-        <div class="row  justify-content-center">
-          <div class="section-heading col-12 mb-3 text-center">
-            <h1 class="mb-0">Projects</h1>
+        <div class="row">
+          <div class="section-heading col-12 mb-3 d-flex align-items-center">
+            <h1 class="mb-0 skills-header-box" style="background-color: #2F2F2F; width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;">Projects</h1>
+            <div class="heading-rule" aria-hidden="true"></div>
           </div>
-          <div class="col-12 ">
-            <span class="d-none default-project-filter">*</span>
-            <div class="project-toolbar">
-              <div class="project-filters">
-                <div class="btn-toolbar d-flex justify-content-center">
-                  <div class="btn-group flex-wrap">
-                    <a href="#" data-filter="*" class="btn btn-primary btn-lg active">All</a>
-                    <a href="#" data-filter=".js-id-regression" class="btn btn-primary btn-lg">Doing</a>
-                    <a href="#" data-filter=".js-id-classification" class="btn btn-primary btn-lg">Done</a>
-                    <!-- <a href="#" data-filter=".js-id-clustering" class="btn btn-primary btn-lg">Clustering</a> -->
+          <div class="col-12 col-lg-10 ml-auto">
+            <!-- Sticky Project Cards -->
+            <div class="project-sticky-container">
+              <!-- Project 1: Computer Science Graduate Research -->
+              <div class="sticky-project-card">
+                <div class="card about-card shadow-sm border-0">
+                  <div class="rainbow-smoke" aria-hidden="true"></div>
+                  <!-- Gradient Border -->
+                  <div class="project-gradient-border"></div>
+                  <!-- Project Header -->
+                  <div class="project-header">
+                    <div class="project-title-header">
+                      <div class="project-icon-placeholder">
+                        <i class="fas fa-flask" style="font-size: 24px; color: #2F2F2F;"></i>
+                      </div>
+                      <div class="project-name">
+                        Computer Science Graduate Research
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="isotope projects-container row js-layout-row project-showcase">
-
-
-              <div class="col-12 isotope-item js-id-regression">
-                <div class="col-lg-12 mb-5 view-showcase">
-                  <div class="row align-items-center">
-                    <div class="col-12 col-md-6">
-                      <div class="section-subheading article-title mb-0 mt-0">
-                        <a href="">
-                          Computer Science Graduate Research
-                        </a>
-                      </div>
-                      <div class="article-style">
-                        Research on computer networks and systems, distributed, cloud technologies, and artificial
-                        intelligence.
-                      </div>
+                  <div class="card-body">
+                    <div class="card-text">
+                      <ul>
+                        <li>Conducting advanced research in distributed systems and cloud computing architectures to optimize performance and scalability.</li>
+                        <li>Investigating artificial intelligence and machine learning applications in intelligent system design.</li>
+                        <li>Collaborating with faculty on cutting-edge research projects involving microservices architecture and edge computing technologies.</li>
+                        <li>Developing innovative solutions for distributed computing challenges.</li>
+                      </ul>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- <div class="col-12 isotope-item js-id-regression"> -----for doing project-->
-              <div class="col-12 isotope-item js-id-classification js-id-clustering">
-                <div class="col-lg-12 mb-5 view-showcase">
-                  <div class="row align-items-center">
-                    <div class="col-12 col-md-6">
-                      <div class="section-subheading article-title mb-0 mt-0">
-                        <a href="">
-                          Nepal Telecom POI Non-SDN 2-layer architecture deployment
-                        </a>
+              <!-- Project 2: AI Chat Assistant Project -->
+              <div class="sticky-project-card">
+                <div class="card about-card shadow-sm border-0">
+                  <div class="rainbow-smoke" aria-hidden="true"></div>
+                  <!-- Gradient Border -->
+                  <div class="project-gradient-border"></div>
+                  <!-- Project Header -->
+                  <div class="project-header">
+                    <div class="project-title-header">
+                      <div class="project-icon-placeholder">
+                        <i class="fas fa-robot" style="font-size: 24px; color: #2F2F2F;"></i>
                       </div>
-                      <div class="article-style">
-                        Nepal Telecom POI Non-SDN 2-layer architecture deployment for enhanced network interoperability
-                        and scalability.-2024
-                      </div>
-                      <div class="btn-links">
-                        <!-- <a class="btn btn-outline-primary btn-page-header"
-                          href="https://github.com/MMel099/UsedCarPricer" target="_blank" rel="noopener"> -->
-                        <a class="btn btn-outline-primary btn-page-header" href="" target="_blank" rel="noopener">
-                          Code
-                        </a>
-                        <!-- <a class="btn btn-outline-primary btn-page-header" href="https://www.auto.dev/listings"
-                          target="_blank" rel="noopener"> -->
-                        <a class="btn btn-outline-primary btn-page-header" href="" target="_blank" rel="noopener">
-                          Data</a>
+                      <div class="project-name">
+                        AI Chat Assistant Project
                       </div>
                     </div>
-                    <!-- <div class="col-12 col-md-6 order-first ">
-                      <a href="/project/NTB/">
-                        <img src="/project/NTB/featured" height="540" width="540" alt="Nepal Tourism Board"
-                          loading="lazy" style="width: 540px; height: auto; object-fit: cover;">
-                      </a>
-                    </div> -->
+                  </div>
+                  <div class="card-body">
+                    <div class="card-text">
+                      <ul>
+                        <li>Developed a responsive AI Chat Assistant web application using Vanilla JavaScript, HTML, and CSS with intuitive front-end interface.</li>
+                        <li>Implemented asynchronous communication flow with POST requests and session management to Cloudflare Workers AI backend API.</li>
+                        <li>Enhanced user experience with real-time loading indicators, button state management, and server health checks.</li>
+                        <li>Focused on robust error handling, clean DOM manipulation, and modern web interface design principles.</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div class="col-12 isotope-item js-id-classification js-id-clustering">
-                <div class="col-lg-12 mb-5 view-showcase">
-                  <div class="row align-items-center">
-                    <div class="col-12 col-md-6">
-                      <div class="section-subheading article-title mb-0 mt-0">
-                        <a href="">
-                          Upper EDR Ncell IPRAN Project
-                        </a>
+              <!-- Project 3: ICAN ERP -->
+              <div class="sticky-project-card">
+                <div class="card about-card shadow-sm border-0">
+                  <div class="rainbow-smoke" aria-hidden="true"></div>
+                  <!-- Gradient Border -->
+                  <div class="project-gradient-border"></div>
+                  <!-- Project Header -->
+                  <div class="project-header">
+                    <div class="project-title-header">
+                      <div class="project-icon-placeholder">
+                        <i class="fas fa-building" style="font-size: 24px; color: #2F2F2F;"></i>
                       </div>
-                      <div class="article-style">
-                        Upper EDR Ncell IPRAN Project 110+ Sites, High-level design, Device Role change, and Service
-                        migration to aggregation nodes. (2023)
-                      </div>
-                      <div class="btn-links">
-                        <!-- <a class="btn btn-outline-primary btn-page-header"
-                          href="https://github.com/MMel099/UsedCarPricer" target="_blank" rel="noopener"> -->
-                        <a class="btn btn-outline-primary btn-page-header" href="" target="_blank" rel="noopener">
-                          Code
-                        </a>
-                        <!-- <a class="btn btn-outline-primary btn-page-header" href="https://www.auto.dev/listings"
-                          target="_blank" rel="noopener"> -->
-                        <a class="btn btn-outline-primary btn-page-header" href="" target="_blank" rel="noopener">
-                          Data</a>
+                      <div class="project-name">
+                        Institute of Chartered Accountants of Nepal (ICAN) ERP
                       </div>
                     </div>
-                    <!-- <div class="col-12 col-md-6 order-first ">
-                      <a href="/project/ICAN/">
-                        <img src="/project/ICAN/featured" height="540" width="540"
-                          alt="Institute of Chartered Accountants of Nepal" loading="lazy"
-                          style="width: 540px; height: auto; object-fit: cover;">
-                      </a>
-                    </div> -->
+                  </div>
+                  <div class="card-body">
+                    <div class="card-text">
+                      <ul>
+                        <li>Improved operational efficiency and data accuracy for over 20,000 members by designing, developing, and deploying enterprise modules within a microservices architecture.</li>
+                        <li>Coordinated directly with clients, translated requirements into scalable solutions and delivered within deadlines.</li>
+                        <li>Ensured high reliability and performance by deploying and maintaining applications on Windows Server (IIS), overseeing security and updates.</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
 
-
-
-
-              <div class="col-12 isotope-item js-id-classification js-id-clustering">
-                <div class="col-lg-12 mb-5 view-showcase">
-                  <div class="row align-items-center">
-                    <div class="col-12 col-md-6">
-                      <!-- <div class="section-subheading article-title mb-0 mt-0">
-                        <a href="/project/EmpMng/">
-                          As an Intern from Jan 2022 to March 2022:
-                        </a>
-                      </div> -->
-                      <div class="section-subheading article-title mb-0 mt-0">
-                        <a href="">
-                          Nepal CGnet ISP Fttx Network Planning and deployment
-                        </a>
+              <!-- Project 4: NTB ERP -->
+              <div class="sticky-project-card">
+                <div class="card about-card shadow-sm border-0">
+                  <div class="rainbow-smoke" aria-hidden="true"></div>
+                  <!-- Gradient Border -->
+                  <div class="project-gradient-border"></div>
+                  <!-- Project Header -->
+                  <div class="project-header">
+                    <div class="project-title-header">
+                      <div class="project-icon-placeholder">
+                        <i class="fas fa-globe" style="font-size: 24px; color: #2F2F2F;"></i>
                       </div>
-                      <div class="article-style">
-                        Nepal CGnet ISP Fttx Network Planning and deployment outside the KTM Valley, increasing Internet
-                        access users by 40%. (2023)
-                      </div>
-                      <div class="btn-links">
-                        <!-- <a class="btn btn-outline-primary btn-page-header"
-                          href="https://github.com/MMel099/UsedCarPricer" target="_blank" rel="noopener"> -->
-                        <a class="btn btn-outline-primary btn-page-header" href="" target="_blank" rel="noopener">
-                          Code
-                        </a>
-                        <!-- <a class="btn btn-outline-primary btn-page-header" href="https://www.auto.dev/listings"
-                          target="_blank" rel="noopener"> -->
-                        <a class="btn btn-outline-primary btn-page-header" href="" target="_blank" rel="noopener">
-                          Data</a>
+                      <div class="project-name">
+                        Nepal Tourism Board (NTB) ERP
                       </div>
                     </div>
-                    <!-- <div class="col-12 col-md-6 order-first ">
-                      <a href="/project/EmpMng/">
-                        <img src="/project/EmpMng/featured" height="540" width="540" alt="Employee Management"
-                          loading="lazy" style="width: 540px; height: auto; object-fit: cover;">
-                      </a>
-                    </div> -->
+                  </div>
+                  <div class="card-body">
+                    <div class="card-text">
+                      <ul>
+                        <li>Developed and enhanced tourism-related application modules across frontend and backend layers.</li>
+                        <li>Improved application stability and user experience by implementing MySQL database optimizations, bug fixes, and new support features.</li>
+                        <li>Delivered timely updates and new features on schedule by collaborating directly with NTB stakeholders to translate requirements into technical solutions.</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div class="col-12 isotope-item js-id-classification js-id-clustering">
-                <div class="col-lg-12 mb-5 view-showcase">
-                  <div class="row align-items-center">
-                    <div class="col-12 col-md-6">
-                      <!-- <div class="section-subheading article-title mb-0 mt-0">
-                        <a href="/project/Election/">
-                          Trainee Software Engineer from March 2022 to July 2022:
-                        </a>
-                      </div> -->
-                      <div class="section-subheading article-title mb-0 mt-0">
-                        <a href="">
-                          Ncell 100G Backbone Connectivity Project
-                        </a>
+              <!-- Project 5: Nepal Election Commission ERP -->
+              <div class="sticky-project-card">
+                <div class="card about-card shadow-sm border-0">
+                  <div class="rainbow-smoke" aria-hidden="true"></div>
+                  <!-- Gradient Border -->
+                  <div class="project-gradient-border"></div>
+                  <!-- Project Header -->
+                  <div class="project-header">
+                    <div class="project-title-header">
+                      <div class="project-icon-placeholder">
+                        <i class="fas fa-vote-yea" style="font-size: 24px; color: #2F2F2F;"></i>
                       </div>
-                      <div class="article-style">
-                        Ncell 100G Backbone Connectivity Project, Installation, and Migration to NE8000-X4 from CX600-X8
-                        at RSG in Datacentre, reducing overall WDR region network (HoVPN) congestion by 40%. (2022)
-                      </div>
-                      <div class="btn-links">
-                        <a class="btn btn-outline-primary btn-page-header" href="" target="_blank" rel="noopener">
-                          PDF
-                        </a>
-
-                        <a class="btn btn-outline-primary btn-page-header" href="" target="_blank" rel="noopener">
-                          Code
-                        </a>
-                        <a class="btn btn-outline-primary btn-page-header" href="" target="_blank" rel="noopener">
-                          Data</a>
+                      <div class="project-name">
+                        Nepal Election Commission ERP
                       </div>
                     </div>
-                    <!-- <div class="col-12 col-md-6 order-first ">
-                      <a href="/project/Election/">
-                        <img src="/project/Election/featured" height="432" width="540" alt="NREMES" loading="lazy"
-                          style="width: 540px; height: auto; object-fit: cover;">
-                      </a>
-                    </div> -->
+                  </div>
+                  <div class="card-body">
+                    <div class="card-text">
+                      <ul>
+                        <li>Supported high-volume election operations by immediate Code Release and bug fix, ensured system stability by building and maintaining secure application modules.</li>
+                        <li>Maintained data integrity and application reliability during critical election periods by contributing to .NET backend enhancements.</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div class="col-12 isotope-item js-id-classification js-id-clustering">
-                <div class="col-lg-12 mb-5 view-showcase">
-                  <div class="row align-items-center">
-                    <div class="col-12 col-md-6">
-                      <!-- <div class="section-subheading article-title mb-0 mt-0">
-                        <a href="/project/Election/">
-                         Academic Project
-                        </a>
-                      </div> -->
-                      <div class="section-subheading article-title mb-0 mt-0">
-                        <a href="">
-                          Academic Project
-                        </a>
+              <!-- Project 6: Employee Management System -->
+              <div class="sticky-project-card">
+                <div class="card about-card shadow-sm border-0">
+                  <div class="rainbow-smoke" aria-hidden="true"></div>
+                  <!-- Gradient Border -->
+                  <div class="project-gradient-border"></div>
+                  <!-- Project Header -->
+                  <div class="project-header">
+                    <div class="project-title-header">
+                      <div class="project-icon-placeholder">
+                        <i class="fas fa-users" style="font-size: 24px; color: #2F2F2F;"></i>
                       </div>
-                      <div class="article-style">
-                        Major: IOT Based on a Smart Irrigation System with Mobile app integration.
-                        Minor: Design and Simulate campus area network topology with security implementation
-                      </div>
-                      <div class="btn-links">
-                        <a class="btn btn-outline-primary btn-page-header" href="" target="_blank" rel="noopener">
-                          PDF
-                        </a>
-
-                        <a class="btn btn-outline-primary btn-page-header" href="" target="_blank" rel="noopener">
-                          Code
-                        </a>
-                        <a class="btn btn-outline-primary btn-page-header" href="" target="_blank" rel="noopener">
-                          Data</a>
+                      <div class="project-name">
+                        Employee Management System
                       </div>
                     </div>
-                    <!-- <div class="col-12 col-md-6 order-first ">
-                      <a href="/project/Election/">
-                        <img src="/project/Election/featured" height="432" width="540" alt="NREMES" loading="lazy"
-                          style="width: 540px; height: auto; object-fit: cover;">
-                      </a>
-                    </div> -->
+                  </div>
+                  <div class="card-body">
+                    <div class="card-text">
+                      <ul>
+                        <li>Developed a full-stack Employee Management System using KnockoutJS, .NET, and MySQL to streamline HR operations and employee data management.</li>
+                        <li>Implemented comprehensive CRUD operations for employee data including create, read, update, and delete functionalities with secure database integration.</li>
+                        <li>Created user-friendly interfaces using KnockoutJS for data binding and enhanced data security with authentication and authorization features.</li>
+                        <li>Optimized performance and scalability by implementing efficient database queries, data validation, and responsive UI components for seamless user experience.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project 7: Academic Project (Bike Simulation System) -->
+              <div class="sticky-project-card">
+                <div class="card about-card shadow-sm border-0">
+                  <div class="rainbow-smoke" aria-hidden="true"></div>
+                  <!-- Gradient Border -->
+                  <div class="project-gradient-border"></div>
+                  <!-- Project Header -->
+                  <div class="project-header">
+                    <div class="project-title-header">
+                      <div class="project-icon-placeholder">
+                        <i class="fas fa-motorcycle" style="font-size: 24px; color: #2F2F2F;"></i>
+                      </div>
+                      <div class="project-name">
+                        Academic Project(Bike Simulation System)
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-text">
+                      <ul>
+                        <li>Developed a 3D Bike Simulation System using C programming language to create realistic bike movement and physics simulation.</li>
+                        <li>Implemented advanced 3D graphics rendering and mathematical algorithms for accurate bike positioning, rotation, and movement dynamics.</li>
+                        <li>Created interactive bike movement controls with real-time physics calculations including acceleration, braking, and steering mechanics.</li>
+                        <li>Designed comprehensive simulation environment with 3D coordinate systems, collision detection, and realistic bike behavior modeling.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project 8: Academic Project (Hostel Management System) -->
+              <div class="sticky-project-card">
+                <div class="card about-card shadow-sm border-0">
+                  <div class="rainbow-smoke" aria-hidden="true"></div>
+                  <!-- Gradient Border -->
+                  <div class="project-gradient-border"></div>
+                  <!-- Project Header -->
+                  <div class="project-header">
+                    <div class="project-title-header">
+                      <div class="project-icon-placeholder">
+                        <i class="fas fa-home" style="font-size: 24px; color: #2F2F2F;"></i>
+                      </div>
+                      <div class="project-name">
+                        Academic Project(Hostel Management System)
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-text">
+                      <ul>
+                        <li>Developed a comprehensive Hostel Management System website using DBMS principles to manage all hostel operations including student and warden data management.</li>
+                        <li>Implemented student and warden registration system with secure authentication and authorization features to ensure proper access control and data security.</li>
+                        <li>Created in/out record tracking system for both students and wardens with real-time status updates and comprehensive logging for hostel administration.</li>
+                        <li>Designed and maintained all required hostel records including food data, accommodation details, and administrative information for efficient hostel operations.</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1129,397 +2096,57 @@
       </div>
     </section>
 
-    <section id="section-accomplishments" class="home-section wg-accomplishments  ">
+    <section id="contact">
       <div class="home-section-bg ">
       </div>
       <div class="container">
         <div class="row  ">
           <div
-            class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
-            <h1 class="mb-0">Certificates</h1>
+            class="section-heading col-12 mb-3 mb-lg-0 d-flex align-items-center">
+            <h1 class="mb-0 skills-header-box" style="background-color: #2F2F2F; width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;">Contact</h1>
+            <div class="heading-rule" aria-hidden="true"></div>
           </div>
-          <div class="col-12 col-lg-8">
-
-            <div class="card experience course">
-              <div class="card-body">
-                <div class="section-subheading card-title exp-title text-muted my-0">
-                  HCIP Datacom (Huawei certified internetwork professional)
-                </div>
-                <a class="card-link" href="/Certificate/010202701561809227012061926-HCIP-Datacom.pdf" target="_blank"
-                  rel="noopener">
-                  See certificate
-                </a>
-              </div>
-            </div>
-
-            <div class="card experience course">
-              <div class="card-body">
-                <div class="section-subheading card-title exp-title text-muted my-0">
-                  Cisco Certified Network Associate Routing and Switching (CCNA) 200-301
-                </div>
-                <a class="card-link" href="/Certificate/udemy CCNA cert.pdf" target="_blank" rel="noopener">
-                  See certificate
-                </a>
-              </div>
-            </div>
-
-            <div class="card experience course">
-              <div class="card-body">
-                <div class="section-subheading card-title exp-title text-muted my-0">
-                  Fortinet NSE 3 Network Security Associate
-                </div>
-                <a class="card-link" href="" target="_blank" rel="noopener">
-                  See certificate
-                </a>
-              </div>
-            </div>
-
-            <div class="card experience course">
-              <div class="card-body">
-                <div class="section-subheading card-title exp-title text-muted my-0">
-                  HCIA (Huawei certified internetwork Associate)
-                </div>
-                <a class="card-link" href="/Certificate/HCIP-Datacom.PNG" target="_blank" rel="noopener">
-                  See certificate
-                </a>
-              </div>
-            </div>
-
-            <div class="card experience course">
-              <div class="card-body">
-                <div class="section-subheading card-title exp-title text-muted my-0">
-                  Linux Essentials
-                </div>
-                <a class="card-link" href="/Certificate/SatyamThakur-NDG Linux Essent-certificate.pdf" target="_blank"
-                  rel="noopener">
-                  See certificate
-                </a>
-              </div>
-            </div>
-
-            <div class="card experience course">
-              <div class="card-body">
-                <div class="section-subheading card-title exp-title text-muted my-0">
-                  AWS Cloud Practitioner
-                </div>
-                <a class="card-link" href="" target="_blank" rel="noopener">
-                  See certificate
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="awards" class="home-section wg-portfolio  ">
-      <div class="home-section-bg ">
-      </div>
-      <div class="container">
-        <div class="row  justify-content-center">
-          <div class="section-heading col-12 mb-3 text-center">
-            <h1 class="mb-0">Fellowships/ Awards</h1>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="col-12 isotope-item js-id-regression">
-                <div class="row align-items-center">
-                  <!-- <div class="section-subheading article-title mb-0 mt-0">
-                    <a href="">
-                      1.Galloping Horse Award, Huawei Appreciation for Outstanding Performance and Project Delivery.
-                      (2023)
-                    </a>
-                  </div> -->
-                  <div class="article-style">
-                    1.Galloping Horse Award, Huawei Appreciation for Outstanding Performance and Project Delivery.
-                    (2023)
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-12 isotope-item js-id-regression">
-                <div class="row align-items-center">
-                  <!-- <div class="section-subheading article-title mb-0 mt-0">
-                    <a href="">
-                      2.Emerging Star and Excellent New Talent of the Year, Presented at Huawei Annual event in
-                      Kathmandu.(2021-2022)
-                    </a>
-                  </div> -->
-                  <div class="article-style">
-                    2.Emerging Star and Excellent New Talent of the Year, Presented at Huawei Annual event in
-                    Kathmandu.(2021-2022)
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-12 isotope-item js-id-regression">
-                <div class="row align-items-center">
-                  <!-- <div class="section-subheading article-title mb-0 mt-0">
-                    <a href="">
-                      3.Technical Coordinator of DELTA, Elected by an umbrella organization of the engineering societies
-                      of IOE, Purwanchal campus. (2019)
-                    </a>
-                  </div> -->
-                  <div class="article-style">
-                    3.Technical Coordinator of DELTA, Elected by an umbrella organization of the engineering societies
-                    of IOE, Purwanchal campus. (2019)
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-12 isotope-item js-id-regression">
-                <div class="row align-items-center">
-                  <!-- <div class="section-subheading article-title mb-0 mt-0">
-                    <a href="">
-                      4.Merit-based Scholarship, Granted by Tribhuvan University, IOE, for Bachelors in Engineering
-                      Studies.(2016-2021)
-                    </a>
-                  </div> -->
-                  <div class="article-style">
-                    4.Merit-based Scholarship, Granted by Tribhuvan University, IOE, for Bachelors in Engineering
-                    Studies.(2016-2021)
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- <section id="talks" class="home-section wg-collection  ">
-      <div class="home-section-bg ">
-
-      </div>
-      <div class="container">
-        <div class="row  ">
-          <div
-            class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
-            <h1 class="mb-0">Recent &amp; Upcoming Talks</h1>
-
-          </div>
-          <div class="col-12 col-lg-8">
-            <div class="media stream-item view-compact">
-              <div class="media-body">
-                <div class="section-subheading article-title mb-0 mt-0">
-                  <a href="/talk/principal-component-analysis/">Principal Component Analysis</a>
-                </div>
-                <a href="/talk/principal-component-analysis/" class="summary-link">
-                  <div class="article-style">
-                    A brief tutorial on PCA and its relation to eigenvectors
-                  </div>
-                </a>
-                <div class="stream-meta article-metadata">
-                  <div>
-                    <span>
-                      Dec 9, 2022 12:00 PM
-                    </span>
-                    <span class="middot-divider"></span>
-                    <span>Brandeis University</span>
-                  </div>
-                </div>
-                <div class="btn-links">
-                </div>
-              </div>
-              <div class="ml-3">
-                <a href="/talk/principal-component-analysis/">
-                  <img
-                    src="/talk/principal-component-analysis/featured_hud844d45d6d9ca78883d73e38d5101011_70874_247ecdd5d5a7faf0ab44c9fac31fb036.webp"
-                    height="119" width="150" alt="Principal Component Analysis" loading="lazy">
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-
-    <!-- <section id="posts" class="home-section wg-collection  ">
-      <div class="home-section-bg ">
-      </div>
-      <div class="container">
-        <div class="row  ">
-          <div
-            class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
-            <h1 class="mb-0">Recent Posts</h1>
-          </div>
-          <div class="col-12 col-lg-8">
-            <div class="media stream-item view-compact">
-              <div class="media-body">
-
-                <div class="section-subheading article-title mb-0 mt-0">
-                  <a href="/post/hodgkin-huxley/">Hodgkin-Huxley Model</a>
-                </div>
-
-
-                <a href="/post/hodgkin-huxley/" class="summary-link">
-                  <div class="article-style">
-                    Simulating Neural Activity using the Hodgkin-Huxley Model
-                  </div>
-                </a>
-                <div class="stream-meta article-metadata">
-                  <div class="article-metadata">
-                    <span class="article-date">
-                      Jan 6, 2024
-                    </span>
-                    <span class="middot-divider"></span>
-                    <span class="article-reading-time">
-                      8 min read
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="ml-3">
-                <a href="/post/hodgkin-huxley/">
-                  <img
-                    src="/post/hodgkin-huxley/featured_hua0d5181a89fe2421f008a7b98882a167_59833_150x0_resize_lanczos_1.gif"
-                    height="94" width="150" alt="Hodgkin-Huxley Model" loading="lazy">
-                </a>
-              </div>
-            </div>
-            <div class="media stream-item view-compact">
-              <div class="media-body">
-
-                <div class="section-subheading article-title mb-0 mt-0">
-                  <a href="/post/kmeans/">K-Means Algorithm</a>
-                </div>
-                <a href="/post/kmeans/" class="summary-link">
-                  <div class="article-style">
-                    Introduction to K-Means Clustering
-                  </div>
-                </a>
-                <div class="stream-meta article-metadata">
-                  <div class="article-metadata">
-                    <span class="article-date">
-                      Jan 2, 2024
-                    </span>
-                    <span class="middot-divider"></span>
-                    <span class="article-reading-time">
-                      4 min read
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="ml-3">
-                <a href="/post/kmeans/">
-                  <img
-                    src="/post/kmeans/featured_hub3f62bce4ef13ccb95c39a77a1e41edc_36967_f500b5000fdaae4e29de92e1e535646b.webp"
-                    height="76" width="150" alt="K-Means Algorithm" loading="lazy">
-                </a>
-
-              </div>
-            </div>
-            <div class="media stream-item view-compact">
-              <div class="media-body">
-
-                <div class="section-subheading article-title mb-0 mt-0">
-                  <a href="/post/2020-12-01-r-rmarkdown/">Hello R Markdown</a>
-                </div>
-                <a href="/post/2020-12-01-r-rmarkdown/" class="summary-link">
-                  <div class="article-style">
-                    R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring
-                    HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.
-                  </div>
-                </a>
-                <div class="article-metadata">
-                  <span class="article-date">
-                    Dec 1, 2020
-                  </span>
-                  <span class="middot-divider"></span>
-                  <span class="article-reading-time">
-                    1 min read
-                  </span>
-                  <span class="middot-divider"></span>
-                  <span class="article-categories">
-                    <i class="fas fa-folder mr-1"></i><a href="/category/r/">R</a></span>
-                </div>
-              </div>
-            </div>
-            <div class="ml-3">
-            </div>
-          </div>
-        </div>
-      </div>
-  </div>
-  </section> -->
-
-
-    <section id="contact" class="home-section wg-contact  ">
-      <div class="home-section-bg ">
-      </div>
-      <div class="container">
-        <div class="row  ">
-          <div
-            class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
-            <h1 class="mb-0">Contact</h1>
-
-          </div>
-          <div class="col-12 col-lg-8">
-            <p>Let&rsquo;s connect! Feel free to drop me a message — would be excited to hear from you.</p>
-            <div class="mb-3">
-              <!-- <form name="contact" method="POST" action="https://formspree.io/f/mrgngpvb" data-netlify-recaptcha="true"> -->
-              <form name="contact" method="POST" action="" data-netlify-recaptcha="true"></form>
-              <div class="form-group form-inline">
+          <div class="col-12 col-lg-6 mx-auto">
+            <div class="card about-card shadow-sm border-0 mb-4">
+              <div class="rainbow-smoke" aria-hidden="true"></div>
+              <!-- Gradient Border -->
+              <div class="gradient-border"></div>
+              <div class="card-body" style="padding: 1rem;">
+                <h5 class="card-title mb-2">Let&rsquo;s connect! Feel free to drop me a message — would be excited to hear from you.</h5>
+            <div class="mb-2">
+              <form name="contact" method="POST" action="mailto:siwanishah8888@gmail.com" enctype="text/plain">
+              <div class="form-group form-inline mb-2">
                 <label class="sr-only" for="inputName">Name</label>
                 <input type="text" name="name" class="form-control w-100" id="inputName" placeholder="Name" required>
               </div>
-              <div class="form-group form-inline">
-                <label class="sr-only" for="inputEmail">Email</label>
-                <input type="email" name="email" class="form-control w-100" id="inputEmail" placeholder="Email"
-                  required>
-              </div>
-              <div class="form-group">
+              <div class="form-group mb-2">
                 <label class="sr-only" for="inputMessage">Message</label>
-                <textarea name="message" class="form-control" id="inputMessage" rows="5" placeholder="Message"
+                <textarea name="message" class="form-control" id="inputMessage" rows="4" placeholder="Message"
                   required></textarea>
               </div>
               <div class="d-none">
                 <label>Do not fill this field unless you are a bot: <input name="_gotcha"></label>
               </div>
-              <button type="submit" class="btn btn-primary px-3 py-2 w-100">Send</button>
+              <button type="submit" class="btn btn-primary px-3 py-2 w-100" id="submitBtn">Send</button>
               </form>
+              <div id="form-status" class="mt-2" style="display: none;"></div>
+              
+              <!-- Contact Information -->
+              <div class="mt-3">
+                <h6 class="mb-2">Contact Information</h6>
+                <ul class="fa-ul">
+                  <li>
+                    <i class="fa-li fas fa-envelope fa-2x" aria-hidden="true"></i>
+                    <span id="person-email"><a href="siwanishah8888@gmail.com"> siwanishah8888@gmail.com</a></span>
+                  </li>
+                  <li>
+                    <i class="fa-li fas fa-map-marker fa-2x" aria-hidden="true"></i>
+                    <span id="person-address">Lakeland, Florida,USA </span>
+                  </li>
+                </ul>
+              </div>
+              </div>
             </div>
-            <ul class="fa-ul">
-              <li>
-                <i class="fa-li fas fa-envelope fa-2x" aria-hidden="true"></i>
-                <span id="person-email"><a href="infothakur999@gmail.com"> infothakur999@gmail.com</a></span>
-              </li>
-              <li>
-                <i class="fa-li fas fa-phone fa-2x" aria-hidden="true"></i>
-                <span id="person-telephone"><a href="tel: +1(863)-280-2479"> +1(863)-280-2479</a></span>
-              </li>
-              <li>
-                <i class="fa-li fas fa-map-marker fa-2x" aria-hidden="true"></i>
-                <span id="person-address">Lakeland, Florida,USA | Permanent: Birathnagar, Nepal.</span>
-              </li>
-              <li>
-                <i class="fa-li fas fa- fa-2x" aria-hidden="true"></i>
-                <a href="/"></a>
-              </li>
-              <li>
-                <i class="fa-li fas fa- fa-2x" aria-hidden="true"></i>
-                <a href="/"></a>
-              </li>
-              <li>
-                <i class="fa-li fas fa- fa-2x" aria-hidden="true"></i>
-                <a href="/"></a>
-              </li>
-            </ul>
-            <!-- <div class="d-none">
-              <input id="map-provider" value="mapnik">
-              <input id="map-lat" value="42.3354">
-              <input id="map-lng" value="-71.1025">
-              <input id="map-dir" value="677 Huntington Ave, Boston, MA 02115">
-              <input id="map-zoom" value="15">
-              <input id="map-api-key" value="">
-            </div>
-            <div id="map"></div> -->
           </div>
         </div>
       </div>
@@ -1531,21 +2158,27 @@
 
   <div class="page-footer">
     <div class="container">
-      <footer class="site-footer">
-        <p class="powered-by copyright-license-text">
-          © 2024
-        </p>
-        <p class="powered-by footer-license-icons">
-          <a href="" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
-            <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
-            <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
-            <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
-            <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
-          </a>
-        </p>
-        <p class="powered-by"> Published with Hugo Blox Builder — the free, website builder that empowers creators.
-        </p>
-      </footer>
+        <footer class="site-footer">
+          <p class="powered-by social-links">
+            <a href="https://www.linkedin.com/in/siwanisah/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i> LinkedIn
+            </a>
+            <span class="middot-divider">·</span>
+            <a href="https://github.com/Siwanii" target="_blank" rel="noopener" aria-label="GitHub">
+              <i class="fab fa-github fa-lg" aria-hidden="true"></i> GitHub
+            </a>
+            <span class="middot-divider">·</span>
+            <a href="/" aria-label="Portfolio">
+              <i class="fas fa-briefcase fa-lg" aria-hidden="true"></i> Portfolio
+            </a>
+            <span class="middot-divider">·</span>
+            <a href="mailto:siwanishah8888@gmail.com" aria-label="Email">
+              <i class="fas fa-envelope fa-lg" aria-hidden="true"></i> Email
+            </a>
+          </p>
+          <p class="powered-by">  © Developer Portfolio by Siwani Sah
+          </p>
+        </footer>
     </div>
   </div>
 
@@ -1553,27 +2186,7 @@
   <script src="/js/vendor-bundle.min.f64289d8217e08e3afcd597d60836062.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"
     integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/gh/metafizzy/isotope@v3.0.6/dist/isotope.pkgd.min.js"
-    integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew=="
-    crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.js" integrity=""
-    crossorigin="anonymous"></script>
-  <script id="search-hit-fuse-template" type="text/x-template">
-    <div class="search-hit" id="summary-{{key}}">
-      <div class="search-hit-content">
-        <div class="search-hit-name">
-          <a href="{{relpermalink}}">{{title}}</a>
-          <div class="article-metadata search-hit-type">{{type}}</div>
-          <p class="search-hit-description">{{snippet}}</p>
-        </div>
-      </div>
-    </div>
-  </script>
-  <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js"
-    integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw=="
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js"
-    integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg=="
     crossorigin="anonymous"></script>
   <script id="page-data" type="application/json">{"use_headroom":false}</script>
   <script src="/en/js/wowchemy.min.b650e60aa2fd7385ff9cc14be4e3ea70.js"></script>
@@ -1607,6 +2220,285 @@
 
   <script src="/js/wowchemy-publication.9137013a66774049159934c29c3f0205.js" type="module"></script>
 
+  <script>
+    // Contact form handling
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('form[name="contact"]');
+      const submitBtn = document.getElementById('submitBtn');
+      const statusDiv = document.getElementById('form-status');
+      
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Get form data
+          const name = document.getElementById('inputName').value;
+          const message = document.getElementById('inputMessage').value;
+          
+          if (!name || !message) {
+            statusDiv.innerHTML = '<div class="alert alert-warning">Please fill in all required fields.</div>';
+            statusDiv.style.display = 'block';
+            return;
+          }
+          
+          // Show loading state
+          submitBtn.innerHTML = 'Opening Email...';
+          submitBtn.disabled = true;
+          statusDiv.style.display = 'none';
+          
+          // Create email content
+          const subject = 'Portfolio Contact Form - Message from ' + name;
+          const body = 'Name: ' + name + '\n\nMessage:\n' + message;
+          
+          // Create mailto link
+          const mailtoLink = 'mailto:siwanishah8888@gmail.com?subject=' + 
+                            encodeURIComponent(subject) + 
+                            '&body=' + encodeURIComponent(body);
+          
+          // Open email client
+          window.location.href = mailtoLink;
+          
+          // Show success message
+          setTimeout(() => {
+            statusDiv.innerHTML = '<div class="alert alert-success">Email client opened! Please send the email to complete your message.</div>';
+            statusDiv.style.display = 'block';
+            submitBtn.innerHTML = 'Send';
+            submitBtn.disabled = false;
+          }, 1000);
+        });
+      }
+    });
+  </script>
+
+  <script>
+    (function () {
+      const overlay = document.createElement('div');
+      overlay.id = 'fx-overlay';
+      document.body.appendChild(overlay);
+
+      const targets = Array.from(document.querySelectorAll('#about .about-card, #section-skills .about-card, #section-experience .about-card, #projects .about-card, #contact .about-card'));
+
+      const palette = [
+        '#ff4c78', // pink-red
+        '#00b9ff', // cyan
+        '#ffd200', // yellow
+        '#7850ff', // purple
+        '#00ffc8', // mint
+        '#ff8a00'  // orange
+      ];
+
+      function spawnParticle(container, x, y, opts) {
+        const p = document.createElement('span');
+        p.className = 'smoke-particle';
+        const color = palette[Math.floor(Math.random() * palette.length)];
+        const dx = (Math.random() * 100 - 50);
+        const dy = -((opts?.dyMin ?? 30) + Math.random() * (opts?.dyRange ?? 60));
+        const s = (opts?.scaleMin ?? 1.8) + Math.random() * (opts?.scaleRange ?? 1.8);
+
+        p.style.left = x + 'px';
+        p.style.top = y + 'px';
+        p.style.setProperty('--dx', dx + 'px');
+        p.style.setProperty('--dy', dy + 'px');
+        p.style.setProperty('--s', s);
+        p.style.background = `radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), ${hexToRgba(color, 0.85)} 45%, rgba(255,255,255,0) 70%)`;
+
+        container.appendChild(p);
+        p.addEventListener('animationend', () => p.remove());
+      }
+
+      function spawnBurst(container, x, y) {
+        const b = document.createElement('span');
+        b.className = 'smoke-burst';
+        b.style.left = x + 'px';
+        b.style.top = y + 'px';
+        container.appendChild(b);
+        b.addEventListener('animationend', () => b.remove());
+      }
+
+      function hexToRgba(hex, alpha) {
+        const h = hex.replace('#', '');
+        const bigint = parseInt(h, 16);
+        const r = (bigint >> 16) & 255;
+        const g = (bigint >> 8) & 255;
+        const b = bigint & 255;
+        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+      }
+
+      function attachHandlers(container) {
+        function relativeXY(evt) {
+          const rect = container.getBoundingClientRect();
+          return { x: evt.clientX - rect.left, y: evt.clientY - rect.top };
+        }
+
+        function handleClick(evt) {
+          const { x, y } = relativeXY(evt);
+          spawnBurst(container, x, y);
+          const count = 14 + Math.floor(Math.random() * 10);
+          for (let i = 0; i < count; i++) {
+            const jitterX = x + (Math.random() * 16 - 8);
+            const jitterY = y + (Math.random() * 10 - 5);
+            spawnParticle(container, jitterX, jitterY);
+          }
+        }
+
+        let lastMove = 0;
+        function handleMove(evt) {
+          const now = Date.now();
+          if (now - lastMove < 80) return; // throttle ~12.5fps
+          lastMove = now;
+          const { x, y } = relativeXY(evt);
+          const count = 2 + Math.floor(Math.random() * 2); // 2..3
+          for (let i = 0; i < count; i++) {
+            const jitterX = x + (Math.random() * 8 - 4);
+            const jitterY = y + (Math.random() * 6 - 3);
+            spawnParticle(container, jitterX, jitterY, { dyMin: 16, dyRange: 28, scaleMin: 1.4, scaleRange: 1.2 });
+          }
+        }
+
+        container.addEventListener('click', handleClick);
+        container.addEventListener('mousemove', handleMove);
+        container.addEventListener('touchstart', function (evt) {
+          const t = evt.touches[0];
+          if (!t) return;
+          const rect = container.getBoundingClientRect();
+          const x = t.clientX - rect.left;
+          const y = t.clientY - rect.top;
+          spawnBurst(container, x, y);
+          const count = 14 + Math.floor(Math.random() * 10);
+          for (let i = 0; i < count; i++) spawnParticle(container, x, y);
+        }, { passive: true });
+      }
+
+      targets.forEach(attachHandlers);
+
+      // Global mouse/touch effects across the whole page via the overlay
+      function relativeToOverlay(evt) {
+        const rect = overlay.getBoundingClientRect();
+        return { x: evt.clientX - rect.left, y: evt.clientY - rect.top };
+      }
+
+      function handleGlobalClick(evt) {
+        const { x, y } = relativeToOverlay(evt);
+        spawnBurst(overlay, x, y);
+        const count = 10 + Math.floor(Math.random() * 8);
+        for (let i = 0; i < count; i++) {
+          const jitterX = x + (Math.random() * 16 - 8);
+          const jitterY = y + (Math.random() * 10 - 5);
+          spawnParticle(overlay, jitterX, jitterY);
+        }
+      }
+
+      let lastOverlayMove = 0;
+      function handleGlobalMove(evt) {
+        const now = Date.now();
+        if (now - lastOverlayMove < 90) return;
+        lastOverlayMove = now;
+        const { x, y } = relativeToOverlay(evt);
+        const count = 1 + Math.floor(Math.random() * 2);
+        for (let i = 0; i < count; i++) {
+          const jitterX = x + (Math.random() * 10 - 5);
+          const jitterY = y + (Math.random() * 8 - 4);
+          spawnParticle(overlay, jitterX, jitterY, { dyMin: 14, dyRange: 22, scaleMin: 1.4, scaleRange: 1.2 });
+        }
+      }
+
+      window.addEventListener('click', handleGlobalClick);
+      window.addEventListener('mousemove', handleGlobalMove);
+      window.addEventListener('touchstart', function (evt) {
+        const t = evt.touches[0];
+        if (!t) return;
+        const rect = overlay.getBoundingClientRect();
+        const x = t.clientX - rect.left;
+        const y = t.clientY - rect.top;
+        spawnBurst(overlay, x, y);
+        const count = 10 + Math.floor(Math.random() * 8);
+        for (let i = 0; i < count; i++) spawnParticle(overlay, x, y);
+      }, { passive: true });
+
+      // Parallax disabled to restore normal stacking and visibility
+      function onScrollParallax() {}
+    })();
+
+
+    // Skills Horizontal Scroll Functionality
+    (function() {
+      const container = document.getElementById('skillsContainer');
+      if (!container) return;
+      
+      const skillsScroll = container.querySelector('.skills-scroll');
+      if (!skillsScroll) return;
+      
+      // Pause CSS animation when manually scrolling
+      let isManualScrolling = false;
+      let scrollTimeout;
+      
+      function pauseAnimation() {
+        skillsScroll.style.animationPlayState = 'paused';
+        isManualScrolling = true;
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          isManualScrolling = false;
+          skillsScroll.style.animationPlayState = 'running';
+        }, 2000);
+      }
+      
+      // Calculate single set width
+      function getSingleSetWidth() {
+        return skillsScroll.scrollWidth / 2;
+      }
+      
+      function scrollSkills(direction) {
+        if (!container || !skillsScroll) return;
+        
+        pauseAnimation();
+        
+        const scrollAmount = 200;
+        const singleSetWidth = getSingleSetWidth();
+        const currentScroll = container.scrollLeft;
+        
+        if (direction === 'left') {
+          let newScroll = currentScroll - scrollAmount;
+          
+          // If scrolled past the beginning, jump to end of first set
+          if (newScroll <= 0) {
+            newScroll = singleSetWidth - scrollAmount;
+          }
+          
+          container.scrollTo({ left: newScroll, behavior: 'smooth' });
+        } else {
+          let newScroll = currentScroll + scrollAmount;
+          
+          // If scrolled past first set, reset to equivalent position in first set
+          if (newScroll >= singleSetWidth) {
+            newScroll = newScroll - singleSetWidth;
+          }
+          
+          container.scrollTo({ left: newScroll, behavior: 'smooth' });
+        }
+      }
+      
+      // Handle seamless loop during scroll
+      container.addEventListener('scroll', function() {
+        if (!isManualScrolling) return;
+        
+        const singleSetWidth = getSingleSetWidth();
+        
+        // Reset to beginning if scrolled past first set
+        if (container.scrollLeft >= singleSetWidth) {
+          container.scrollLeft = container.scrollLeft - singleSetWidth;
+        }
+      }, { passive: true });
+      
+      // Make function globally available
+      window.scrollSkills = scrollSkills;
+      
+      // Initialize on page load
+      setTimeout(() => {
+        // Ensure we start at position 0
+        container.scrollLeft = 0;
+      }, 100);
+    })();
+  </script>
 
 </body>
 

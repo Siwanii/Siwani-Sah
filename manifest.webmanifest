@@ -1,0 +1,16 @@
+{
+  "name": "SiwaniProfile",
+  "short_name": "SiwaniProfile",
+  "description": "Graduate Assistant | Computer Science | Engineer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1565c0",
+  "icons": [
+    {
+      "src": "/media/s_symbol.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

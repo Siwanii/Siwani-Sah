@@ -84,7 +84,8 @@
   <link rel="alternate" href="/index.xml" type="application/rss+xml" title="SiwaniProfile" />
   <title>Siwani Sah</title>
   <style>
-    /* Multicolor moving smoke background for ALL cards (About/Skills/Experience/Projects/Contact) */
+    /* Multicolor moving smoke background for ALL cards (Home/About/Skills/Experience/Projects/Contact) */
+    #home .about-card,
     #about .about-card,
     #section-skills .about-card,
     #section-experience .about-card,
@@ -99,7 +100,8 @@
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
     }
 
-    /* All cards sharp edges (About/Skills/Experience/Projects/Contact) */
+    /* All cards sharp edges (Home/About/Skills/Experience/Projects/Contact) */
+    #home .about-card,
     #about .about-card,
     #section-skills .about-card,
     #section-experience .about-card,
@@ -108,7 +110,8 @@
       border-radius: 0 !important;
     }
 
-    /* Outer border for ALL cards (About/Skills/Experience/Projects/Contact) */
+    /* Outer border for ALL cards (Home/About/Skills/Experience/Projects/Contact) */
+    #home .about-card,
     #about .about-card,
     #section-skills .about-card,
     #section-experience .about-card,
@@ -142,6 +145,22 @@
     .dark #projects .about-card:hover,
     html.dark #projects .about-card:hover {
       box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15) !important;
+      transition: all 0.3s ease;
+    }
+
+    /* Hover shadow effect for Home card (same as Skills/Projects) */
+    #home .about-card:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
+
+    /* Dark mode hover effect for Home card */
+    [data-theme="dark"] #home .about-card:hover,
+    .dark #home .about-card:hover,
+    html.dark #home .about-card:hover {
+      box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15) !important;
+      transform: translateY(-2px);
       transition: all 0.3s ease;
     }
 
@@ -223,18 +242,18 @@
       line-height: 1.5 !important;
     }
 
-    /* Add space above About section card */
-    #about {
+    /* Add space above Home section card */
+    #home {
       padding-top: 1rem !important;
       padding-bottom: 2rem !important;
     }
 
-    #about .container {
+    #home .container {
       padding-top: 2rem !important;
     }
 
-    /* About section card width */
-    #about .about-card {
+    /* Home section card width */
+    #home .about-card {
       max-width: 1050px;
       margin-left: auto;
       margin-right: auto;
@@ -244,15 +263,11 @@
       box-shadow: none !important;
     }
 
-    /* Hide gradient border in About section */
-    #about .gradient-border {
-      display: none !important;
-    }
 
-    /* Dark mode for About card */
-    [data-theme="dark"] #about .about-card,
-    .dark #about .about-card,
-    html.dark #about .about-card {
+    /* Dark mode for Home card */
+    [data-theme="dark"] #home .about-card,
+    .dark #home .about-card,
+    html.dark #home .about-card {
       background: transparent !important;
       border: none !important;
       box-shadow: none !important;
@@ -279,10 +294,6 @@
       box-shadow: none !important;
     }
 
-    /* Hide gradient border in Contact section */
-    #contact .gradient-border {
-      display: none !important;
-    }
 
     /* Dark mode for Contact card */
     [data-theme="dark"] #contact .about-card,
@@ -440,6 +451,29 @@
     [data-theme="dark"] #projects .section-heading .heading-rule,
     .dark #projects .section-heading .heading-rule,
     html.dark #projects .section-heading .heading-rule {
+      background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0));
+    }
+
+    /* About heading rule line extending to the right (same as other sections) */
+    #about .section-heading .heading-rule {
+      flex: 1 1 auto;
+      height: 2px;
+      margin-left: 12px;
+      background: linear-gradient(90deg,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0));
+    }
+
+    /* Dark mode: white line for About when dark theme is active */
+    [data-theme="dark"] #about .section-heading .heading-rule,
+    .dark #about .section-heading .heading-rule,
+    html.dark #about .section-heading .heading-rule {
       background: linear-gradient(90deg,
         rgba(255, 255, 255, 0.8),
         rgba(255, 255, 255, 0.4),
@@ -808,6 +842,7 @@
     }
 
 
+    #home .about-card .card-body,
     #about .about-card .card-body,
     #section-skills .about-card .card-body,
     #section-experience .about-card .card-body,
@@ -818,10 +853,28 @@
       padding: 1rem 1.5rem;
     }
 
-    /* Tweak About spacing: add space inside card, remove extra section gap */
-    #about .about-card .card-body { padding-top: 0.75rem !important; padding-bottom: 1.25rem !important; }
-    #about { padding-bottom: 0 !important; margin-bottom: 0 !important; }
-    #about .container { padding-bottom: 0 !important; }
+    /* Tweak Home spacing: add space inside card, remove extra section gap */
+    #home .about-card .card-body { padding-top: 0.75rem !important; padding-bottom: 1.25rem !important; }
+    #home { padding-bottom: 0 !important; margin-bottom: 0 !important; }
+    #home .container { padding-bottom: 0 !important; }
+
+    /* About section styling */
+    #about .about-card {
+      width: 85% !important;
+      max-width: 85% !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      background: rgba(255, 255, 255, 0.30) !important;
+      backdrop-filter: saturate(110%);
+    }
+
+    /* Dark mode for About card */
+    [data-theme="dark"] #about .about-card,
+    .dark #about .about-card,
+    html.dark #about .about-card {
+      background: rgba(0, 0, 0, 0.30) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+    }
 
     /* Trim extra space in Skills card bodies */
     #section-skills .about-card .card-body { padding-bottom: 0.75rem !important; }
@@ -1256,6 +1309,7 @@
     /* --- Colliding plumes like your reference image --- */
 
     /* Re-style rainbow-smoke container to render two side plumes that move inward and mix */
+    #home .about-card .rainbow-smoke,
     #about .about-card .rainbow-smoke,
     #section-skills .about-card .rainbow-smoke,
     #section-experience .about-card .rainbow-smoke,
@@ -1274,6 +1328,7 @@
     }
 
     /* Left plume (magenta/pink) */
+    #home .about-card .rainbow-smoke::before,
     #about .about-card .rainbow-smoke::before,
     #section-skills .about-card .rainbow-smoke::before,
     #section-experience .about-card .rainbow-smoke::before,
@@ -1295,6 +1350,7 @@
     }
 
     /* Right plume (cyan/blue) */
+    #home .about-card .rainbow-smoke::after,
     #about .about-card .rainbow-smoke::after,
     #section-skills .about-card .rainbow-smoke::after,
     #section-experience .about-card .rainbow-smoke::after,
@@ -1336,6 +1392,52 @@
       50%  { transform: scale(1.06); opacity: 0.28; }
       100% { transform: scale(1.12); opacity: 0.22; }
     }
+    /* Voice Greeting Button */
+    .voice-greeting-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .voice-greeting-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .voice-greeting-btn:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+      50% {
+        box-shadow: 0 4px 20px rgba(102, 126, 234, 0.6);
+      }
+    }
+
+    /* Dark mode for voice button */
+    [data-theme="dark"] .voice-greeting-btn,
+    .dark .voice-greeting-btn,
+    html.dark .voice-greeting-btn {
+      background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    }
   </style>
 </head>
 
@@ -1359,8 +1461,9 @@
           <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
             <ul class="navbar-nav d-md-inline-flex">
               <li class="nav-item">
-                <a class="nav-link " href="/#about" data-target="#about"><span>Home</span></a>
+                <a class="nav-link " href="/#home" data-target="#home"><span>Home</span></a>
               </li>
+              
               <li class="nav-item">
                 <a class="nav-link " href="/#section-skills" data-target="#section-skills"><span>Skills</span></a>
               </li>
@@ -1369,6 +1472,9 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="/#projects" data-target="#projects"><span>Projects</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/#about" data-target="#about"><span>About</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="/#contact" data-target="#contact"><span>Contact</span></a>
@@ -1404,7 +1510,12 @@
     <span class="js-widget-page d-none"></span>
 
 
-    <section id="about">
+    <!-- Voice Greeting Button -->
+    <button id="voiceGreetingBtn" class="voice-greeting-btn" title="Click to hear welcome message" aria-label="Play welcome greeting">
+      <i class="fas fa-volume-up"></i>
+    </button>
+
+    <section id="home">
       <div class="home-section-bg ">
       </div>
       <div class="container">
@@ -1454,13 +1565,9 @@
           </div>
           <div class="col-12 col-md-8">
             <div class="article-style">
-              <p style="text-align: justify;">I'm Siwani Sah, a passionate Software Engineer and Graduate Assistant pursuing my Master's in Computer Science at Florida Polytechnic University. With a strong foundation in full-stack development, I specialize in designing and deploying scalable web applications and enterprise-level ERP systems that solve real-world business challenges.</p>
-              <p style="text-align: justify;">My journey in technology has been driven by a commitment to excellence and innovation. I excel at translating complex business requirements into efficient, high-performance solutions that deliver measurable results. Currently, I serve as a Technical Lead at Google Developer Group (GDG) at campus.</p>
-              <p style="text-align: justify;">As a lifelong learner, I'm continuously expanding my expertise and am currently pursuing certification in Prompt Design with Vertex AI to stay at the forefront of AI-driven solutions. When I'm not coding or researching, I'm passionate about sharing knowledge, mentoring peers, and contributing to the tech community.</p>
+              <p style="text-align: justify;">I'm Siwani Sah, a Software Engineer and Graduate Assistant pursuing my Master's in Computer Science at Florida Polytechnic University. I specialize in web development, with expertise in both front-end and back-end technologies, building scalable web applications and enterprise ERP systems. Currently serving as Technical Lead at the on-campus Google Developer Group (GDG), I'm passionate about innovation and mentoring in the tech community.</p>
             </div>
             <div class="row">
-           
-           
                 <div class="section-subheading">Education</div>
                 <ul class="ul-edu fa-ul mb-0">
                   <li>
@@ -2096,6 +2203,36 @@
       </div>
     </section>
 
+    <section id="about">
+      <div class="home-section-bg ">
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="section-heading col-12 mb-3 d-flex align-items-center">
+            <h1 class="mb-0 skills-header-box" style="background-color: #2F2F2F; width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;">About</h1>
+            <div class="heading-rule" aria-hidden="true"></div>
+          </div>
+          <div class="col-12 col-lg-10 mx-auto">
+            <div class="card about-card shadow-sm border-0">
+              <div class="rainbow-smoke" aria-hidden="true"></div>
+              <!-- Gradient Border -->
+              <div class="gradient-border"></div>
+              <div class="card-body">
+                <div class="article-style">
+                  <h3 class="mb-3 text-center">About Me</h3>
+                  <p style="text-align: justify;">My passion for technology began during my undergraduate studies at Visvesvaraya Technological University in Bangalore, India, where I earned my Bachelor of Engineering in Computer Science. It was there that I first discovered my love for building software solutions that make a real impact.</p>
+                  <p style="text-align: justify;">After completing my bachelor's degree, I joined Professional Computer System (P) Ltd as a Software Engineer, where I had the opportunity to work on large-scale enterprise ERP systems. During my time there, I contributed to critical projects for organizations like the Institute of Chartered Accountants of Nepal (ICAN), Nepal Tourism Board (NTB), and Nepal Election Commission. These experiences taught me the importance of writing clean, maintainable code and working collaboratively with clients to deliver solutions that exceed expectations.</p>
+                  <p style="text-align: justify;">Driven by a desire to deepen my knowledge and explore cutting-edge technologies, I decided to pursue my Master's degree at Florida Polytechnic University. As a Graduate Assistant, I've had the privilege of working closely with professors on research initiatives in AI/ML, distributed systems, and cloud computing. I also serve as a Teaching Assistant for Machine Learning and C Programming courses, where I help guide the next generation of computer Engineers.</p>
+                  <p style="text-align: justify;">As a lifelong learner, I'm continuously expanding my expertise and am currently pursuing certification in Prompt Design with Vertex AI to stay at the forefront of AI-driven solutions. When I'm not coding or researching, I'm passionate about sharing knowledge, mentoring peers, and contributing to the tech community through my role as Technical Lead at GDG.</p>
+                  <p style="text-align: justify;">My goal is to continue growing as a software engineer, contributing to innovative projects that solve real-world problems, and inspiring others in the tech community through my work.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="contact">
       <div class="home-section-bg ">
       </div>
@@ -2276,7 +2413,7 @@
       overlay.id = 'fx-overlay';
       document.body.appendChild(overlay);
 
-      const targets = Array.from(document.querySelectorAll('#about .about-card, #section-skills .about-card, #section-experience .about-card, #projects .about-card, #contact .about-card'));
+      const targets = Array.from(document.querySelectorAll('#home .about-card, #about .about-card, #section-skills .about-card, #section-experience .about-card, #projects .about-card, #contact .about-card'));
 
       const palette = [
         '#ff4c78', // pink-red
@@ -2497,6 +2634,112 @@
         // Ensure we start at position 0
         container.scrollLeft = 0;
       }, 100);
+    })();
+  </script>
+
+  <!-- Voice Assistant - Welcome Greeting (Using Your Own Voice Recording) -->
+  <script>
+    (function() {
+      let greetingPlayed = false;
+      let isSpeaking = false;
+      let audioElement = null;
+      
+      // Path to your voice recording
+      // Supported formats: MP3, WAV, OGG, M4A, AAC
+      const voiceAudioPath = '/media/voice_greeting.aac'; // Your voice recording file
+      
+      function updateButtonIcon() {
+        const voiceBtn = document.getElementById('voiceGreetingBtn');
+        if (voiceBtn) {
+          const icon = voiceBtn.querySelector('i');
+          if (isSpeaking) {
+            icon.className = 'fas fa-stop';
+            voiceBtn.title = 'Click to stop the greeting';
+          } else {
+            icon.className = 'fas fa-volume-up';
+            voiceBtn.title = 'Click to hear welcome message';
+          }
+        }
+      }
+      
+      function stopGreeting() {
+        if (audioElement) {
+          audioElement.pause();
+          audioElement.currentTime = 0;
+          isSpeaking = false;
+          updateButtonIcon();
+        }
+      }
+      
+      function playGreeting() {
+        // If already playing, stop it
+        if (isSpeaking) {
+          stopGreeting();
+          return;
+        }
+        
+        // Create or reuse audio element
+        if (!audioElement) {
+          audioElement = new Audio(voiceAudioPath);
+          
+          // Handle when audio ends
+          audioElement.addEventListener('ended', function() {
+            isSpeaking = false;
+            updateButtonIcon();
+          });
+          
+          // Handle errors
+          audioElement.addEventListener('error', function(e) {
+            console.error('Error loading audio:', e);
+            isSpeaking = false;
+            updateButtonIcon();
+            // Fallback to text-to-speech if audio file not found
+            alert('Voice recording not found. Please add your voice recording at: ' + voiceAudioPath);
+          });
+        }
+        
+        // Reset and play
+        audioElement.currentTime = 0;
+        audioElement.volume = 0.9; // Set volume (0.0 to 1.0)
+        
+        // Play the audio
+        audioElement.play().then(function() {
+          isSpeaking = true;
+          updateButtonIcon();
+          
+          // Mark as played (only for auto-play)
+          if (!greetingPlayed) {
+            greetingPlayed = true;
+          }
+        }).catch(function(error) {
+          console.error('Error playing audio:', error);
+          isSpeaking = false;
+          updateButtonIcon();
+          alert('Could not play voice recording. Please check the audio file.');
+        });
+      }
+      
+      // Button click handler
+      const voiceBtn = document.getElementById('voiceGreetingBtn');
+      if (voiceBtn) {
+        voiceBtn.addEventListener('click', function() {
+          playGreeting();
+        });
+      }
+      
+      // Try to auto-play on first user interaction (click anywhere)
+      let userInteracted = false;
+      function handleUserInteraction() {
+        if (!userInteracted && !greetingPlayed) {
+          userInteracted = true;
+          setTimeout(playGreeting, 100);
+        }
+      }
+      
+      // Listen for any user interaction
+      document.addEventListener('click', handleUserInteraction, { once: true });
+      document.addEventListener('touchstart', handleUserInteraction, { once: true });
+      document.addEventListener('keydown', handleUserInteraction, { once: true });
     })();
   </script>
 

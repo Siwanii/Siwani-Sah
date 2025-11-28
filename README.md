@@ -1,6 +1,6 @@
 <!-- Banner -->
 <p align="center">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=160&section=header&text=Siwani%20Sah&fontSize=40&fontAlignY=35&animation=fadeIn&desc=Software%20Engineer%20%7C%20Full-Stack%20Developer%20%7C%20AI%2FML%20Enthusiast&descAlignY=55" />
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=160&section=header&text=Siwani%20Sah&fontSize=40&fontAlignY=35&animation=fadeIn&desc=Software%20Engineer%20%7C%20Graduate%20Assistant&descAlignY=55" />
 </p>
 
 ### 👨‍💻 About Me

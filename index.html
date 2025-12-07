@@ -84,7 +84,8 @@
   <link rel="alternate" href="/index.xml" type="application/rss+xml" title="SiwaniProfile" />
   <title>Siwani Sah</title>
   <style>
-    /* Multicolor moving smoke background for ALL cards (About/Skills/Experience/Projects/Contact) */
+    /* Multicolor moving smoke background for ALL cards (Home/About/Skills/Experience/Projects/Contact) */
+    #home .about-card,
     #about .about-card,
     #section-skills .about-card,
     #section-experience .about-card,
@@ -99,7 +100,8 @@
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
     }
 
-    /* All cards sharp edges (About/Skills/Experience/Projects/Contact) */
+    /* All cards sharp edges (Home/About/Skills/Experience/Projects/Contact) */
+    #home .about-card,
     #about .about-card,
     #section-skills .about-card,
     #section-experience .about-card,
@@ -108,13 +110,21 @@
       border-radius: 0 !important;
     }
 
-    /* Outer border for ALL cards (About/Skills/Experience/Projects/Contact) */
+    /* Outer border for ALL cards (Home/About/Skills/Experience/Projects/Contact) */
+    #home .about-card,
     #about .about-card,
     #section-skills .about-card,
     #section-experience .about-card,
     #projects .about-card,
     #contact .about-card {
       border: 1.5px solid rgba(255, 255, 255, 0.45) !important;
+    }
+
+    /* Dark mode border for cards */
+    [data-theme="dark"] #section-experience .about-card,
+    .dark #section-experience .about-card,
+    html.dark #section-experience .about-card {
+      border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
     }
 
     /* Hover effect for Skills cards (transparent) */
@@ -143,6 +153,20 @@
     html.dark #projects .about-card:hover {
       box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15) !important;
       transition: all 0.3s ease;
+    }
+
+    /* Hover shadow effect for Home card - removed */
+    #home .about-card:hover {
+      box-shadow: none !important;
+      transform: none;
+    }
+
+    /* Dark mode hover effect for Home card - removed */
+    [data-theme="dark"] #home .about-card:hover,
+    .dark #home .about-card:hover,
+    html.dark #home .about-card:hover {
+      box-shadow: none !important;
+      transform: none;
     }
 
     /* Hover shadow effect for About card (same as Skills/Projects) */
@@ -177,20 +201,18 @@
       transition: all 0.3s ease;
     }
 
-    /* Hover effect for Contact card - same as About section */
+    /* Hover effect for Contact card - removed */
     #contact .about-card:hover {
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
-      transform: translateY(-2px);
-      transition: all 0.3s ease;
+      box-shadow: none !important;
+      transform: none;
     }
 
-    /* Dark mode hover effect for Contact card */
+    /* Dark mode hover effect for Contact card - removed */
     [data-theme="dark"] #contact .about-card:hover,
     .dark #contact .about-card:hover,
     html.dark #contact .about-card:hover {
-      box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15) !important;
-      transform: translateY(-2px);
-      transition: all 0.3s ease;
+      box-shadow: none !important;
+      transform: none;
     }
 
 
@@ -215,56 +237,136 @@
     }
     #section-experience .section-heading {
       margin-top: 0 !important;
+      position: sticky;
+      top: 70px;
+      /* z-index: 100; */
+      background: white;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.5rem !important;
     }
 
-    /* Increase Experience card-text font size to match Projects */
+    /* Dark mode for sticky header */
+    [data-theme="dark"] #section-experience .section-heading,
+    .dark #section-experience .section-heading,
+    html.dark #section-experience .section-heading {
+      background: #3f3f3f00;
+    }
+
+    /* Experience card-text font size */
     #section-experience .card-text {
-      font-size: 0.9rem !important;
+      font-size: 0.85rem !important;
       line-height: 1.5 !important;
     }
 
-    /* Add space above About section card */
-    #about {
+    /* Add space above Home section card */
+    #home {
       padding-top: 1rem !important;
-      padding-bottom: 2rem !important;
+      padding-bottom: 1rem !important;
     }
 
-    #about .container {
-      padding-top: 2rem !important;
+    #home .container {
+      padding-top: 1rem !important;
     }
 
-    /* About section card width */
-    #about .about-card {
-      max-width: 1050px;
+    /* Home section card width */
+    #home .about-card {
+      max-width: 1300px;
       margin-left: auto;
       margin-right: auto;
       background: transparent !important;
       backdrop-filter: none !important;
       border: none !important;
       box-shadow: none !important;
+      min-height: 350px !important;
     }
 
-    /* Hide gradient border in About section */
-    #about .gradient-border {
-      display: none !important;
+    /* Institution link hover and focus effect */
+    .institution a {
+      color: inherit !important;
+      text-decoration: none !important;
+      transition: color 0.3s ease, text-decoration 0.3s ease;
+      cursor: pointer;
     }
 
-    /* Dark mode for About card */
-    [data-theme="dark"] #about .about-card,
-    .dark #about .about-card,
-    html.dark #about .about-card {
+    .institution a:hover,
+    .institution a:focus {
+      color: #007bff !important;
+      text-decoration: underline !important;
+      outline: none;
+    }
+
+    /* Dark mode hover and focus effect for institution link */
+    [data-theme="dark"] .institution a:hover,
+    [data-theme="dark"] .institution a:focus,
+    .dark .institution a:hover,
+    .dark .institution a:focus,
+    html.dark .institution a:hover,
+    html.dark .institution a:focus {
+      color: #4da6ff !important;
+    }
+
+    /* Footer Navigation Height - Only affects footer, not header */
+    #navbar-footer {
+      min-height: 150px;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-top: 2px solid rgba(0, 0, 0, 0.1);
+      margin-top: 3rem;
+    }
+
+    #navbar-footer .container {
+      display: flex;
+      align-items: center;
+      min-height: 80px;
+    }
+
+    /* Dark mode footer border */
+    [data-theme="dark"] #navbar-footer,
+    .dark #navbar-footer,
+    html.dark #navbar-footer {
+      border-top-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Dark mode for Home card */
+    [data-theme="dark"] #home .about-card,
+    .dark #home .about-card,
+    html.dark #home .about-card {
       background: transparent !important;
       border: none !important;
       box-shadow: none !important;
     }
 
+    /* Home section avatar - rectangular shape */
+    #home .avatar {
+      border-radius: 12px !important;
+      object-fit: cover;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    /* Hover effect for home section avatar */
+    #home .avatar:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      border: 3px solid rgba(47, 47, 47, 0.3);
+    }
+
+    /* Dark mode hover effect for avatar */
+    [data-theme="dark"] #home .avatar:hover,
+    .dark #home .avatar:hover,
+    html.dark #home .avatar:hover {
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+      border: 3px solid rgba(255, 255, 255, 0.3);
+    }
+
     /* Add space above Experience section header */
     #section-experience {
-      padding-top: 3rem !important;
+      padding-top: 0 !important;
     }
 
     #section-experience .container {
-      padding-top: 1rem !important;
+      padding-top: 0 !important;
     }
 
     /* Contact card styling - same as About section */
@@ -279,10 +381,6 @@
       box-shadow: none !important;
     }
 
-    /* Hide gradient border in Contact section */
-    #contact .gradient-border {
-      display: none !important;
-    }
 
     /* Dark mode for Contact card */
     [data-theme="dark"] #contact .about-card,
@@ -447,6 +545,29 @@
         rgba(255, 255, 255, 0));
     }
 
+    /* About heading rule line extending to the right (same as other sections) */
+    #about .section-heading .heading-rule {
+      flex: 1 1 auto;
+      height: 2px;
+      margin-left: 12px;
+      background: linear-gradient(90deg,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0));
+    }
+
+    /* Dark mode: white line for About when dark theme is active */
+    [data-theme="dark"] #about .section-heading .heading-rule,
+    .dark #about .section-heading .heading-rule,
+    html.dark #about .section-heading .heading-rule {
+      background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0));
+    }
+
     /* Align Projects content to the right */
     #projects .col-lg-8 {
       margin-left: auto;
@@ -477,6 +598,20 @@
     }
     #projects .section-heading {
       margin-top: 0 !important;
+      position: sticky;
+      top: 70px;
+      /* z-index: 100; */
+      background: white;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.5rem !important;
+    }
+
+    /* Dark mode for sticky header */
+    [data-theme="dark"] #projects .section-heading,
+    .dark #projects .section-heading,
+    html.dark #projects .section-heading {
+      background: #3f3f3f00;
     }
 
     /* Remove extra space below project cards */
@@ -505,12 +640,13 @@
     /* Project Sticky Card Layout Styles */
     .project-sticky-container {
       position: relative;
-      padding-top: 6rem;
+      padding-top: 0.5rem;
+      z-index: 1;
     }
 
     .sticky-project-card {
       position: sticky;
-      top: 6rem;
+      top: 8.5rem;
       width: 100%;
       max-width: 800px;
       margin: 0 auto 3rem;
@@ -518,37 +654,38 @@
     }
 
     /* Reverse z-index so later cards appear on top when stacking */
+    /* Cards positioned below header: 70px navbar + ~1.5rem header height = ~8.5rem */
     .sticky-project-card:nth-child(1) { 
       z-index: 10; 
-      top: 6rem;
+      top: 8.5rem;
     }
     .sticky-project-card:nth-child(2) { 
       z-index: 20; 
-      top: calc(6rem + 1.5rem);
+      top: calc(8.5rem + 1.5rem);
     }
     .sticky-project-card:nth-child(3) { 
       z-index: 30; 
-      top: calc(6rem + 3rem);
+      top: calc(8.5rem + 3rem);
     }
     .sticky-project-card:nth-child(4) { 
       z-index: 40; 
-      top: calc(6rem + 4.5rem);
+      top: calc(8.5rem + 4.5rem);
     }
     .sticky-project-card:nth-child(5) { 
       z-index: 50; 
-      top: calc(6rem + 6rem);
+      top: calc(8.5rem + 6rem);
     }
     .sticky-project-card:nth-child(6) { 
       z-index: 60; 
-      top: calc(6rem + 7.5rem);
+      top: calc(8.5rem + 7.5rem);
     }
     .sticky-project-card:nth-child(7) { 
       z-index: 70; 
-      top: calc(6rem + 9rem);
+      top: calc(8.5rem + 9rem);
     }
-    .sticky-project-card:nth-child(8) { 
+    .sticky-project-card:nth-child(8) {
       z-index: 80; 
-      top: calc(6rem + 10.5rem);
+      top: calc(8.5rem + 10.5rem);
     }
 
     .sticky-project-card:last-child {
@@ -758,13 +895,18 @@
       opacity: 0.5;
     }
 
-    /* Remove gap above Skills */
+    /* Remove gap above Skills and reduce height */
     #section-skills {
       padding-top: 0 !important;
       margin-top: 0 !important;
+      padding-bottom: 0.5rem !important;
+      margin-bottom: 0.5rem !important;
     }
-    #section-skills .container { padding-top: 0 !important; }
-    #section-skills .section-heading { margin-top: 0 !important; }
+    #section-skills .container { 
+      padding-top: 0 !important;
+      padding-bottom: 0.5rem !important;
+    }
+    #section-skills .section-heading { margin-top: 0 !important; margin-bottom: 0.5rem !important; }
 
     /* Skills section card width and center it */
     #section-skills .about-card {
@@ -792,12 +934,30 @@
       box-shadow: none !important;
     }
 
+    /* Skills header box with dark multicolor gradient */
+    .skills-header-box {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 20%, #0f3460 40%, #533483 60%, #1a1a2e 80%, #16213e 100%) !important;
+      background-size: 200% 200% !important;
+      color: white !important;
+      font-weight: 700 !important;
+      animation: darkGradientShift 4s ease infinite !important;
+      border: none !important;
+    }
+
+    @keyframes darkGradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     /* Dark mode styling for Skills header box */
     [data-theme="dark"] .skills-header-box,
     .dark .skills-header-box,
     html.dark .skills-header-box {
-      background-color: white !important;
-      color: #2F2F2F !important;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 20%, #0f3460 40%, #533483 60%, #1a1a2e 80%, #16213e 100%) !important;
+      background-size: 200% 200% !important;
+      color: white !important;
+      animation: darkGradientShift 4s ease infinite !important;
     }
 
     /* Dark mode styling for Skills header lines */
@@ -808,6 +968,7 @@
     }
 
 
+    #home .about-card .card-body,
     #about .about-card .card-body,
     #section-skills .about-card .card-body,
     #section-experience .about-card .card-body,
@@ -816,15 +977,78 @@
       position: relative;
       z-index: 2; /* above rainbow-smoke */
       padding: 1rem 1.5rem;
+      font-size: 0.85rem !important;
     }
 
-    /* Tweak About spacing: add space inside card, remove extra section gap */
-    #about .about-card .card-body { padding-top: 0.75rem !important; padding-bottom: 1.25rem !important; }
-    #about { padding-bottom: 0 !important; margin-bottom: 0 !important; }
-    #about .container { padding-bottom: 0 !important; }
+    /* Tweak Home spacing: add space inside card, remove extra section gap */
+    #home .about-card .card-body { 
+      padding-top: 1rem !important; 
+      padding-bottom: 1rem !important; 
+      min-height: 300px !important;
+    }
+
+    /* General font size reduction for all card text content */
+    .card-body p,
+    .card-text,
+    .article-style p {
+      font-size: 0.85rem !important;
+      line-height: 1.6 !important;
+    }
+
+    /* Home section header with rainbow gradient */
+    #home .article-style h2 {
+      font-weight: 700 !important;
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: rainbowShift 3s ease infinite;
+    }
+
+    @keyframes rainbowShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Dark mode for header */
+    [data-theme="dark"] #home .article-style h2,
+    .dark #home .article-style h2,
+    html.dark #home .article-style h2 {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    #home { padding-bottom: 0 !important; margin-bottom: 0 !important; }
+    #home .container { padding-bottom: 0 !important; }
+
+    /* About section styling */
+    #about .about-card {
+      width: 85% !important;
+      max-width: 85% !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      background: rgba(255, 255, 255, 0.30) !important;
+      backdrop-filter: saturate(110%);
+    }
+
+    /* Dark mode for About card */
+    [data-theme="dark"] #about .about-card,
+    .dark #about .about-card,
+    html.dark #about .about-card {
+      background: rgba(0, 0, 0, 0.30) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+    }
 
     /* Trim extra space in Skills card bodies */
-    #section-skills .about-card .card-body { padding-bottom: 0.75rem !important; }
+    #section-skills .about-card .card-body { 
+      padding-top: 0.75rem !important;
+      padding-bottom: 0.5rem !important; 
+    }
     #section-skills .about-card .card-body > *:last-child { margin-bottom: 0 !important; }
 
     /* Remove extra space below text in Projects cards */
@@ -934,13 +1158,14 @@
 
     /* Experience Sticky Card Layout Styles */
     .experience-sticky-container {
+      z-index: 1;
       position: relative;
-      padding-top: 6rem;
+      padding-top: 0.5rem;
     }
 
     .sticky-experience-card {
       position: sticky;
-      top: 6rem;
+      top: 8.5rem;
       width: 100%;
       max-width: 800px;
       margin: 0 auto 3rem;
@@ -951,19 +1176,19 @@
     /* Reverse z-index so later cards appear on top when stacking */
     .sticky-experience-card:nth-child(1) { 
       z-index: 10; 
-      top: 6rem;
+      top: 8.5rem;
     }
     .sticky-experience-card:nth-child(2) { 
       z-index: 20; 
-      top: calc(6rem + 1.5rem);
+      top: calc(8.5rem + 1.5rem);
     }
     .sticky-experience-card:nth-child(3) { 
       z-index: 30; 
-      top: calc(6rem + 3rem);
+      top: calc(8.5rem + 3rem);
     }
     .sticky-experience-card:nth-child(4) { 
       z-index: 40; 
-      top: calc(6rem + 4.5rem);
+      top: calc(8.5rem + 4.5rem);
     }
 
     .sticky-experience-card:last-child {
@@ -1151,7 +1376,7 @@
     .dark .sticky-experience-card .about-card,
     html.dark .sticky-experience-card .about-card {
       background: rgba(20, 20, 20, 0.98) !important;
-      border: 2px solid rgba(255, 255, 255, 0.15) !important;
+      border: 2px solid rgba(255, 255, 255, 0.1) !important;
     }
 
 
@@ -1177,21 +1402,21 @@
 
 
     /* Keep only a little space below each Skills card */
-    #section-skills .stack-item { margin-bottom: -0.5rem  !important; }
+    #section-skills .stack-item { margin-bottom: -0.75rem  !important; }
     #section-skills .stack-item:last-child { margin-bottom: 0 !important; }
 
     /* Reduce spacing between Skills card text items */
     #section-skills .skills-content {
-      margin-bottom: 0.25rem !important;
+      margin-bottom: 0.15rem !important;
     }
     #section-skills .skills-content:last-child {
       margin-bottom: 0 !important;
     }
 
     /* Requested: adjust last card overlap and desktop stack spacing */
-    #section-skills .stack-item:last-child { margin-bottom: -80px !important; }
+    #section-skills .stack-item:last-child { margin-bottom: -100px !important; }
     @media (min-width: 768px) {
-      #section-skills .stack-item + .stack-item { margin-top: 0.5rem !important; }
+      #section-skills .stack-item + .stack-item { margin-top: 0.25rem !important; }
     }
 
 
@@ -1256,6 +1481,7 @@
     /* --- Colliding plumes like your reference image --- */
 
     /* Re-style rainbow-smoke container to render two side plumes that move inward and mix */
+    #home .about-card .rainbow-smoke,
     #about .about-card .rainbow-smoke,
     #section-skills .about-card .rainbow-smoke,
     #section-experience .about-card .rainbow-smoke,
@@ -1274,6 +1500,7 @@
     }
 
     /* Left plume (magenta/pink) */
+    #home .about-card .rainbow-smoke::before,
     #about .about-card .rainbow-smoke::before,
     #section-skills .about-card .rainbow-smoke::before,
     #section-experience .about-card .rainbow-smoke::before,
@@ -1295,6 +1522,7 @@
     }
 
     /* Right plume (cyan/blue) */
+    #home .about-card .rainbow-smoke::after,
     #about .about-card .rainbow-smoke::after,
     #section-skills .about-card .rainbow-smoke::after,
     #section-experience .about-card .rainbow-smoke::after,
@@ -1359,8 +1587,9 @@
           <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
             <ul class="navbar-nav d-md-inline-flex">
               <li class="nav-item">
-                <a class="nav-link " href="/#about" data-target="#about"><span>Home</span></a>
+                <a class="nav-link " href="/#home" data-target="#home"><span>Home</span></a>
               </li>
+              
               <li class="nav-item">
                 <a class="nav-link " href="/#section-skills" data-target="#section-skills"><span>Skills</span></a>
               </li>
@@ -1369,6 +1598,9 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="/#projects" data-target="#projects"><span>Projects</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/#about" data-target="#about"><span>About</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="/#contact" data-target="#contact"><span>Contact</span></a>
@@ -1404,7 +1636,7 @@
     <span class="js-widget-page d-none"></span>
 
 
-    <section id="about">
+    <section id="home">
       <div class="home-section-bg ">
       </div>
       <div class="container">
@@ -1416,11 +1648,10 @@
         <div class="row align-items-center">
           <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start">
             <div id="profile" class="text-center">
-              <img class="avatar avatar-circle" width="270" height="270" src="/authors/admin/Siwani.png"
+              <img class="avatar" width="270" height="270" src="/authors/admin/Siwani.png"
                 alt="Siwani Sah">
               <div class="portrait-title">
-                <h2>Siwani Sah</h2>
-                <h3>Graduate Assistant | Computer Science |Engineer</h3>
+                <h3>Graduate Assistant | Software Engineer</h3>
                 <h3>
                   <a href="https://floridapoly.edu/" target="_blank" rel="noopener">
                     <span>Lakeland, FL</span>
@@ -1454,27 +1685,24 @@
           </div>
           <div class="col-12 col-md-8">
             <div class="article-style">
-              <p style="text-align: justify;">I'm Siwani Sah, a passionate Software Engineer and Graduate Assistant pursuing my Master's in Computer Science at Florida Polytechnic University. With a strong foundation in full-stack development, I specialize in designing and deploying scalable web applications and enterprise-level ERP systems that solve real-world business challenges.</p>
-              <p style="text-align: justify;">My journey in technology has been driven by a commitment to excellence and innovation. I excel at translating complex business requirements into efficient, high-performance solutions that deliver measurable results. Currently, I serve as a Technical Lead at Google Developer Group (GDG) at campus.</p>
-              <p style="text-align: justify;">As a lifelong learner, I'm continuously expanding my expertise and am currently pursuing certification in Prompt Design with Vertex AI to stay at the forefront of AI-driven solutions. When I'm not coding or researching, I'm passionate about sharing knowledge, mentoring peers, and contributing to the tech community.</p>
+              <h2>👋 Hi, I'm Siwani Sah</h2>
+              <p style="text-align: justify;">A Software Engineer and Graduate Assistant pursuing my Master's in Computer Science at Florida Polytechnic University. I specialize in web development, with expertise in both front-end and back-end technologies, building scalable web applications and enterprise ERP systems. Currently serving as Technical Lead at the on-campus Google Developer Group (GDG), I'm passionate about innovation and mentoring in the tech community.</p>
             </div>
             <div class="row">
-           
-           
                 <div class="section-subheading">Education</div>
                 <ul class="ul-edu fa-ul mb-0">
                   <li>
                     <i class="fa-li fa-solid fa-graduation-cap"></i>
                     <div class="description">
                       <p class="course">Masters of Science, Major: Computer Science (Aug 2025-May 2027)</p>
-                      <p class="institution">Florida Polytechnic University, Florida, USA</p>
+                      <p class="institution"><a href="https://floridapoly.edu/" target="_blank" rel="noopener noreferrer">Florida Polytechnic University, Florida, USA</a></p>
                     </div>
                   </li>
                   <li>
                     <i class="fa-li fa-solid fa-graduation-cap"></i>
                     <div class="description">
                       <p class="course">Bachelor of Engineering, Major: Computer Science Engineering (sept 2017-Oct 2021)</p>
-                      <p class="institution">visvesvaraya technological university, Bangalore Technological Institute, Bangalore, India</p>
+                      <p class="institution"><a href="https://www.btibangalore.org/" target="_blank" rel="noopener noreferrer">visvesvaraya technological university, Bangalore Technological Institute, Bangalore, India</a></p>
                     </div>
                   </li>
                 </ul>
@@ -2096,6 +2324,36 @@
       </div>
     </section>
 
+    <section id="about">
+      <div class="home-section-bg ">
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="section-heading col-12 mb-3 d-flex align-items-center">
+            <h1 class="mb-0 skills-header-box" style="background-color: #2F2F2F; width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;">About</h1>
+            <div class="heading-rule" aria-hidden="true"></div>
+          </div>
+          <div class="col-12 col-lg-10 mx-auto">
+            <div class="card about-card shadow-sm border-0">
+              <div class="rainbow-smoke" aria-hidden="true"></div>
+              <!-- Gradient Border -->
+              <div class="gradient-border"></div>
+              <div class="card-body">
+                <div class="article-style">
+                  <h3 class="mb-3 text-center">About Me</h3>
+                  <p style="text-align: justify;">My passion for technology began during my undergraduate studies at Visvesvaraya Technological University in Bangalore, India, where I earned my Bachelor of Engineering in Computer Science. It was there that I first discovered my love for building software solutions that make a real impact.</p>
+                  <p style="text-align: justify;">After completing my bachelor's degree, I joined Professional Computer System (P) Ltd as a Software Engineer, where I had the opportunity to work on large-scale enterprise ERP systems. During my time there, I contributed to critical projects for organizations like the Institute of Chartered Accountants of Nepal (ICAN), Nepal Tourism Board (NTB), and Nepal Election Commission. These experiences taught me the importance of writing clean, maintainable code and working collaboratively with clients to deliver solutions that exceed expectations.</p>
+                  <p style="text-align: justify;">Driven by a desire to deepen my knowledge and explore cutting-edge technologies, I decided to pursue my Master's degree at Florida Polytechnic University. As a Graduate Assistant, I've had the privilege of working closely with professors on research initiatives in AI/ML, distributed systems, and cloud computing. I also serve as a Teaching Assistant for Machine Learning and C Programming courses, where I help guide the next generation of computer Engineers.</p>
+                  <p style="text-align: justify;">As a lifelong learner, I'm continuously expanding my expertise and am currently pursuing certification in Prompt Design with Vertex AI to stay at the forefront of AI-driven solutions. When I'm not coding or researching, I'm passionate about sharing knowledge, mentoring peers, and contributing to the tech community through my role as Technical Lead at GDG.</p>
+                  <p style="text-align: justify;">My goal is to continue growing as a software engineer, contributing to innovative projects that solve real-world problems, and inspiring others in the tech community through my work.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="contact">
       <div class="home-section-bg ">
       </div>
@@ -2157,6 +2415,7 @@
 
 
   <div class="page-footer">
+    <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-footer">
     <div class="container">
         <footer class="site-footer">
           <p class="powered-by social-links">
@@ -2176,10 +2435,11 @@
               <i class="fas fa-envelope fa-lg" aria-hidden="true"></i> Email
             </a>
           </p>
-          <p class="powered-by">  © Developer Portfolio by Siwani Sah
+          <p class="powered-by">  © Developer Siwani Sah
           </p>
         </footer>
     </div>
+  </nav>
   </div>
 
 
@@ -2219,6 +2479,110 @@
   </div>
 
   <script src="/js/wowchemy-publication.9137013a66774049159934c29c3f0205.js" type="module"></script>
+
+  <script>
+    // Experience header scroll behavior - allow header to scroll when last card is about to stick
+    (function() {
+      const experienceHeader = document.querySelector('#section-experience .section-heading');
+      const experienceCards = document.querySelectorAll('.sticky-experience-card');
+      const lastCard = experienceCards[experienceCards.length - 1];
+      
+      if (!experienceHeader || !lastCard) return;
+      
+      const navbarHeight = 70;
+      const headerStickyTop = navbarHeight; // Header sticks at 70px
+      const lastCardStickyTop = 8.5 * 16; // Last card sticks at 8.5rem = 136px
+      
+      function checkLastCardPosition() {
+        if (!lastCard) return;
+        
+        const lastCardRect = lastCard.getBoundingClientRect();
+        const headerRect = experienceHeader.getBoundingClientRect();
+        
+        // Calculate when last card is about to reach its sticky position
+        // Last card's sticky top is 8.5rem (136px) from viewport top
+        // When last card's top is close to its sticky position, allow header to scroll
+        const distanceToSticky = lastCardRect.top - lastCardStickyTop;
+        
+        // When last card is within 100px of its sticky position, make header scrollable
+        if (distanceToSticky <= 100 && distanceToSticky >= -50) {
+          // Last card is about to stick - allow header to scroll
+          experienceHeader.style.position = 'relative';
+          experienceHeader.style.top = 'auto';
+          experienceHeader.classList.add('header-scrollable');
+        } else if (distanceToSticky > 100) {
+          // Last card hasn't reached sticky position yet - keep header sticky
+          experienceHeader.style.position = 'sticky';
+          experienceHeader.style.top = '70px';
+          experienceHeader.classList.remove('header-scrollable');
+        }
+      }
+      
+      // Check on scroll
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            checkLastCardPosition();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      // Initial check
+      checkLastCardPosition();
+    })();
+
+    // Projects header scroll behavior - allow header to scroll when last card is about to stick
+    (function() {
+      const projectsHeader = document.querySelector('#projects .section-heading');
+      const projectCards = document.querySelectorAll('.sticky-project-card');
+      const lastProjectCard = projectCards[projectCards.length - 1];
+      
+      if (!projectsHeader || !lastProjectCard) return;
+      
+      const navbarHeight = 70;
+      const lastCardStickyTop = 8.5 * 16; // Last card sticks at 8.5rem = 136px
+      
+      function checkLastProjectCardPosition() {
+        if (!lastProjectCard) return;
+        
+        const lastCardRect = lastProjectCard.getBoundingClientRect();
+        
+        // Calculate when last card is about to reach its sticky position
+        const distanceToSticky = lastCardRect.top - lastCardStickyTop;
+        
+        // When last card is within 100px of its sticky position, make header scrollable
+        if (distanceToSticky <= 100 && distanceToSticky >= -50) {
+          // Last card is about to stick - allow header to scroll
+          projectsHeader.style.position = 'relative';
+          projectsHeader.style.top = 'auto';
+          projectsHeader.classList.add('header-scrollable');
+        } else if (distanceToSticky > 100) {
+          // Last card hasn't reached sticky position yet - keep header sticky
+          projectsHeader.style.position = 'sticky';
+          projectsHeader.style.top = '70px';
+          projectsHeader.classList.remove('header-scrollable');
+        }
+      }
+      
+      // Check on scroll
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            checkLastProjectCardPosition();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      // Initial check
+      checkLastProjectCardPosition();
+    })();
+  </script>
 
   <script>
     // Contact form handling
@@ -2276,7 +2640,7 @@
       overlay.id = 'fx-overlay';
       document.body.appendChild(overlay);
 
-      const targets = Array.from(document.querySelectorAll('#about .about-card, #section-skills .about-card, #section-experience .about-card, #projects .about-card, #contact .about-card'));
+      const targets = Array.from(document.querySelectorAll('#home .about-card, #about .about-card, #section-skills .about-card, #section-experience .about-card, #projects .about-card, #contact .about-card'));
 
       const palette = [
         '#ff4c78', // pink-red

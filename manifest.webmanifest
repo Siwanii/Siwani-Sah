@@ -5,10 +5,10 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#1565c0",
+  "theme_color": "#4C1D95",
   "icons": [
     {
-      "src": "/media/s_symbol.png",
+      "src": "/media/Siwani.png",
       "sizes": "512x512",
       "type": "image/png"
     }

@@ -70,9 +70,9 @@
   <meta name="author" content="Siwani Sah" />
   <meta name="description" content="Graduate Assistant | Computer Science |Engineer" />
   <link rel="manifest" href="/manifest.webmanifest" />
-  <link rel="icon" type="image/png" href="/media/s_symbol.png" />
-  <link rel="apple-touch-icon" type="image/png" href="/media/s_symbol.png" />
-  <meta name="theme-color" content="#1565c0" />
+  <link rel="icon" type="image/png" href="/media/Siwani.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/Siwani.png" />
+  <meta name="theme-color" content="#4C1D95" />
   <meta property="twitter:card" content="summary" />
   <meta property="profile:first_name" content="Siwani">
   <meta property="og:type" content="profile" />
@@ -87,7 +87,13 @@
     /* Multicolor moving smoke background for ALL cards (Home/About/Skills/Experience/Projects/Contact) */
     #home .about-card,
     #about .about-card,
-    #section-skills .about-card,
+    #section-skills .about-card {
+      position: relative;
+      border: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
     #section-experience .about-card,
     #projects .about-card,
     #contact .about-card {
@@ -103,7 +109,11 @@
     /* All cards sharp edges (Home/About/Skills/Experience/Projects/Contact) */
     #home .about-card,
     #about .about-card,
-    #section-skills .about-card,
+    #section-skills .about-card {
+      border-radius: 0 !important;
+      background: transparent !important;
+    }
+
     #section-experience .about-card,
     #projects .about-card,
     #contact .about-card {
@@ -113,7 +123,11 @@
     /* Outer border for ALL cards (Home/About/Skills/Experience/Projects/Contact) */
     #home .about-card,
     #about .about-card,
-    #section-skills .about-card,
+    #section-skills .about-card {
+      border: none !important;
+      background: transparent !important;
+    }
+
     #section-experience .about-card,
     #projects .about-card,
     #contact .about-card {
@@ -256,7 +270,22 @@
     /* Experience card-text font size */
     #section-experience .card-text {
       font-size: 0.85rem !important;
-      line-height: 1.5 !important;
+      line-height: 1.8 !important;
+    }
+
+    /* Experience section list spacing - make bullet points more breathable */
+    #section-experience .card-text ul {
+      padding-left: 1.5rem;
+      margin-bottom: 0;
+    }
+
+    #section-experience .card-text li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+    }
+
+    #section-experience .card-text li:last-child {
+      margin-bottom: 0;
     }
 
     /* Add space above Home section card */
@@ -291,7 +320,7 @@
 
     .institution a:hover,
     .institution a:focus {
-      color: #007bff !important;
+      color: #4C1D95 !important;
       text-decoration: underline !important;
       outline: none;
     }
@@ -303,7 +332,7 @@
     .dark .institution a:focus,
     html.dark .institution a:hover,
     html.dark .institution a:focus {
-      color: #4da6ff !important;
+      color: #5B21B6 !important;
     }
 
     /* Footer Navigation Height - Only affects footer, not header */
@@ -713,6 +742,7 @@
       position: relative;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       background: transparent;
       z-index: 3;
       border-bottom: none;
@@ -756,7 +786,7 @@
     }
 
     .project-name:hover {
-      color: #ff69b4;
+      color: #4C1D95;
       text-decoration: none;
     }
 
@@ -770,7 +800,140 @@
     [data-theme="dark"] .project-name:hover,
     .dark .project-name:hover,
     html.dark .project-name:hover {
-      color: #ff69b4;
+      color: #5B21B6;
+    }
+
+    /* Code button in project header */
+    .project-code-btn {
+      padding: 0.4rem 0.9rem;
+      background-color: #4C1D95;
+      color: #fff !important;
+      border: none;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+
+    .project-code-btn:hover {
+      background-color: #3B1A7A;
+      color: #fff !important;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 6px 20px rgba(76, 29, 149, 0.5);
+      text-decoration: none;
+    }
+
+    .project-code-btn:active {
+      transform: translateY(0) scale(1.02);
+      box-shadow: 0 2px 8px rgba(76, 29, 149, 0.4);
+    }
+
+    [data-theme="dark"] .project-code-btn,
+    .dark .project-code-btn,
+    html.dark .project-code-btn {
+      background-color: #4C1D95;
+      color: #fff !important;
+    }
+
+    [data-theme="dark"] .project-code-btn:hover,
+    .dark .project-code-btn:hover,
+    html.dark .project-code-btn:hover {
+      background-color: #5B21B6;
+      color: #fff !important;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 6px 20px rgba(91, 33, 182, 0.6);
+    }
+
+    [data-theme="dark"] .project-code-btn:active,
+    .dark .project-code-btn:active,
+    html.dark .project-code-btn:active {
+      transform: translateY(0) scale(1.02);
+      box-shadow: 0 2px 8px rgba(91, 33, 182, 0.5);
+    }
+
+    /* Dark Purple Accent Color - Buttons */
+    .btn-primary {
+      background-color: #4C1D95 !important;
+      border-color: #4C1D95 !important;
+      color: #fff !important;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active {
+      background-color: #3B1A7A !important;
+      border-color: #3B1A7A !important;
+      color: #fff !important;
+    }
+
+    .btn-outline-primary {
+      color: #4C1D95 !important;
+      border-color: #4C1D95 !important;
+      background-color: transparent !important;
+    }
+
+    .btn-outline-primary:hover,
+    .btn-outline-primary:focus,
+    .btn-outline-primary:active {
+      background-color: #4C1D95 !important;
+      border-color: #4C1D95 !important;
+      color: #fff !important;
+    }
+
+    /* Dark Purple Accent Color - Links */
+    a {
+      color: #4C1D95;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #3B1A7A;
+    }
+
+    /* Dark mode links */
+    [data-theme="dark"] a,
+    .dark a,
+    html.dark a {
+      color: #5B21B6;
+    }
+
+    [data-theme="dark"] a:hover,
+    .dark a:hover,
+    html.dark a:hover {
+      color: #5B21B6;
+    }
+
+    /* Dark Purple for icons and other accent elements */
+    .nav-link:hover {
+      color: #4C1D95 !important;
+    }
+
+    [data-theme="dark"] .nav-link:hover,
+    .dark .nav-link:hover,
+    html.dark .nav-link:hover {
+      color: #5B21B6 !important;
+    }
+
+    /* Social media icons - Dark Purple accent */
+    .big-icon {
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .big-icon:hover {
+      color: #4C1D95 !important;
+      transform: scale(1.1);
+    }
+
+    [data-theme="dark"] .big-icon:hover,
+    .dark .big-icon:hover,
+    html.dark .big-icon:hover {
+      color: #5B21B6 !important;
     }
 
     /* Hover effects for sticky project cards */
@@ -846,6 +1009,22 @@
       flex: 1;
       overflow-y: auto;
       max-height: 420px;
+      line-height: 1.8;
+    }
+
+    /* Sticky project card list spacing */
+    .sticky-project-card .card-text ul {
+      padding-left: 1.5rem;
+      margin-bottom: 0;
+    }
+
+    .sticky-project-card .card-text li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+    }
+
+    .sticky-project-card .card-text li:last-child {
+      margin-bottom: 0;
     }
 
     /* Scrollbar styling for card text */
@@ -925,39 +1104,44 @@
       display: none !important;
     }
 
-    /* Dark mode for Skills card */
+    /* Dark mode for Skills card - remove card background */
     [data-theme="dark"] #section-skills .about-card,
     .dark #section-skills .about-card,
     html.dark #section-skills .about-card {
       background: transparent !important;
       border: none !important;
       box-shadow: none !important;
+      padding: 0 !important;
+      backdrop-filter: none !important;
     }
 
-    /* Skills header box with dark multicolor gradient */
+    /* Dark mode for Skills card-body - ensure transparent */
+    [data-theme="dark"] #section-skills .about-card .card-body,
+    .dark #section-skills .about-card .card-body,
+    html.dark #section-skills .about-card .card-body {
+      background: transparent !important;
+      background-color: transparent !important;
+      backdrop-filter: none !important;
+    }
+
+    /* Skills header box with darker rainbow gradient background */
     .skills-header-box {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 20%, #0f3460 40%, #533483 60%, #1a1a2e 80%, #16213e 100%) !important;
+      background: linear-gradient(135deg, #4c63d2 0%, #5a3a8a 25%, #c073d9 50%, #3a8ae8 75%, #00c8e8 100%) !important;
       background-size: 200% 200% !important;
       color: white !important;
       font-weight: 700 !important;
-      animation: darkGradientShift 4s ease infinite !important;
       border: none !important;
-    }
-
-    @keyframes darkGradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      animation: rainbowShift 3s ease infinite !important;
     }
 
     /* Dark mode styling for Skills header box */
     [data-theme="dark"] .skills-header-box,
     .dark .skills-header-box,
     html.dark .skills-header-box {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 20%, #0f3460 40%, #533483 60%, #1a1a2e 80%, #16213e 100%) !important;
+      background: linear-gradient(135deg, #4c63d2 0%, #5a3a8a 25%, #c073d9 50%, #3a8ae8 75%, #00c8e8 100%) !important;
       background-size: 200% 200% !important;
       color: white !important;
-      animation: darkGradientShift 4s ease infinite !important;
+      animation: rainbowShift 3s ease infinite !important;
     }
 
     /* Dark mode styling for Skills header lines */
@@ -970,7 +1154,14 @@
 
     #home .about-card .card-body,
     #about .about-card .card-body,
-    #section-skills .about-card .card-body,
+    #section-skills .about-card .card-body {
+      position: relative;
+      z-index: 2; /* above rainbow-smoke */
+      padding: 1rem 1.5rem;
+      font-size: 0.85rem !important;
+      background: transparent !important;
+    }
+
     #section-experience .about-card .card-body,
     #projects .about-card .card-body,
     #contact .about-card .card-body {
@@ -1054,9 +1245,21 @@
     /* Remove extra space below text in Projects cards */
     #projects .about-card .card-body { padding-bottom: 0.75rem !important; }
     #projects .about-card .card-body > *:last-child { margin-bottom: 0 !important; }
-    #projects .card-text { margin-bottom: 0 !important; }
-    #projects .card-text ul { margin-bottom: 0 !important; }
-    #projects .card-text li:last-child { margin-bottom: 0 !important; }
+    #projects .card-text { 
+      margin-bottom: 0 !important;
+      line-height: 1.8 !important;
+    }
+    #projects .card-text ul { 
+      margin-bottom: 0 !important;
+      padding-left: 1.5rem;
+    }
+    #projects .card-text li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+    }
+    #projects .card-text li:last-child { 
+      margin-bottom: 0 !important; 
+    }
 
 
     /* Skills Horizontal Scroll Styles */
@@ -1260,7 +1463,7 @@
     }
 
     .company-name:hover {
-      color: #ff69b4;
+      color: #4C1D95;
       text-decoration: none;
     }
 
@@ -1274,7 +1477,7 @@
     [data-theme="dark"] .company-name:hover,
     .dark .company-name:hover,
     html.dark .company-name:hover {
-      color: #ff69b4;
+      color: #5B21B6;
     }
 
     /* Hover effects for sticky experience cards */
@@ -1350,6 +1553,22 @@
       flex: 1;
       overflow-y: auto;
       max-height: 280px;
+      line-height: 1.8;
+    }
+
+    /* Sticky experience card list spacing */
+    .sticky-experience-card .card-text ul {
+      padding-left: 1.5rem;
+      margin-bottom: 0;
+    }
+
+    .sticky-experience-card .card-text li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+    }
+
+    .sticky-experience-card .card-text li:last-child {
+      margin-bottom: 0;
     }
 
     /* Scrollbar styling for card text */
@@ -1564,6 +1783,7 @@
       50%  { transform: scale(1.06); opacity: 0.28; }
       100% { transform: scale(1.12); opacity: 0.22; }
     }
+
   </style>
 </head>
 
@@ -1723,7 +1943,7 @@
         <div class="row">
             <div class="section-heading col-12 mb-3 text-center d-flex align-items-center justify-content-center">
               <span class="skills-header-line" style="width: 60px; height: 2px; background-color: #2F2F2F; display: inline-block; margin: 0 15px;"></span>
-              <h1 class="mb-0 skills-header-box" style="background-color: #2F2F2F; width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;">Skills</h1>
+              <h1 class="mb-0 skills-header-box" style="width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;"><i class="fas fa-code" style="margin-right: 0.5rem;"></i>Skills</h1>
               <span class="skills-header-line" style="width: 60px; height: 2px; background-color: #2F2F2F; display: inline-block; margin: 0 15px;"></span>
             </div>
          
@@ -1909,7 +2129,7 @@
       <div class="container">
         <div class="row  ">
             <div class="section-heading col-12 mb-3 mb-lg-0 d-flex align-items-center">
-              <h1 class="mb-0 skills-header-box" style="background-color: #2F2F2F; width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;">Experience</h1>
+              <h1 class="mb-0 skills-header-box" style="width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;"><i class="fas fa-briefcase" style="margin-right: 0.5rem;"></i>Experience</h1>
               <div class="heading-rule" aria-hidden="true"></div>
             </div>
           <div class="col-12 col-lg-10 ml-auto">
@@ -2076,7 +2296,7 @@
       <div class="container">
         <div class="row">
           <div class="section-heading col-12 mb-3 d-flex align-items-center">
-            <h1 class="mb-0 skills-header-box" style="background-color: #2F2F2F; width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;">Projects</h1>
+            <h1 class="mb-0 skills-header-box" style="width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;"><i class="fas fa-folder-open" style="margin-right: 0.5rem;"></i>Projects</h1>
             <div class="heading-rule" aria-hidden="true"></div>
           </div>
           <div class="col-12 col-lg-10 ml-auto">
@@ -2112,7 +2332,7 @@
                 </div>
               </div>
 
-              <!-- Project 2: AI Chat Assistant Project -->
+              <!-- Project 2: AgentFlow AI Assistant Project -->
               <div class="sticky-project-card">
                 <div class="card about-card shadow-sm border-0">
                   <div class="rainbow-smoke" aria-hidden="true"></div>
@@ -2125,18 +2345,22 @@
                         <i class="fas fa-robot" style="font-size: 24px; color: #2F2F2F;"></i>
                       </div>
                       <div class="project-name">
-                        AI Chat Assistant Project
+                        AgentFlow AI Assistant Project
                       </div>
                     </div>
+                    <a href="https://github.com/Siwanii/AgentFlow_AI" target="_blank" rel="noopener" class="project-code-btn" aria-label="View Code">
+                      Code
+                    </a>
                   </div>
                   <div class="card-body">
                     <div class="card-text">
                       <ul>
-                        <li>Developed a responsive AI Chat Assistant web application using Vanilla JavaScript, HTML, and CSS with intuitive front-end interface.</li>
-                        <li>Implemented asynchronous communication flow with POST requests and session management to Cloudflare Workers AI backend API.</li>
-                        <li>Enhanced user experience with real-time loading indicators, button state management, and server health checks.</li>
-                        <li>Focused on robust error handling, clean DOM manipulation, and modern web interface design principles.</li>
-                      </ul>
+                        <li>I built an autonomous agent that doesn't just respond, it actually decides which tools it needs, like jumping on the web to find live info or running a calculation to answer your question.</li>
+                        <li>Instead of using a standard server, I hosted everything on Cloudflare's edge network using Workers and Durable Objects to keep the chat history fast and responsive.</li>
+                        <li>I set up a RAG pipeline so you can upload PDFs and have a conversation with your own data; the assistant embeds the text and searches through it to find the right context.</li>
+                        <li>I added vision support using Llama 3.2, which lets the assistant "see" and describe any images you drop into the chat.</li>
+                        <li>For the heavy lifting, I integrated the Llama 3.3 70B model and used BGE-small embeddings to make sure the document retrieval is both accurate and quick.</li>
+                        </ul>
                     </div>
                   </div>
                 </div>
@@ -2244,14 +2468,19 @@
                         Employee Management System
                       </div>
                     </div>
+                    <a href="https://github.com/Siwanii/EmployeeManagement" target="_blank" rel="noopener" class="project-code-btn" aria-label="View Code">
+                      Code
+                    </a>
                   </div>
                   <div class="card-body">
                     <div class="card-text">
                       <ul>
-                        <li>Developed a full-stack Employee Management System using KnockoutJS, .NET, and MySQL to streamline HR operations and employee data management.</li>
-                        <li>Implemented comprehensive CRUD operations for employee data including create, read, update, and delete functionalities with secure database integration.</li>
-                        <li>Created user-friendly interfaces using KnockoutJS for data binding and enhanced data security with authentication and authorization features.</li>
-                        <li>Optimized performance and scalability by implementing efficient database queries, data validation, and responsive UI components for seamless user experience.</li>
+
+                        <li>Built a full-stack web application using ASP.NET Core 8 (MVC & Web API) to manage employee records, qualifications, and organizational data efficiently.</li>
+                        <li>Designed and implemented RESTful APIs with Entity Framework Core and PostgreSQL, ensuring secure data handling, proper JSON serialization, and smooth frontend–backend communication.</li>
+                        <li>Developed a responsive and interactive UI using MVC, JavaScript, jQuery, Knockout.js, and Bootstrap 5, focusing on usability, form validation, and clean layouts.</li>
+                        <li>Implemented complete CRUD functionality for employee and qualification management, including GPA tracking, real-time data updates, and user-friendly error handling.</li>
+                        <li>Solved real-world engineering challenges, such as database authentication issues, CORS configuration, API integration, and runtime compilation for faster development and debugging.</li>
                       </ul>
                     </div>
                   </div>
@@ -2274,6 +2503,9 @@
                         Academic Project(Bike Simulation System)
                       </div>
                     </div>
+                    <a href="https://github.com/Siwanii/Bike-Simulation" target="_blank" rel="noopener" class="project-code-btn" aria-label="View Code">
+                      Code
+                    </a>
                   </div>
                   <div class="card-body">
                     <div class="card-text">
@@ -2330,7 +2562,7 @@
       <div class="container">
         <div class="row">
           <div class="section-heading col-12 mb-3 d-flex align-items-center">
-            <h1 class="mb-0 skills-header-box" style="background-color: #2F2F2F; width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;">About</h1>
+            <h1 class="mb-0 skills-header-box" style="width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;"><i class="fas fa-user" style="margin-right: 0.5rem;"></i>About</h1>
             <div class="heading-rule" aria-hidden="true"></div>
           </div>
           <div class="col-12 col-lg-10 mx-auto">
@@ -2361,7 +2593,7 @@
         <div class="row  ">
           <div
             class="section-heading col-12 mb-3 mb-lg-0 d-flex align-items-center">
-            <h1 class="mb-0 skills-header-box" style="background-color: #2F2F2F; width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;">Contact</h1>
+            <h1 class="mb-0 skills-header-box" style="width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;"><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>Contact</h1>
             <div class="heading-rule" aria-hidden="true"></div>
           </div>
           <div class="col-12 col-lg-6 mx-auto">

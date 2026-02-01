@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -51,7 +50,6 @@
           }
         }
       });
-      console.debug("Outbound link clicked: " + url);
     }
 
     function onClickCallback(event) {
@@ -68,7 +66,7 @@
   </script>
 
   <meta name="author" content="Siwani Sah" />
-  <meta name="description" content="Graduate Assistant | Computer Science |Engineer" />
+  <meta name="description" content="Graduate Assistant | Computer Science | Engineer" />
   <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="icon" type="image/png" href="/media/Siwani.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/Siwani.png" />
@@ -78,7 +76,7 @@
   <meta property="og:type" content="profile" />
   <meta property="og:site_name" content="SiwaniProfile" />
   <meta property="og:title" content="SiwaniProfile" />
-  <meta property="og:description" content="Graduate Assistant | Computer Science |Engineer" />
+  <meta property="og:description" content="Graduate Assistant | Computer Science | Engineer" />
   <meta property="og:locale" content="en-us" />
   <meta property="og:updated_time" content="2022-10-24T00:00:00&#43;00:00" />
   <link rel="alternate" href="/index.xml" type="application/rss+xml" title="SiwaniProfile" />
@@ -248,14 +246,19 @@
     #section-experience .container {
       padding-top: 0 !important;
       padding-bottom: 1rem !important;
+      margin-top: 0 !important;
+    }
+    #section-experience .row {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
     }
     #section-experience .section-heading {
       margin-top: 0 !important;
+      padding-top: 0 !important;
       position: sticky;
       top: 70px;
       /* z-index: 100; */
       background: white;
-      padding-top: 0.5rem;
       padding-bottom: 0.5rem;
       margin-bottom: 0.5rem !important;
     }
@@ -288,17 +291,470 @@
       margin-bottom: 0;
     }
 
-    /* Add space above Home section card */
+    /* Modern Home Section Styles */
     #home {
-      padding-top: 1rem !important;
-      padding-bottom: 1rem !important;
+      padding-top: 0rem !important;
+      margin-top: 0rem !important;
+      padding-bottom: 4rem !important;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
     }
 
     #home .container {
-      padding-top: 1rem !important;
+      padding-top: 0rem !important;
+      padding-bottom: 2rem !important;
     }
 
-    /* Home section card width */
+    .home-hero-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .home-hero-content {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      margin-bottom: 0rem;
+      flex-wrap: wrap;
+    }
+
+    .home-hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    /* Available for Work Badge */
+    .available-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-left: 10px;
+      border-radius: 100px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: rgba(0, 0, 0, 0.03);
+      margin-bottom: -0.5rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .available-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #00ff88;
+      box-shadow: 
+        0 0 10px rgba(0, 255, 136, 0.8),
+        0 0 20px rgba(0, 255, 136, 0.6),
+        0 0 30px rgba(0, 255, 136, 0.4),
+        inset 0 0 10px rgba(0, 255, 136, 0.3);
+      animation: pulse-dot 2s ease-in-out infinite;
+      filter: brightness(1.2) saturate(1.5);
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { 
+        opacity: 1; 
+        transform: scale(1);
+        box-shadow: 
+          0 0 10px rgba(0, 255, 136, 0.8),
+          0 0 20px rgba(0, 255, 136, 0.6),
+          0 0 30px rgba(0, 255, 136, 0.4),
+          inset 0 0 10px rgba(0, 255, 136, 0.3);
+        filter: brightness(1.2) saturate(1.5);
+      }
+      50% { 
+        opacity: 1; 
+        transform: scale(1.15);
+        box-shadow: 
+          0 0 15px rgba(0, 255, 136, 1),
+          0 0 30px rgba(0, 255, 136, 0.8),
+          0 0 45px rgba(0, 255, 136, 0.6),
+          inset 0 0 15px rgba(0, 255, 136, 0.5);
+        filter: brightness(1.4) saturate(1.8);
+      }
+    }
+
+    .available-text {
+      font-size: 0.75rem;
+      color: #2F2F2F;
+      font-weight: 400;
+      padding-right: 10px;
+    }
+
+    [data-theme="dark"] .available-badge,
+    .dark .available-badge,
+    html.dark .available-badge {
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    [data-theme="dark"] .available-text,
+    .dark .available-text,
+    html.dark .available-text {
+      color: #fff;
+    }
+
+    .home-hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #2F2F2F;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    [data-theme="dark"] .home-hero-title,
+    .dark .home-hero-title,
+    html.dark .home-hero-title {
+      color: #fff;
+    }
+
+    .home-hero-subtitle {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #666;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+
+    [data-theme="dark"] .home-hero-subtitle,
+    .dark .home-hero-subtitle,
+    html.dark .home-hero-subtitle {
+      color: #ccc;
+    }
+
+    .home-hero-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 2rem;
+      text-align: justify;
+    }
+
+    [data-theme="dark"] .home-hero-description,
+    .dark .home-hero-description,
+    html.dark .home-hero-description {
+      color: #bbb;
+    }
+
+    .home-social-links {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* Keyboard Key Style for Social Links */
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px;
+      height: 50px;
+      padding: 0;
+      background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+      border: 1px solid #444;
+      border-bottom: 2px solid #0a0a0a;
+      border-radius: 10px;
+      box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.4),
+        0 6px 12px rgba(0, 0, 0, 0.3),
+        0 8px 16px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: all 0.1s ease;
+      position: relative;
+      color: #fff;
+      font-size: 1.2rem;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .social-link:hover {
+      transform: translateY(2px);
+      border-bottom: 1px solid #0a0a0a;
+      box-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+      color: #fff;
+    }
+
+    .social-link:active {
+      transform: translateY(3px);
+      border-bottom: 1px solid #000;
+      box-shadow: 
+        0 0 1px rgba(0, 0, 0, 0.5),
+        inset 0 2px 4px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+    }
+
+    /* Light mode styles for keyboard key */
+    [data-theme="light"] .social-link,
+    html:not([data-theme="dark"]):not(.dark) .social-link {
+      background: linear-gradient(136deg, #ffffff 0%, #6f59adb3 100%);
+      border: 2px solid #eef7ff8c;
+      border-bottom: 2px solid #b0b0b0;
+      color: #000000;
+      box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.15),
+        0 6px 12px rgba(0, 0, 0, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    [data-theme="light"] .social-link:hover,
+    html:not([data-theme="dark"]):not(.dark) .social-link:hover {
+      background: linear-gradient(180deg, #e8e8e8 0%, #d8d8d8 100%);
+      border-bottom: 1px solid #b0b0b0;
+      box-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.1),
+        0 2px 4px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      color: #2F2F2F;
+    }
+
+    [data-theme="light"] .social-link:active,
+    html:not([data-theme="dark"]):not(.dark) .social-link:active {
+      background: linear-gradient(180deg, #d8d8d8 0%, #c8c8c8 100%);
+      border-bottom: 1px solid #a0a0a0;
+      box-shadow: 
+        0 0 1px rgba(0, 0, 0, 0.1),
+        inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Explore More Button - Keyboard Key Style */
+    .explore-more-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+      border: 1px solid #444;
+      border-bottom: 2px solid #0a0a0a;
+      border-radius: 8px;
+      box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.4),
+        0 6px 12px rgba(0, 0, 0, 0.3),
+        0 8px 16px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: all 0.1s ease;
+      position: relative;
+      color: #fff;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .explore-more-btn:hover {
+      transform: translateY(2px);
+      border-bottom: 1px solid #0a0a0a;
+      box-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+      color: #fff;
+    }
+
+    .explore-more-btn:active {
+      transform: translateY(3px);
+      border-bottom: 1px solid #000;
+      box-shadow: 
+        0 0 1px rgba(0, 0, 0, 0.5),
+        inset 0 2px 4px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+    }
+
+    /* Light mode for Explore More Button */
+    [data-theme="light"] .explore-more-btn,
+    html:not([data-theme="dark"]):not(.dark) .explore-more-btn {
+      background: linear-gradient(180deg, #f5f5f5 0%, #e8e8e8 100%);
+      border: 1px solid #d0d0d0;
+      border-bottom: 2px solid #b0b0b0;
+      color: #2F2F2F;
+      box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.15),
+        0 6px 12px rgba(0, 0, 0, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    [data-theme="light"] .explore-more-btn:hover,
+    html:not([data-theme="dark"]):not(.dark) .explore-more-btn:hover {
+      background: linear-gradient(180deg, #e8e8e8 0%, #d8d8d8 100%);
+      border-bottom: 1px solid #b0b0b0;
+      box-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.1),
+        0 2px 4px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      color: #2F2F2F;
+    }
+
+    [data-theme="light"] .explore-more-btn:active,
+    html:not([data-theme="dark"]):not(.dark) .explore-more-btn:active {
+      background: linear-gradient(180deg, #d8d8d8 0%, #c8c8c8 100%);
+      border-bottom: 1px solid #a0a0a0;
+      box-shadow: 
+        0 0 1px rgba(0, 0, 0, 0.1),
+        inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .home-location {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .home-location i {
+      color: #4C1D95;
+    }
+
+    .location-link {
+      color: #4C1D95;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .location-link:hover {
+      color: #3B1A7A;
+      text-decoration: underline;
+    }
+
+    [data-theme="dark"] .home-location,
+    .dark .home-location,
+    html.dark .home-location {
+      color: #bbb;
+    }
+
+    [data-theme="dark"] .location-link,
+    .dark .location-link,
+    html.dark .location-link {
+      color: #5B21B6;
+    }
+
+    .home-hero-image {
+      flex-shrink: 0;
+    }
+
+    .home-avatar-wrapper {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+
+    .home-avatar {
+      width: 95%;
+      height: 95%;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .home-avatar:hover {
+      transform: scale(1.05);
+    }
+
+    /* Home Skills Section */
+    .home-skills-section {
+      margin-top: -1rem;
+      padding-top: 3rem;
+      border-top: none;
+    }
+
+    .home-skills-header {
+      margin-bottom: 2rem;
+    }
+
+    .home-skills-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #2F2F2F;
+      margin: 0;
+    }
+
+    [data-theme="dark"] .home-skills-title,
+    .dark .home-skills-title,
+    html.dark .home-skills-title {
+      color: #fff;
+    }
+
+    .home-skills-container {
+      position: relative;
+      padding: 0 50px;
+    }
+
+    /* Home Skills uses same scrolling styles as main skills section */
+    #homeSkillsContainer {
+      overflow-x: auto;
+      overflow-y: hidden;
+      width: 100%;
+      padding: 20px 0;
+      scroll-behavior: smooth;
+      position: relative;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    #homeSkillsContainer::-webkit-scrollbar {
+      display: none;
+    }
+
+    #homeSkillsContainer .skills-scroll {
+      display: flex;
+      gap: 2rem;
+      white-space: nowrap;
+      width: max-content;
+      animation: scroll-left 20s linear infinite;
+    }
+
+    #homeSkillsContainer:hover .skills-scroll {
+      animation-play-state: paused;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .home-hero-content {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .home-hero-title {
+        font-size: 2.5rem;
+      }
+
+      .home-hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .home-hero-description {
+        text-align: left;
+      }
+
+      .home-avatar-wrapper {
+        width: 250px;
+        height: 250px;
+        margin: 0 auto;
+      }
+
+      .home-skills-container {
+        padding: 0 40px;
+      }
+    }
+
+    /* Home section card width - keeping for compatibility */
     #home .about-card {
       max-width: 1300px;
       margin-left: auto;
@@ -528,6 +984,29 @@
         rgba(255, 255, 255, 0));
     }
 
+    /* Home Skills heading rule line extending to the right (same as Experience) */
+    #home .section-heading .heading-rule {
+      flex: 1 1 auto;
+      height: 2px;
+      margin-left: 50px;
+      background: linear-gradient(90deg,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0));
+    }
+
+    /* Dark mode: white line for Home Skills when dark theme is active */
+    [data-theme="dark"] #home .section-heading .heading-rule,
+    .dark #home .section-heading .heading-rule,
+    html.dark #home .section-heading .heading-rule {
+      background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0));
+    }
+
     /* Contact heading rule line extending to the right (same as Skills/Experience) */
     #contact .section-heading .heading-rule {
       flex: 1 1 auto;
@@ -677,7 +1156,7 @@
       position: sticky;
       top: 8.5rem;
       width: 100%;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto 3rem;
       z-index: 1;
     }
@@ -1214,8 +1693,8 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    #home { padding-bottom: 0 !important; margin-bottom: 0 !important; }
-    #home .container { padding-bottom: 0 !important; }
+    #home { padding-bottom: 0 !important; margin-bottom: 0 !important; padding-top: 0 !important; margin-top: 0 !important; }
+    #home .container { padding-bottom: 0 !important; padding-top: 0 !important; }
 
     /* About section styling */
     #about .about-card {
@@ -1370,7 +1849,7 @@
       position: sticky;
       top: 8.5rem;
       width: 100%;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto 3rem;
       z-index: 1;
     }
@@ -1453,6 +1932,28 @@
       flex-shrink: 0;
     }
 
+    .company-logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 4px;
+      box-sizing: border-box;
+    }
+
+    [data-theme="dark"] .company-logo,
+    .dark .company-logo,
+    html.dark .company-logo {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    [data-theme="light"] .company-logo,
+    html:not([data-theme="dark"]):not(.dark) .company-logo {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
     .company-name {
       color: #2F2F2F;
       font-size: 1rem;
@@ -1502,27 +2003,9 @@
       transition: all 0.3s ease !important;
     }
 
-    /* Ensure smoke animations work for sticky experience cards */
+    /* Rainbow smoke removed for experience cards */
     .sticky-experience-card .about-card .rainbow-smoke {
-      position: absolute;
-      inset: -14%;
-      border-radius: inherit;
-      overflow: hidden;
-      z-index: 1;
-      pointer-events: none;
-      mix-blend-mode: screen;
-      background: radial-gradient(40% 35% at 50% 50%, rgba(88, 0, 120, 0.10), transparent 70%);
-      filter: blur(20px);
-      opacity: 0.8;
-      will-change: transform, opacity;
-      animation: centerPulse 8s ease-in-out infinite alternate;
-    }
-
-    /* Enhanced hover effects for sticky experience cards */
-    .sticky-experience-card .about-card:hover .rainbow-smoke {
-      filter: blur(25px) saturate(1.2) !important;
-      opacity: 0.9 !important;
-      animation: centerPulseHover 6s ease-in-out infinite alternate !important;
+      display: none !important;
     }
 
     /* Ensure sticky cards have solid backgrounds and equal height */
@@ -1594,8 +2077,8 @@
     [data-theme="dark"] .sticky-experience-card .about-card,
     .dark .sticky-experience-card .about-card,
     html.dark .sticky-experience-card .about-card {
-      background: rgba(20, 20, 20, 0.98) !important;
-      border: 2px solid rgba(255, 255, 255, 0.1) !important;
+      background: rgba(40, 40, 40, 0.95) !important;
+      border: 2px solid rgba(255, 255, 255, 0.15) !important;
     }
 
 
@@ -1615,8 +2098,7 @@
 
     /* Ensure rainbow-smoke doesn't interfere with card visibility */
     .sticky-experience-card .rainbow-smoke {
-      z-index: 0 !important;
-      opacity: 0.5;
+      display: none !important;
     }
 
 
@@ -1703,7 +2185,11 @@
     #home .about-card .rainbow-smoke,
     #about .about-card .rainbow-smoke,
     #section-skills .about-card .rainbow-smoke,
-    #section-experience .about-card .rainbow-smoke,
+    /* Rainbow smoke removed for experience section */
+    #section-experience .about-card .rainbow-smoke {
+      display: none !important;
+    }
+    
     #projects .about-card .rainbow-smoke,
     #contact .about-card .rainbow-smoke {
       position: absolute;
@@ -1722,7 +2208,11 @@
     #home .about-card .rainbow-smoke::before,
     #about .about-card .rainbow-smoke::before,
     #section-skills .about-card .rainbow-smoke::before,
-    #section-experience .about-card .rainbow-smoke::before,
+    /* Rainbow smoke pseudo-elements removed for experience section */
+    #section-experience .about-card .rainbow-smoke::before {
+      display: none !important;
+    }
+    
     #projects .about-card .rainbow-smoke::before,
     #contact .about-card .rainbow-smoke::before {
       content: "";
@@ -1744,7 +2234,11 @@
     #home .about-card .rainbow-smoke::after,
     #about .about-card .rainbow-smoke::after,
     #section-skills .about-card .rainbow-smoke::after,
-    #section-experience .about-card .rainbow-smoke::after,
+    /* Rainbow smoke pseudo-elements removed for experience section */
+    #section-experience .about-card .rainbow-smoke::after {
+      display: none !important;
+    }
+    
     #projects .about-card .rainbow-smoke::after,
     #contact .about-card .rainbow-smoke::after {
       content: "";
@@ -1784,6 +2278,692 @@
       100% { transform: scale(1.12); opacity: 0.22; }
     }
 
+    /* ============================================
+       SCROLL PROGRESS INDICATOR
+       ============================================ */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #4C1D95, #ff69b4, #5B21B6, #4C1D95);
+      background-size: 200% 100%;
+      z-index: 10000;
+      transition: width 0.1s ease;
+      box-shadow: 0 0 10px rgba(76, 29, 149, 0.5);
+      animation: progressGradient 3s ease infinite;
+    }
+
+    @keyframes progressGradient {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* ============================================
+       FLOATING AVATAR ANIMATION
+       ============================================ */
+    .home-avatar {
+      animation: floatAvatar 3s ease-in-out infinite;
+    }
+
+    @keyframes floatAvatar {
+      0%, 100% { 
+        transform: translateY(0px) scale(1);
+      }
+      50% { 
+        transform: translateY(-15px) scale(1.02);
+      }
+    }
+
+    /* Smooth transition for avatar */
+    .home-avatar {
+      transition: transform 0.3s ease;
+    }
+
+    /* ============================================
+       PROJECTS SECTION - NEW DESIGN
+       ============================================ */
+    
+    /* Projects Section Background */
+    #projects {
+      position: relative;
+    }
+
+    #projects .home-section-bg {
+      background: linear-gradient(135deg, #0a0a0a00 0%, #0f0f0f00 50%, #1a1a1a00 100%);
+    }
+
+    [data-theme="dark"] #projects .home-section-bg,
+    .dark #projects .home-section-bg,
+    html.dark #projects .home-section-bg {
+      background: linear-gradient(135deg, #0a0a0a00 0%, #0f0f0f00 50%, #1a1a1a00 100%) !important;
+    }
+
+    [data-theme="dark"] #projects,
+    .dark #projects,
+    html.dark #projects {
+      background: #0a0a0a00;
+    }
+
+    [data-theme="light"] #projects .home-section-bg,
+    html:not([data-theme="dark"]):not(.dark) #projects .home-section-bg {
+      background: linear-gradient(135deg, #ffffff 0%, #fffdfd 50%, #fffdfd 100%
+100%
+);
+
+    }
+
+    /* Projects Header Section */
+    .projects-header-section {
+      margin-bottom: 3rem;
+    }
+
+    .projects-header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Green Pill Badge */
+    .projects-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #10b981;
+      color: #fff;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .projects-pill-badge i {
+      font-size: 0.875rem;
+    }
+
+    /* View All Projects Button */
+    .view-all-projects-btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      border-radius: 100px;
+    }
+
+    .view-all-projects-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    [data-theme="dark"] .view-all-projects-btn,
+    .dark .view-all-projects-btn,
+    html.dark .view-all-projects-btn {
+      border-color: rgba(255, 255, 255, 0.3) !important;
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+    }
+
+    [data-theme="dark"] .view-all-projects-btn:hover,
+    .dark .view-all-projects-btn:hover,
+    html.dark .view-all-projects-btn:hover {
+      background: rgba(255, 255, 255, 0.1) !important;
+      border-color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    [data-theme="light"] .view-all-projects-btn,
+    html:not([data-theme="dark"]):not(.dark) .view-all-projects-btn {
+      border-color: rgba(0, 0, 0, 0.2);
+      color: #2F2F2F;
+    }
+
+    [data-theme="light"] .view-all-projects-btn:hover,
+    html:not([data-theme="dark"]):not(.dark) .view-all-projects-btn:hover {
+      background: rgba(0, 0, 0, 0.05);
+      border-color: rgba(0, 0, 0, 0.3);
+    }
+
+    /* Projects Main Heading */
+    .projects-main-heading {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      margin-left: 60px;
+    }
+
+    [data-theme="dark"] .projects-main-heading,
+    .dark .projects-main-heading,
+    html.dark .projects-main-heading {
+      color: #ffffff !important;
+    }
+
+    [data-theme="light"] .projects-main-heading,
+    html:not([data-theme="dark"]):not(.dark) .projects-main-heading {
+      color: #2F2F2F;
+    }
+
+    /* Projects Description */
+    .projects-description {
+      font-size: 0.7rem;
+      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 624px;
+      margin-left: 60px;
+    }
+
+    [data-theme="dark"] .projects-description,
+    .dark .projects-description,
+    html.dark .projects-description {
+      color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    [data-theme="light"] .projects-description,
+    html:not([data-theme="dark"]):not(.dark) .projects-description {
+      color: #555;
+    }
+
+    /* Projects Grid Container */
+    .projects-grid-container {
+      margin-top: 3rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-left: 60px;
+    }
+
+    /* Hide projects beyond the first 3 on main page */
+    #projects .projects-grid .project-card:nth-child(n+4) {
+      display: none;
+    }
+
+    /* Project Card */
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      position: relative;
+      width: 100%;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    [data-theme="dark"] .project-card,
+    .dark .project-card,
+    html.dark .project-card {
+      background: rgba(20, 20, 20, 0.95) !important;
+      border-color: rgba(255, 255, 255, 0.2) !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    [data-theme="dark"] .project-card:hover,
+    .dark .project-card:hover,
+    html.dark .project-card:hover {
+      background: rgba(30, 30, 30, 1) !important;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6) !important;
+      border-color: rgba(255, 255, 255, 0.3) !important;
+      transform: translateY(-5px);
+    }
+
+    [data-theme="light"] .project-card,
+    html:not([data-theme="dark"]):not(.dark) .project-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="light"] .project-card:hover,
+    html:not([data-theme="dark"]):not(.dark) .project-card:hover {
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      border-color: rgba(0, 0, 0, 0.2);
+    }
+
+    /* Project Image */
+    .project-image-wrapper {
+      width: 100%;
+      height: 275px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    [data-theme="dark"] .project-image-wrapper,
+    .dark .project-image-wrapper,
+    html.dark .project-image-wrapper {
+      background: rgba(0, 0, 0, 0.5) !important;
+    }
+
+    [data-theme="light"] .project-image-wrapper,
+    html:not([data-theme="dark"]):not(.dark) .project-image-wrapper {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.05);
+    }
+
+    .project-image-wrapper {
+      cursor: pointer;
+    }
+
+    .project-image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="dark"] .project-image-placeholder,
+    .dark .project-image-placeholder,
+    html.dark .project-image-placeholder {
+      background: rgba(0, 0, 0, 0.6) !important;
+    }
+
+    [data-theme="dark"] .project-image-placeholder i,
+    .dark .project-image-placeholder i,
+    html.dark .project-image-placeholder i {
+      color: rgba(255, 255, 255, 0.4) !important;
+    }
+
+    [data-theme="light"] .project-image-placeholder,
+    html:not([data-theme="dark"]):not(.dark) .project-image-placeholder {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    /* Project Year */
+    .project-year {
+      padding: 1rem 1rem 0.25rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 500;
+    }
+
+    [data-theme="dark"] .project-year,
+    .dark .project-year,
+    html.dark .project-year {
+      color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    [data-theme="light"] .project-year,
+    html:not([data-theme="dark"]):not(.dark) .project-year {
+      color: #666;
+    }
+
+    /* Project Title */
+    .project-title {
+      padding: 0 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+      margin-top: 0.5rem;
+    }
+
+    [data-theme="dark"] .project-title,
+    .dark .project-title,
+    html.dark .project-title {
+      color: #ffffff !important;
+    }
+
+    [data-theme="light"] .project-title,
+    html:not([data-theme="dark"]):not(.dark) .project-title {
+      color: #2F2F2F;
+    }
+
+    /* Project Summary */
+    .project-summary {
+      padding: 0 1rem;
+      font-size: 0.7rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 1rem;
+    }
+
+    [data-theme="dark"] .project-summary,
+    .dark .project-summary,
+    html.dark .project-summary {
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    [data-theme="light"] .project-summary,
+    html:not([data-theme="dark"]):not(.dark) .project-summary {
+      color: #555;
+    }
+
+    /* Read More Link */
+    .project-read-more {
+      display: inline-block;
+      padding: 0 1rem 1rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .project-read-more:hover {
+      color: #10b981;
+    }
+
+    [data-theme="dark"] .project-read-more,
+    .dark .project-read-more,
+    html.dark .project-read-more {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    [data-theme="dark"] .project-read-more:hover,
+    .dark .project-read-more:hover,
+    html.dark .project-read-more:hover {
+      color: #10b981 !important;
+    }
+
+    [data-theme="light"] .project-read-more,
+    html:not([data-theme="dark"]):not(.dark) .project-read-more {
+      color: #2F2F2F;
+    }
+
+    [data-theme="light"] .project-read-more:hover,
+    html:not([data-theme="dark"]):not(.dark) .project-read-more:hover {
+      color: #4C1D95;
+    }
+
+    /* Project Modal */
+    .project-modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      overflow-y: auto;
+    }
+
+    .project-modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .project-modal-content {
+      background: #1a1a1a;
+      border-radius: 12px;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    [data-theme="light"] .project-modal-content,
+    html:not([data-theme="dark"]):not(.dark) .project-modal-content {
+      background: #fff;
+    }
+
+    .project-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      z-index: 10001;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .project-modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
+    }
+
+    [data-theme="light"] .project-modal-close,
+    html:not([data-theme="dark"]):not(.dark) .project-modal-close {
+      color: #2F2F2F;
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    #projectModalBody {
+      padding: 3rem;
+    }
+
+    .project-modal-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .project-modal-image:hover {
+      transform: scale(1.02);
+      opacity: 0.9;
+    }
+
+    .project-modal-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    [data-theme="light"] .project-modal-title,
+    html:not([data-theme="dark"]):not(.dark) .project-modal-title {
+      color: #2F2F2F;
+    }
+
+    .project-modal-year {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 1.5rem;
+    }
+
+    [data-theme="light"] .project-modal-year,
+    html:not([data-theme="dark"]):not(.dark) .project-modal-year {
+      color: #666;
+    }
+
+    .project-modal-description {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1rem;
+    }
+
+    [data-theme="light"] .project-modal-description,
+    html:not([data-theme="dark"]):not(.dark) .project-modal-description {
+      color: #555;
+    }
+
+    .project-modal-details ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .project-modal-details li {
+      padding: 0.75rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.5;
+      font-size: 0.8rem;
+    }
+
+    .project-modal-details li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #10b981;
+    }
+
+    [data-theme="light"] .project-modal-details li,
+    html:not([data-theme="dark"]):not(.dark) .project-modal-details li {
+      color: #555;
+    }
+
+    .project-modal-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #10b981;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .project-modal-link:hover {
+      background: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    }
+
+    /* Image Lightbox Modal */
+    .image-lightbox {
+      display: none;
+      position: fixed;
+      z-index: 10001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+
+    .image-lightbox.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .image-lightbox-content {
+      position: relative;
+      max-width: 95vw;
+      max-height: 95vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-lightbox img {
+      max-width: 100%;
+      max-height: 95vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .image-lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      z-index: 10002;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .image-lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(90deg);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .projects-main-heading {
+        font-size: 1.75rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-header-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .project-modal-content {
+        margin: 1rem;
+        max-height: 95vh;
+      }
+
+      #projectModalBody {
+        padding: 2rem 1.5rem;
+      }
+
+      .image-lightbox.active {
+        padding: 1rem;
+      }
+
+      .image-lightbox-close {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 40px;
+        height: 40px;
+        font-size: 2rem;
+      }
+    }
+
   </style>
 </head>
 
@@ -1810,9 +2990,6 @@
                 <a class="nav-link " href="/#home" data-target="#home"><span>Home</span></a>
               </li>
               
-              <li class="nav-item">
-                <a class="nav-link " href="/#section-skills" data-target="#section-skills"><span>Skills</span></a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link " href="/#section-experience" data-target="#section-experience"><span>Experience</span></a>
               </li>
@@ -1857,116 +3034,74 @@
 
 
     <section id="home">
-      <div class="home-section-bg ">
-      </div>
+      <div class="home-section-bg"></div>
       <div class="container">
-        <div class="card about-card shadow-sm border-0">
-          <div class="rainbow-smoke" aria-hidden="true"></div>
-          <!-- Gradient Border -->
-          <div class="gradient-border"></div>
-          <div class="card-body">
-        <div class="row align-items-center">
-          <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start">
-            <div id="profile" class="text-center">
-              <img class="avatar" width="270" height="270" src="/authors/admin/Siwani.png"
-                alt="Siwani Sah">
-              <div class="portrait-title">
-                <h3>Graduate Assistant | Software Engineer</h3>
-                <h3>
-                  <a href="https://floridapoly.edu/" target="_blank" rel="noopener">
-                    <span>Lakeland, FL</span>
-                  </a>
-                </h3>
+        <div class="home-hero-wrapper">
+          <!-- Hero Content -->
+          <div class="home-hero-content">
+            <div class="home-hero-text">
+              <div class="article-style">
+              <!-- Available Badge -->
+              <div class="available-badge">
+                <span class="available-dot"></span>
+                <span class="available-text">Available for work</span>
               </div>
-              <ul class="network-icon" aria-hidden="true">
-                <li>
-                  <a href="https://www.linkedin.com/in/siwanisah/" target="_blank" rel="noopener"
-                    aria-label="linkedin">
-                    <i class="fab fa-linkedin big-icon"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/Siwanii" target="_blank" rel="noopener" aria-label="github">
-                    <i class="fab fa-github big-icon"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="/#contact" aria-label="envelope">
-                    <i class="fas fa-envelope big-icon"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="/uploads/Siwani_Sah_Resume.pdf" aria-label="cv">
-                    <i class="ai ai-cv big-icon"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-12 col-md-8">
-            <div class="article-style">
               <h2>👋 Hi, I'm Siwani Sah</h2>
-              <p style="text-align: justify;">A Software Engineer and Graduate Assistant pursuing my Master's in Computer Science at Florida Polytechnic University. I specialize in web development, with expertise in both front-end and back-end technologies, building scalable web applications and enterprise ERP systems. Currently serving as Technical Lead at the on-campus Google Developer Group (GDG), I'm passionate about innovation and mentoring in the tech community.</p>
-            </div>
-            <div class="row">
-                <div class="section-subheading">Education</div>
-                <ul class="ul-edu fa-ul mb-0">
-                  <li>
-                    <i class="fa-li fa-solid fa-graduation-cap"></i>
-                    <div class="description">
-                      <p class="course">Masters of Science, Major: Computer Science (Aug 2025-May 2027)</p>
-                      <p class="institution"><a href="https://floridapoly.edu/" target="_blank" rel="noopener noreferrer">Florida Polytechnic University, Florida, USA</a></p>
-                    </div>
-                  </li>
-                  <li>
-                    <i class="fa-li fa-solid fa-graduation-cap"></i>
-                    <div class="description">
-                      <p class="course">Bachelor of Engineering, Major: Computer Science Engineering (sept 2017-Oct 2021)</p>
-                      <p class="institution"><a href="https://www.btibangalore.org/" target="_blank" rel="noopener noreferrer">visvesvaraya technological university, Bangalore Technological Institute, Bangalore, India</a></p>
-                    </div>
-                  </li>
-                </ul>
+                
+              <p class="home-hero-description">
+                A Software Engineer and Graduate Assistant pursuing my Master's in Computer Science at Florida Polytechnic University. 
+                I specialize in web development, with expertise in both front-end and back-end technologies, building scalable web 
+                applications and enterprise ERP systems. 
+              </p>
               
+              <!-- Social Links - Keyboard Key Style -->
+              <div class="home-social-links">
+                <a href="https://github.com/Siwanii" target="_blank" rel="noopener" aria-label="GitHub" class="social-link">
+                  <i class="fab fa-github"></i>
+                  </a>
+                <a href="https://www.linkedin.com/in/siwanisah/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+                  <i class="fab fa-linkedin"></i>
+                  </a>
+                <a href="/uploads/Siwani_Sah_Resume.pdf" aria-label="Resume" class="social-link">
+                  <i class="far fa-file-alt"></i>
+                  </a>
+                <a href="/#contact" aria-label="Email" class="social-link">
+                  <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+          </div>
+            </div>
+
+            <!-- Profile Image -->
+            <div class="home-hero-image">
+              <div class="home-avatar-wrapper">
+                <img class="home-avatar" src="/authors/admin/Siwani.png" alt="Siwani Sah">
             </div>
           </div>
         </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-
-    <section id="section-skills">
-      <div class="home-section-bg ">
+          <!-- Skills Section in Home -->
+          <div class="section-heading col-12 mb-3 mb-lg-0 d-flex align-items-center">
+            <h1 class="mb-0 skills-header-box" style="width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 0.875rem; border-radius: 100px; margin: 0 -28px;"><i class="fas fa-briefcase" style="margin-right: 0.5rem;"></i>Skills</h1>
+            <div class="heading-rule" aria-hidden="true"></div>
       </div>
-      <div class="container">
-        <div class="row">
-            <div class="section-heading col-12 mb-3 text-center d-flex align-items-center justify-content-center">
-              <span class="skills-header-line" style="width: 60px; height: 2px; background-color: #2F2F2F; display: inline-block; margin: 0 15px;"></span>
-              <h1 class="mb-0 skills-header-box" style="width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;"><i class="fas fa-code" style="margin-right: 0.5rem;"></i>Skills</h1>
-              <span class="skills-header-line" style="width: 60px; height: 2px; background-color: #2F2F2F; display: inline-block; margin: 0 15px;"></span>
-            </div>
-         
-          <div class="col-12 col-lg-10 mx-auto">
-            <div class="card about-card shadow-sm border-0" style="position: relative;">
-              <div class="rainbow-smoke" aria-hidden="true"></div>
-              <!-- Gradient Border -->
-              <div class="gradient-border"></div>
-              <div class="card-body" style="position: relative; padding: 2rem;">
-                <button onclick="scrollSkills('left')" class="skills-scroll-nav-btn skills-scroll-nav-left" aria-label="Previous skills">
+          <div class="home-skills-section">
+           
+            <div class="home-skills-container" style="position: relative;">
+              <button onclick="scrollHomeSkills('left')" class="skills-scroll-nav-btn skills-scroll-nav-left" aria-label="Previous skills">
                   <span>&lt;</span>
                 </button>
-                <button onclick="scrollSkills('right')" class="skills-scroll-nav-btn skills-scroll-nav-right" aria-label="Next skills">
+              <button onclick="scrollHomeSkills('right')" class="skills-scroll-nav-btn skills-scroll-nav-right" aria-label="Next skills">
                   <span>&gt;</span>
                 </button>
-                <div class="skills-scroll-container" id="skillsContainer">
+              <div class="skills-scroll-container" id="homeSkillsContainer">
                   <div class="skills-scroll">
                     <!-- C# -->
                     <div class="skill-item">
                       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" />
                       <div class="skill-name">C#</div>
                     </div>
-                    <!-- Dot NET -->
+                  <!-- .NET -->
                     <div class="skill-item">
                       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt=".NET" />
                       <div class="skill-name">.NET</div>
@@ -1986,35 +3121,20 @@
                       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
                       <div class="skill-name">Python</div>
                     </div>
-                    <!-- C -->
+                  <!-- JavaScript -->
                     <div class="skill-item">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />
-                      <div class="skill-name">C</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                    <div class="skill-name">JavaScript</div>
                     </div>
                     <!-- HTML5 -->
                     <div class="skill-item">
                       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
                       <div class="skill-name">HTML5</div>
                     </div>
-                    <!-- CSS -->
+                  <!-- CSS3 -->
                     <div class="skill-item">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
-                      <div class="skill-name">CSS</div>
-                    </div>
-                    <!-- Knockout.js -->
-                    <div class="skill-item">
-                      <i class="fab fa-js" style="font-size: 50px; color: #e42e14;"></i>
-                      <div class="skill-name">Knockout.js</div>
-                    </div>
-                    <!-- Git/GitHub -->
-                    <div class="skill-item">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
-                      <div class="skill-name">Git/GitHub</div>
-                    </div>
-                    <!-- GitBase -->
-                    <div class="skill-item">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="GitBase" />
-                      <div class="skill-name">GitBase</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+                    <div class="skill-name">CSS3</div>
                     </div>
                     <!-- PostgreSQL -->
                     <div class="skill-item">
@@ -2026,10 +3146,10 @@
                       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
                       <div class="skill-name">MySQL</div>
                     </div>
-                    <!-- MSSQL -->
+                  <!-- Git -->
                     <div class="skill-item">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="MSSQL" />
-                      <div class="skill-name">MSSQL</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+                    <div class="skill-name">Git</div>
                     </div>
                     <!-- Linux -->
                     <div class="skill-item">
@@ -2043,7 +3163,7 @@
                       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" />
                       <div class="skill-name">C#</div>
                     </div>
-                    <!-- Dot NET -->
+                  <!-- .NET -->
                     <div class="skill-item">
                       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt=".NET" />
                       <div class="skill-name">.NET</div>
@@ -2063,35 +3183,20 @@
                       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
                       <div class="skill-name">Python</div>
                     </div>
-                    <!-- C -->
+                  <!-- JavaScript -->
                     <div class="skill-item">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />
-                      <div class="skill-name">C</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                    <div class="skill-name">JavaScript</div>
                     </div>
                     <!-- HTML5 -->
                     <div class="skill-item">
                       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
                       <div class="skill-name">HTML5</div>
                     </div>
-                    <!-- CSS -->
+                  <!-- CSS3 -->
                     <div class="skill-item">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
-                      <div class="skill-name">CSS</div>
-                    </div>
-                    <!-- Knockout.js -->
-                    <div class="skill-item">
-                      <i class="fab fa-js" style="font-size: 50px; color: #e42e14;"></i>
-                      <div class="skill-name">Knockout.js</div>
-                    </div>
-                    <!-- Git/GitHub -->
-                    <div class="skill-item">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
-                      <div class="skill-name">Git/GitHub</div>
-                    </div>
-                    <!-- GitBase -->
-                    <div class="skill-item">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="GitBase" />
-                      <div class="skill-name">GitBase</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+                    <div class="skill-name">CSS3</div>
                     </div>
                     <!-- PostgreSQL -->
                     <div class="skill-item">
@@ -2103,16 +3208,15 @@
                       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
                       <div class="skill-name">MySQL</div>
                     </div>
-                    <!-- MSSQL -->
+                  <!-- Git -->
                     <div class="skill-item">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="MSSQL" />
-                      <div class="skill-name">MSSQL</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+                    <div class="skill-name">Git</div>
                     </div>
                     <!-- Linux -->
                     <div class="skill-item">
                       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
                       <div class="skill-name">Linux</div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -2123,13 +3227,15 @@
     </section>
 
 
+
+
     <section id="section-experience">
       <div class="home-section-bg ">
       </div>
       <div class="container">
         <div class="row  ">
             <div class="section-heading col-12 mb-3 mb-lg-0 d-flex align-items-center">
-              <h1 class="mb-0 skills-header-box" style="width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;"><i class="fas fa-briefcase" style="margin-right: 0.5rem;"></i>Experience</h1>
+              <h1 class="mb-0 skills-header-box" style="width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 0.875rem; border-radius:100px; margin: 0 15px;"><i class="fas fa-briefcase" style="margin-right: 0.5rem;"></i>Experience</h1>
               <div class="heading-rule" aria-hidden="true"></div>
             </div>
           <div class="col-12 col-lg-10 ml-auto">
@@ -2138,15 +3244,12 @@
               <!-- Experience 1: Graduate Assistant -->
               <div class="sticky-experience-card">
                 <div class="card about-card shadow-sm border-0">
-                  <div class="rainbow-smoke" aria-hidden="true"></div>
                   <!-- Gradient Border -->
                   <div class="experience-gradient-border"></div>
                   <!-- Company Header -->
                   <div class="experience-header">
                     <div class="company-header">
-                      <div class="company-logo-placeholder">
-                        <i class="fas fa-university" style="font-size: 24px; color: #2F2F2F;"></i>
-                      </div>
+                      <img src="/media/floridapoly_logo.webp" alt="Florida Polytechnic University" class="company-logo">
                       <a href="https://floridapoly.edu/" target="_blank" rel="noopener" class="company-name">
                         Florida Polytechnic University
                       </a>
@@ -2161,14 +3264,9 @@
                     </div>
                     <div class="card-text">
                       <ul>
-                        <li>Collaborating with professor on research initiatives in AI/ML projects and supporting lab work.
-                        </li>
-                        <li>Teaching Assistant for Machine Learning CAP4612 and C Programming COP2271, grading assignments for 40+ students and providing hands-
-                          on coding support to undergraduate students.
-                        </li>
-                        <li>Maintaining detailed and accurate research records, preparing and contributing to reports
-                          and publications,and handling administrative tasks related to grading assignments and lab
-                          assistance.</li>
+                        <li>Collaborating with professors on research in AI/ML—including edge-based AI assistants, RAG, and tool use—and supporting lab work.</li>
+                        <li>Teaching Assistant for Machine Learning (CAP4612) and C Programming (COP2271): grading for 40+ students and providing hands-on coding support.</li>
+                        <li>Maintaining research records, contributing to reports and publications, and handling grading and lab administration.</li>
                       </ul>
                     </div>
                   </div>
@@ -2178,15 +3276,12 @@
               <!-- Experience 2: Software Engineer -->
               <div class="sticky-experience-card">
                 <div class="card about-card shadow-sm border-0">
-                  <div class="rainbow-smoke" aria-hidden="true"></div>
                   <!-- Gradient Border -->
                   <div class="experience-gradient-border"></div>
                   <!-- Company Header -->
                   <div class="experience-header">
                     <div class="company-header">
-                      <div class="company-logo-placeholder">
-                        <i class="fas fa-building" style="font-size: 24px; color: #2F2F2F;"></i>
-                      </div>
+                      <img src="/media/ProfessionalComputerSys_logo.jpeg" alt="Professional Computer System" class="company-logo">
                       <a href="https://pcs.com.np/" target="_blank" rel="noopener" class="company-name">
                         Professional Computer System (P) Ltd
                       </a>
@@ -2201,15 +3296,10 @@
                     </div>
                     <div class="card-text">
                       <ul>
-                        <li>Led full stack development in microservices architecture of ICAN enterprise applications for the Chartered Accountants of Nepal, improving data
-                          processing speeds by 25% using .NET Core, React.js, PostgreSQL.</li>
-                        <li>Managed hosting and deployment of client projects on Windows Server (IIS), ensuring 92.9% availability and 20% increase in system perfor-
-                          mance.</li>
-                        <li>Collaborated with clients and stakeholders to implement new features that reduced manual data entry by 30% and optimized workflows.</li>
-                        <li>Performed the development and maintenance of a 15+ module of ERP system to streamline and automate business workflows, resulting in a
-                          significant reduction in manual processes and enhanced organizational productivity.</li>
-                        <li>Built interactive and responsive user interface using React.js components integrated with .NET backend and relational databases, decreasing page
-                          load times by 40%.</li>
+                        <li>Led full-stack work on the ICAN ERP: 16+ microservices, three portals (internal, member, student), Next.js and .NET Core, PostgreSQL. Delivered features across accounting, HR, member management, inventory, and more.</li>
+                        <li>Worked on the NTB ERP for Nepal Tourism Board: accounting, inventory, billing, fixed assets, and related modules using ASP.NET Core 6, Razor Pages, and PostgreSQL. Helped design the layered architecture and RESTful APIs.</li>
+                        <li>Maintained and extended a large ERP codebase (15+ modules) to streamline business workflows and keep the system maintainable.</li>
+                        <li>Managed hosting and deployment of client projects on Windows Server (IIS) and collaborated with clients to implement new features and workflows.</li>
                       </ul>
                     </div>
                   </div>
@@ -2219,15 +3309,12 @@
               <!-- Experience 3: Software Engineer Trainee / Intern -->
               <div class="sticky-experience-card">
                 <div class="card about-card shadow-sm border-0">
-                  <div class="rainbow-smoke" aria-hidden="true"></div>
                   <!-- Gradient Border -->
                   <div class="experience-gradient-border"></div>
                   <!-- Company Header -->
                   <div class="experience-header">
                     <div class="company-header">
-                      <div class="company-logo-placeholder">
-                        <i class="fas fa-building" style="font-size: 24px; color: #2F2F2F;"></i>
-                      </div>
+                      <img src="/media/ProfessionalComputerSys_logo.jpeg" alt="Professional Computer System" class="company-logo">
                       <a href="https://pcs.com.np/" target="_blank" rel="noopener" class="company-name">
                         Professional Computer System (P) Ltd
                       </a>
@@ -2236,15 +3323,14 @@
                   <div class="card-body">
                     <div class="section-subheading card-title exp-title text-muted my-0">Software Engineer Trainee</div>
                     <div class="text-muted exp-meta">
-                      March 2022–july 2022
+                      March 2022–July 2022
                       <span class="middot-divider"></span>
                       <span>Kathmandu, Nepal</span>
                     </div>
                     <div class="card-text">
                       <ul>
-                        <li>Contributed to the successful delivery of the Nepal Election Commission ERP project, resolving over 30 critical bugs before launch by assisting
-                          in design, debugging, and client support using C#, .NET, Knockout.js, and Oracle DB.</li>
-                        <li>Developed full-stack MVP solution with C#, .NET, React.js for an employee management system.</li>
+                        <li>Contributed to the Nepal Election Commission ERIS project: design, debugging, and client support. Resolved 30+ critical bugs before launch. Tech: C#, .NET, Knockout.js, Oracle, Crystal Reports.</li>
+                        <li>Built the full-stack Employee Management System (ASP.NET Core 8 Web API, PostgreSQL, MVC with Bootstrap and Knockout.js) as a learning and demo project.</li>
                       </ul>
                     </div>
                   </div>
@@ -2254,15 +3340,12 @@
               <!-- Experience 4: Intern -->
               <div class="sticky-experience-card">
                 <div class="card about-card shadow-sm border-0">
-                  <div class="rainbow-smoke" aria-hidden="true"></div>
                   <!-- Gradient Border -->
                   <div class="experience-gradient-border"></div>
                   <!-- Company Header -->
                   <div class="experience-header">
                     <div class="company-header">
-                      <div class="company-logo-placeholder">
-                        <i class="fas fa-building" style="font-size: 24px; color: #2F2F2F;"></i>
-                      </div>
+                      <img src="/media/ProfessionalComputerSys_logo.jpeg" alt="Professional Computer System" class="company-logo">
                       <a href="https://pcs.com.np/" target="_blank" rel="noopener" class="company-name">
                         Professional Computer System (P) Ltd
                       </a>
@@ -2277,8 +3360,8 @@
                     </div>
                     <div class="card-text">
                       <ul>
-                        <li>Developed full-stack MVP solution with C#, .NET, React.js for an employee management system.</li>
-                        <li>Enhanced user experience by debugging and improving UI, resulting in a 15% reduction in user-reported issues.</li>
+                        <li>Started the Employee Management System as a full-stack MVP: Web API with EF Core and PostgreSQL, MVC frontend with Bootstrap and Knockout.js. Worked through CORS, API integration, and validation.</li>
+                        <li>Debugged and improved the UI and API integration so the app was reliable and easier to use.</li>
                       </ul>
                     </div>
                   </div>
@@ -2291,270 +3374,135 @@
     </section>
 
     <section id="projects">
-      <div class="home-section-bg ">
-      </div>
+      <div class="home-section-bg"></div>
       <div class="container">
-        <div class="row">
-          <div class="section-heading col-12 mb-3 d-flex align-items-center">
-            <h1 class="mb-0 skills-header-box" style="width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;"><i class="fas fa-folder-open" style="margin-right: 0.5rem;"></i>Projects</h1>
-            <div class="heading-rule" aria-hidden="true"></div>
+        <!-- Projects Header -->
+        <div class="projects-header-section">
+          <div class="projects-header-top">
+            <h1 class="mb-0 skills-header-box" style="width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 0.875rem; border-radius: 100px; margin: 0 15px;"><i class="fas fa-briefcase" style="margin-right: 0.5rem;"></i>Projects</h1>
+            <a href="projects.html" class="view-all-projects-btn">
+              View all projects →
+            </a>
           </div>
-          <div class="col-12 col-lg-10 ml-auto">
-            <!-- Sticky Project Cards -->
-            <div class="project-sticky-container">
-              <!-- Project 1: Computer Science Graduate Research -->
-              <div class="sticky-project-card">
-                <div class="card about-card shadow-sm border-0">
-                  <div class="rainbow-smoke" aria-hidden="true"></div>
-                  <!-- Gradient Border -->
-                  <div class="project-gradient-border"></div>
-                  <!-- Project Header -->
-                  <div class="project-header">
-                    <div class="project-title-header">
-                      <div class="project-icon-placeholder">
-                        <i class="fas fa-flask" style="font-size: 24px; color: #2F2F2F;"></i>
+          <h3 class="projects-main-heading">Milestones in the learning journey</h3>
+          <p class="projects-description">
+            Each project marks a step forward, showcasing my growth and journey as a developer. Explore how I've tackled challenges and built solutions along the way.
+          </p>
                       </div>
-                      <div class="project-name">
-                        Computer Science Graduate Research
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <div class="card-text">
-                      <ul>
-                        <li>Conducting advanced research in distributed systems and cloud computing architectures to optimize performance and scalability.</li>
-                        <li>Investigating artificial intelligence and machine learning applications in intelligent system design.</li>
-                        <li>Collaborating with faculty on cutting-edge research projects involving microservices architecture and edge computing technologies.</li>
-                        <li>Developing innovative solutions for distributed computing challenges.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid-container">
+          <div class="projects-grid">
+            <!-- Project 1: AgentFlow AI Assistant Project -->
+            <div class="project-card" onclick="window.location.href='project-detail.html?id=agentflow'">
+              <div class="project-image-wrapper" onclick="event.stopPropagation(); openImageLightbox('/media/AgentFlow_AI_Snap.png', 'AgentFlow AI Assistant');">
+                <img src="/media/AgentFlow_AI_Snap.png" alt="AgentFlow AI Assistant" class="project-image">
+              </div>
+              <div class="project-year">2026</div>
+              <h3 class="project-title">AgentFlow AI Assistant Project</h3>
+              <p class="project-summary">An autonomous AI agent with RAG pipeline, vision support, and edge computing on Cloudflare Workers.</p>
+              <a href="project-detail.html?id=agentflow" class="project-read-more">
+                Read more →
+              </a>
               </div>
 
-              <!-- Project 2: AgentFlow AI Assistant Project -->
-              <div class="sticky-project-card">
-                <div class="card about-card shadow-sm border-0">
-                  <div class="rainbow-smoke" aria-hidden="true"></div>
-                  <!-- Gradient Border -->
-                  <div class="project-gradient-border"></div>
-                  <!-- Project Header -->
-                  <div class="project-header">
-                    <div class="project-title-header">
-                      <div class="project-icon-placeholder">
-                        <i class="fas fa-robot" style="font-size: 24px; color: #2F2F2F;"></i>
-                      </div>
-                      <div class="project-name">
-                        AgentFlow AI Assistant Project
-                      </div>
-                    </div>
-                    <a href="https://github.com/Siwanii/AgentFlow_AI" target="_blank" rel="noopener" class="project-code-btn" aria-label="View Code">
-                      Code
+            <!-- Project 2: ICAN ERP -->
+            <div class="project-card" onclick="window.location.href='project-detail.html?id=ican'">
+              <div class="project-image-wrapper" onclick="event.stopPropagation(); openImageLightbox('/media/Ican_Snap.png', 'ICAN ERP');">
+                <img src="/media/Ican_Snap.png" alt="ICAN ERP" class="project-image">
+              </div>
+              <div class="project-year">2024/2025</div>
+              <h3 class="project-title">Institute of Chartered Accountants of Nepal (ICAN) ERP</h3>
+              <p class="project-summary">Enterprise ERP system serving 20,000+ members with microservices architecture and scalable solutions.</p>
+              <a href="project-detail.html?id=ican" class="project-read-more">
+                Read more →
+              </a>
+              </div>
+
+            <!-- Project 3: NTB ERP -->
+            <div class="project-card" onclick="window.location.href='project-detail.html?id=ntb'">
+              <div class="project-image-wrapper" onclick="event.stopPropagation(); openImageLightbox('/media/NTB image.jpg', 'NTB ERP');">
+                <img src="/media/NTB image.jpg" alt="NTB ERP" class="project-image">
+              </div>
+              <div class="project-year">2023/2024</div>
+              <h3 class="project-title">Nepal Tourism Board (NTB) ERP</h3>
+              <p class="project-summary">Tourism management system with optimized MySQL database and enhanced user experience features.</p>
+              <a href="project-detail.html?id=ntb" class="project-read-more">
+                Read more →
+              </a>
+              </div>
+
+            <!-- Project 4: Nepal Election Commission ERP -->
+            <div class="project-card" onclick="window.location.href='project-detail.html?id=election'">
+              <div class="project-image-wrapper" onclick="event.stopPropagation(); openImageLightbox('/media/Nepal_Election_Commission.jpg', 'Nepal Election Commission ERP');">
+                <img src="/media/Nepal_Election_Commission.jpg" alt="Nepal Election Commission ERP" class="project-image">
+              </div>
+              <div class="project-year">2022</div>
+              <h3 class="project-title">Nepal Election Commission ERP</h3>
+              <p class="project-summary">High-volume election management system with secure modules and .NET backend for critical operations.</p>
+              <a href="project-detail.html?id=election" class="project-read-more">
+                Read more →
+              </a>
+              </div>
+
+            <!-- Project 5: Bike Simulation System -->
+            <div class="project-card" onclick="window.location.href='project-detail.html?id=bike'">
+              <div class="project-image-wrapper" onclick="event.stopPropagation(); openImageLightbox('/media/Bike_Snap.png', 'Bike Simulation System');">
+                <img src="/media/Bike_Snap.png" alt="Bike Simulation System" class="project-image">
+              </div>
+              <div class="project-year">2019</div>
+              <h3 class="project-title">Bike Simulation System</h3>
+              <p class="project-summary">3D bike simulation with realistic physics, movement dynamics, and interactive controls using C programming.</p>
+              <a href="project-detail.html?id=bike" class="project-read-more">
+                Read more →
+                    </a>
+              </div>
+
+            <!-- Project 6: Employee Management System -->
+            <div class="project-card" onclick="window.location.href='project-detail.html?id=employee'">
+              <div class="project-image-wrapper" onclick="event.stopPropagation(); openImageLightbox('/media/Employee_Management_placeholder.svg', 'Employee Management System');">
+                <img src="/media/Employee_Management_placeholder.svg" alt="Employee Management System" class="project-image">
+              </div>
+              <div class="project-year">2022</div>
+              <h3 class="project-title">Employee Management System</h3>
+              <p class="project-summary">Full-stack web application with ASP.NET Core 8, PostgreSQL, and responsive UI for employee data management.</p>
+              <a href="project-detail.html?id=employee" class="project-read-more">
+                Read more →
                     </a>
                   </div>
-                  <div class="card-body">
-                    <div class="card-text">
-                      <ul>
-                        <li>I built an autonomous agent that doesn't just respond, it actually decides which tools it needs, like jumping on the web to find live info or running a calculation to answer your question.</li>
-                        <li>Instead of using a standard server, I hosted everything on Cloudflare's edge network using Workers and Durable Objects to keep the chat history fast and responsive.</li>
-                        <li>I set up a RAG pipeline so you can upload PDFs and have a conversation with your own data; the assistant embeds the text and searches through it to find the right context.</li>
-                        <li>I added vision support using Llama 3.2, which lets the assistant "see" and describe any images you drop into the chat.</li>
-                        <li>For the heavy lifting, I integrated the Llama 3.3 70B model and used BGE-small embeddings to make sure the document retrieval is both accurate and quick.</li>
-                        </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              <!-- Project 3: ICAN ERP -->
-              <div class="sticky-project-card">
-                <div class="card about-card shadow-sm border-0">
-                  <div class="rainbow-smoke" aria-hidden="true"></div>
-                  <!-- Gradient Border -->
-                  <div class="project-gradient-border"></div>
-                  <!-- Project Header -->
-                  <div class="project-header">
-                    <div class="project-title-header">
-                      <div class="project-icon-placeholder">
-                        <i class="fas fa-building" style="font-size: 24px; color: #2F2F2F;"></i>
-                      </div>
-                      <div class="project-name">
-                        Institute of Chartered Accountants of Nepal (ICAN) ERP
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <div class="card-text">
-                      <ul>
-                        <li>Improved operational efficiency and data accuracy for over 20,000 members by designing, developing, and deploying enterprise modules within a microservices architecture.</li>
-                        <li>Coordinated directly with clients, translated requirements into scalable solutions and delivered within deadlines.</li>
-                        <li>Ensured high reliability and performance by deploying and maintaining applications on Windows Server (IIS), overseeing security and updates.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+            <!-- Project 7: Hostel Management System -->
+            <div class="project-card" onclick="window.location.href='project-detail.html?id=hostel'">
+              <div class="project-image-wrapper" onclick="event.stopPropagation(); openImageLightbox('/media/Hostel_Management_placeholder.svg', 'Academic Project (Hostel Management System)');">
+                <img src="/media/Hostel_Management_placeholder.svg" alt="Academic Project (Hostel Management System)" class="project-image">
               </div>
-
-              <!-- Project 4: NTB ERP -->
-              <div class="sticky-project-card">
-                <div class="card about-card shadow-sm border-0">
-                  <div class="rainbow-smoke" aria-hidden="true"></div>
-                  <!-- Gradient Border -->
-                  <div class="project-gradient-border"></div>
-                  <!-- Project Header -->
-                  <div class="project-header">
-                    <div class="project-title-header">
-                      <div class="project-icon-placeholder">
-                        <i class="fas fa-globe" style="font-size: 24px; color: #2F2F2F;"></i>
-                      </div>
-                      <div class="project-name">
-                        Nepal Tourism Board (NTB) ERP
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <div class="card-text">
-                      <ul>
-                        <li>Developed and enhanced tourism-related application modules across frontend and backend layers.</li>
-                        <li>Improved application stability and user experience by implementing MySQL database optimizations, bug fixes, and new support features.</li>
-                        <li>Delivered timely updates and new features on schedule by collaborating directly with NTB stakeholders to translate requirements into technical solutions.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Project 5: Nepal Election Commission ERP -->
-              <div class="sticky-project-card">
-                <div class="card about-card shadow-sm border-0">
-                  <div class="rainbow-smoke" aria-hidden="true"></div>
-                  <!-- Gradient Border -->
-                  <div class="project-gradient-border"></div>
-                  <!-- Project Header -->
-                  <div class="project-header">
-                    <div class="project-title-header">
-                      <div class="project-icon-placeholder">
-                        <i class="fas fa-vote-yea" style="font-size: 24px; color: #2F2F2F;"></i>
-                      </div>
-                      <div class="project-name">
-                        Nepal Election Commission ERP
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <div class="card-text">
-                      <ul>
-                        <li>Supported high-volume election operations by immediate Code Release and bug fix, ensured system stability by building and maintaining secure application modules.</li>
-                        <li>Maintained data integrity and application reliability during critical election periods by contributing to .NET backend enhancements.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Project 6: Employee Management System -->
-              <div class="sticky-project-card">
-                <div class="card about-card shadow-sm border-0">
-                  <div class="rainbow-smoke" aria-hidden="true"></div>
-                  <!-- Gradient Border -->
-                  <div class="project-gradient-border"></div>
-                  <!-- Project Header -->
-                  <div class="project-header">
-                    <div class="project-title-header">
-                      <div class="project-icon-placeholder">
-                        <i class="fas fa-users" style="font-size: 24px; color: #2F2F2F;"></i>
-                      </div>
-                      <div class="project-name">
-                        Employee Management System
-                      </div>
-                    </div>
-                    <a href="https://github.com/Siwanii/EmployeeManagement" target="_blank" rel="noopener" class="project-code-btn" aria-label="View Code">
-                      Code
+              <div class="project-year">2020</div>
+              <h3 class="project-title">Academic Project (Hostel Management System)</h3>
+              <p class="project-summary">Academic project for managing hostel operations including student registration, room allocation, and administrative tasks.</p>
+              <a href="project-detail.html?id=hostel" class="project-read-more">
+                Read more →
                     </a>
                   </div>
-                  <div class="card-body">
-                    <div class="card-text">
-                      <ul>
-
-                        <li>Built a full-stack web application using ASP.NET Core 8 (MVC & Web API) to manage employee records, qualifications, and organizational data efficiently.</li>
-                        <li>Designed and implemented RESTful APIs with Entity Framework Core and PostgreSQL, ensuring secure data handling, proper JSON serialization, and smooth frontend–backend communication.</li>
-                        <li>Developed a responsive and interactive UI using MVC, JavaScript, jQuery, Knockout.js, and Bootstrap 5, focusing on usability, form validation, and clean layouts.</li>
-                        <li>Implemented complete CRUD functionality for employee and qualification management, including GPA tracking, real-time data updates, and user-friendly error handling.</li>
-                        <li>Solved real-world engineering challenges, such as database authentication issues, CORS configuration, API integration, and runtime compilation for faster development and debugging.</li>
-                      </ul>
                     </div>
                   </div>
                 </div>
-              </div>
+    </section>
 
-              <!-- Project 7: Academic Project (Bike Simulation System) -->
-              <div class="sticky-project-card">
-                <div class="card about-card shadow-sm border-0">
-                  <div class="rainbow-smoke" aria-hidden="true"></div>
-                  <!-- Gradient Border -->
-                  <div class="project-gradient-border"></div>
-                  <!-- Project Header -->
-                  <div class="project-header">
-                    <div class="project-title-header">
-                      <div class="project-icon-placeholder">
-                        <i class="fas fa-motorcycle" style="font-size: 24px; color: #2F2F2F;"></i>
-                      </div>
-                      <div class="project-name">
-                        Academic Project(Bike Simulation System)
-                      </div>
-                    </div>
-                    <a href="https://github.com/Siwanii/Bike-Simulation" target="_blank" rel="noopener" class="project-code-btn" aria-label="View Code">
-                      Code
-                    </a>
-                  </div>
-                  <div class="card-body">
-                    <div class="card-text">
-                      <ul>
-                        <li>Developed a 3D Bike Simulation System using C programming language to create realistic bike movement and physics simulation.</li>
-                        <li>Implemented advanced 3D graphics rendering and mathematical algorithms for accurate bike positioning, rotation, and movement dynamics.</li>
-                        <li>Created interactive bike movement controls with real-time physics calculations including acceleration, braking, and steering mechanics.</li>
-                        <li>Designed comprehensive simulation environment with 3D coordinate systems, collision detection, and realistic bike behavior modeling.</li>
-                      </ul>
-                    </div>
-                  </div>
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="project-modal">
+      <div class="project-modal-content">
+        <span class="project-modal-close" onclick="closeProjectModal()">&times;</span>
+        <div id="projectModalBody"></div>
                 </div>
               </div>
 
-              <!-- Project 8: Academic Project (Hostel Management System) -->
-              <div class="sticky-project-card">
-                <div class="card about-card shadow-sm border-0">
-                  <div class="rainbow-smoke" aria-hidden="true"></div>
-                  <!-- Gradient Border -->
-                  <div class="project-gradient-border"></div>
-                  <!-- Project Header -->
-                  <div class="project-header">
-                    <div class="project-title-header">
-                      <div class="project-icon-placeholder">
-                        <i class="fas fa-home" style="font-size: 24px; color: #2F2F2F;"></i>
-                      </div>
-                      <div class="project-name">
-                        Academic Project(Hostel Management System)
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <div class="card-text">
-                      <ul>
-                        <li>Developed a comprehensive Hostel Management System website using DBMS principles to manage all hostel operations including student and warden data management.</li>
-                        <li>Implemented student and warden registration system with secure authentication and authorization features to ensure proper access control and data security.</li>
-                        <li>Created in/out record tracking system for both students and wardens with real-time status updates and comprehensive logging for hostel administration.</li>
-                        <li>Designed and maintained all required hostel records including food data, accommodation details, and administrative information for efficient hostel operations.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+    <!-- Image Lightbox Modal -->
+    <div id="imageLightbox" class="image-lightbox" onclick="closeImageLightbox()">
+      <div class="image-lightbox-content" onclick="event.stopPropagation();">
+        <span class="image-lightbox-close" onclick="closeImageLightbox()">&times;</span>
+        <img id="lightboxImage" src="" alt="">
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
     <section id="about">
       <div class="home-section-bg ">
@@ -2562,7 +3510,7 @@
       <div class="container">
         <div class="row">
           <div class="section-heading col-12 mb-3 d-flex align-items-center">
-            <h1 class="mb-0 skills-header-box" style="width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;"><i class="fas fa-user" style="margin-right: 0.5rem;"></i>About</h1>
+            <h1 class="mb-0 skills-header-box" style="width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 0.875rem; border-radius: 100px; margin: 0 15px;"><i class="fas fa-user" style="margin-right: 0.5rem;"></i>About</h1>
             <div class="heading-rule" aria-hidden="true"></div>
           </div>
           <div class="col-12 col-lg-10 mx-auto">
@@ -2593,7 +3541,7 @@
         <div class="row  ">
           <div
             class="section-heading col-12 mb-3 mb-lg-0 d-flex align-items-center">
-            <h1 class="mb-0 skills-header-box" style="width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 1.25rem; border-radius: 0.375rem; margin: 0 15px;"><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>Contact</h1>
+            <h1 class="mb-0 skills-header-box" style="width: fit-content; color: white; padding: 0.5rem 1.25rem; font-size: 0.875rem; border-radius: 100px; margin: 0 15px;"><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>Contact</h1>
             <div class="heading-rule" aria-hidden="true"></div>
           </div>
           <div class="col-12 col-lg-6 mx-auto">
@@ -3094,6 +4042,323 @@
         container.scrollLeft = 0;
       }, 100);
     })();
+
+    // Home Skills Horizontal Scroll Functionality
+    (function() {
+      const homeContainer = document.getElementById('homeSkillsContainer');
+      if (!homeContainer) return;
+      
+      const homeSkillsScroll = homeContainer.querySelector('.skills-scroll');
+      if (!homeSkillsScroll) return;
+      
+      // Pause CSS animation when manually scrolling
+      let isManualScrolling = false;
+      let scrollTimeout;
+      
+      function pauseAnimation() {
+        homeSkillsScroll.style.animationPlayState = 'paused';
+        isManualScrolling = true;
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          isManualScrolling = false;
+          homeSkillsScroll.style.animationPlayState = 'running';
+        }, 2000);
+      }
+      
+      // Calculate single set width
+      function getSingleSetWidth() {
+        return homeSkillsScroll.scrollWidth / 2;
+      }
+      
+      function scrollHomeSkills(direction) {
+        if (!homeContainer || !homeSkillsScroll) return;
+        
+        pauseAnimation();
+        
+        const scrollAmount = 200;
+        const singleSetWidth = getSingleSetWidth();
+        const currentScroll = homeContainer.scrollLeft;
+        
+        if (direction === 'left') {
+          let newScroll = currentScroll - scrollAmount;
+          
+          // If scrolled past the beginning, jump to end of first set
+          if (newScroll <= 0) {
+            newScroll = singleSetWidth - scrollAmount;
+          }
+          
+          homeContainer.scrollTo({ left: newScroll, behavior: 'smooth' });
+        } else {
+          let newScroll = currentScroll + scrollAmount;
+          
+          // If scrolled past first set, reset to equivalent position in first set
+          if (newScroll >= singleSetWidth) {
+            newScroll = newScroll - singleSetWidth;
+          }
+          
+          homeContainer.scrollTo({ left: newScroll, behavior: 'smooth' });
+        }
+      }
+      
+      // Handle seamless loop during scroll
+      homeContainer.addEventListener('scroll', function() {
+        if (!isManualScrolling) return;
+        
+        const singleSetWidth = getSingleSetWidth();
+        
+        // Reset to beginning if scrolled past first set
+        if (homeContainer.scrollLeft >= singleSetWidth) {
+          homeContainer.scrollLeft = homeContainer.scrollLeft - singleSetWidth;
+        }
+      }, { passive: true });
+      
+      // Make function globally available
+      window.scrollHomeSkills = scrollHomeSkills;
+      
+      // Initialize on page load
+      setTimeout(() => {
+        // Ensure we start at position 0
+        homeContainer.scrollLeft = 0;
+      }, 100);
+    })();
+
+    /* ============================================
+       SCROLL PROGRESS INDICATOR
+       ============================================ */
+    (function() {
+      const progressBar = document.createElement('div');
+      progressBar.className = 'scroll-progress';
+      document.body.appendChild(progressBar);
+
+      function updateProgress() {
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = windowHeight > 0 ? (window.scrollY / windowHeight) * 100 : 0;
+        progressBar.style.width = scrolled + '%';
+      }
+
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress(); // Initial update
+    })();
+
+    /* ============================================
+       FLOATING AVATAR ANIMATION
+       ============================================ */
+    (function() {
+      const avatar = document.querySelector('.home-avatar');
+      if (avatar) {
+        // The CSS animation is already applied via the .home-avatar class
+        // This ensures it's working properly
+        avatar.style.willChange = 'transform';
+      }
+    })();
+
+    /* ============================================
+       PROJECT MODAL FUNCTIONALITY
+       ============================================ */
+    
+    // Project data
+    const projectsData = {
+      'agentflow': {
+        image: '/media/AgentFlow_AI_Snap.png',
+        year: '2026',
+        title: 'AgentFlow AI Assistant Project',
+        description: 'An autonomous AI agent that intelligently decides which tools it needs to answer questions, featuring RAG pipeline, vision support, and edge computing.',
+        details: [
+          'I built an autonomous agent that doesn\'t just respond, it actually decides which tools it needs, like jumping on the web to find live info or running a calculation to answer your question.',
+          'Instead of using a standard server, I hosted everything on Cloudflare\'s edge network using Workers and Durable Objects to keep the chat history fast and responsive.',
+          'I set up a RAG pipeline so you can upload PDFs and have a conversation with your own data; the assistant embeds the text and searches through it to find the right context.',
+          'I added vision support using Llama 3.2, which lets the assistant "see" and describe any images you drop into the chat.',
+          'For the heavy lifting, I integrated the Llama 3.3 70B model and used BGE-small embeddings to make sure the document retrieval is both accurate and quick.'
+        ],
+        link: 'https://github.com/Siwanii/AgentFlow_AI',
+        linkText: 'View Code'
+      },
+      'ican': {
+        image: '/media/Ican_Snap.png',
+        year: '2024/2025',
+        title: 'Institute of Chartered Accountants of Nepal (ICAN) ERP',
+        description: 'Enterprise ERP system serving over 20,000 members with microservices architecture and scalable solutions.',
+        details: [
+          'Improved operational efficiency and data accuracy for over 20,000 members by designing, developing, and deploying enterprise modules within a microservices architecture.',
+          'Coordinated directly with clients, translated requirements into scalable solutions and delivered within deadlines.',
+          'Ensured high reliability and performance by deploying and maintaining applications on Windows Server (IIS), overseeing security and updates.'
+        ],
+        link: null,
+        linkText: null
+      },
+      'ntb': {
+        image: '/media/NTB image.jpg',
+        year: '2023/2024',
+        title: 'Nepal Tourism Board (NTB) ERP',
+        description: 'Tourism management system with optimized MySQL database and enhanced user experience features.',
+        details: [
+          'Developed and enhanced tourism-related application modules across frontend and backend layers.',
+          'Improved application stability and user experience by implementing MySQL database optimizations, bug fixes, and new support features.',
+          'Delivered timely updates and new features on schedule by collaborating directly with NTB stakeholders to translate requirements into technical solutions.'
+        ],
+        link: null,
+        linkText: null
+      },
+      'election': {
+        image: '/media/Nepal_Election_Commission.jpg',
+        year: '2022',
+        title: 'Nepal Election Commission ERP',
+        description: 'High-volume election management system with secure modules and .NET backend for critical operations.',
+        details: [
+          'Supported high-volume election operations by immediate Code Release and bug fix, ensured system stability by building and maintaining secure application modules.',
+          'Maintained data integrity and application reliability during critical election periods by contributing to .NET backend enhancements.'
+        ],
+        link: null,
+        linkText: null
+      },
+      'bike': {
+        image: '/media/Bike_Snap.png',
+        year: '2019',
+        title: 'Bike Simulation System',
+        description: '3D bike simulation with realistic physics, movement dynamics, and interactive controls using C programming.',
+        details: [
+          'Developed a 3D Bike Simulation System using C programming language to create realistic bike movement and physics simulation.',
+          'Implemented advanced 3D graphics rendering and mathematical algorithms for accurate bike positioning, rotation, and movement dynamics.',
+          'Created interactive bike movement controls with real-time physics calculations including acceleration, braking, and steering mechanics.',
+          'Designed comprehensive simulation environment with 3D coordinate systems, collision detection, and realistic bike behavior modeling.'
+        ],
+        link: 'https://github.com/Siwanii/Bike-Simulation',
+        linkText: 'View Code'
+      },
+      'employee': {
+        image: null,
+        year: '2022',
+        title: 'Employee Management System',
+        description: 'Full-stack web application with ASP.NET Core 8, PostgreSQL, and responsive UI for employee data management.',
+        details: [
+          'Built a full-stack web application using ASP.NET Core 8 (MVC & Web API) to manage employee records, qualifications, and organizational data efficiently.',
+          'Designed and implemented RESTful APIs with Entity Framework Core and PostgreSQL, ensuring secure data handling, proper JSON serialization, and smooth frontend–backend communication.',
+          'Developed a responsive and interactive UI using MVC, JavaScript, jQuery, Knockout.js, and Bootstrap 5, focusing on usability, form validation, and clean layouts.',
+          'Implemented complete CRUD functionality for employee and qualification management, including GPA tracking, real-time data updates, and user-friendly error handling.',
+          'Solved real-world engineering challenges, such as database authentication issues, CORS configuration, API integration, and runtime compilation for faster development and debugging.'
+        ],
+        link: 'https://github.com/Siwanii/EmployeeManagement',
+        linkText: 'View Code'
+      },
+      'hostel': {
+        image: null,
+        year: '2020',
+        title: 'Academic Project (Hostel Management System)',
+        description: 'Academic project for managing hostel operations including student registration, room allocation, and administrative tasks.',
+        details: [
+          'Developed a comprehensive hostel management system as part of academic coursework to streamline hostel operations and administrative processes.',
+          'Implemented student registration and profile management features, allowing students to register for hostel accommodation and update their information.',
+          'Designed room allocation system with automated assignment algorithms to efficiently manage room assignments based on availability and preferences.',
+          'Created administrative dashboard for hostel staff to manage student records, track room occupancy, handle maintenance requests, and generate reports.',
+          'Built user-friendly interface with role-based access control for students, administrators, and staff members with appropriate permissions.',
+          'Integrated database management system to store and retrieve student information, room details, and administrative records efficiently.'
+        ],
+        link: null,
+        linkText: null
+      }
+    };
+
+    function openProjectModal(projectId) {
+      const project = projectsData[projectId];
+      if (!project) return;
+
+      const modal = document.getElementById('projectModal');
+      const modalBody = document.getElementById('projectModalBody');
+
+      let html = '';
+      
+      if (project.image) {
+        // Escape quotes and special characters for onclick attribute
+        const escapedTitle = project.title.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        html += `<img src="${project.image}" alt="${project.title}" class="project-modal-image" onclick="event.stopPropagation(); openImageLightbox('${project.image}', '${escapedTitle}');">`;
+      }
+      
+      html += `
+        <div class="project-modal-year">${project.year}</div>
+        <h2 class="project-modal-title">${project.title}</h2>
+        <p class="project-modal-description">${project.description}</p>
+        <div class="project-modal-details">
+          <ul>
+      `;
+      
+      project.details.forEach(detail => {
+        html += `<li>${detail}</li>`;
+      });
+      
+      html += `</ul></div>`;
+      
+      if (project.link) {
+        html += `<a href="${project.link}" target="_blank" rel="noopener" class="project-modal-link">${project.linkText}</a>`;
+      }
+      
+      modalBody.innerHTML = html;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProjectModal() {
+      const modal = document.getElementById('projectModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('projectModal');
+      if (event.target === modal) {
+        closeProjectModal();
+      }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeProjectModal();
+      }
+    });
+
+    // Scroll to projects function
+    function scrollToProjects() {
+      const projectsSection = document.getElementById('projects');
+      if (projectsSection) {
+        projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Image Lightbox Functions
+    function openImageLightbox(imageSrc, imageAlt) {
+      const lightbox = document.getElementById('imageLightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      
+      if (lightbox && lightboxImage) {
+        lightboxImage.src = imageSrc;
+        lightboxImage.alt = imageAlt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeImageLightbox() {
+      const lightbox = document.getElementById('imageLightbox');
+      if (lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Close image lightbox on Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeImageLightbox();
+      }
+    });
+
+    // Make functions globally available
+    window.openProjectModal = openProjectModal;
+    window.closeProjectModal = closeProjectModal;
+    window.scrollToProjects = scrollToProjects;
+    window.openImageLightbox = openImageLightbox;
+    window.closeImageLightbox = closeImageLightbox;
   </script>
 
 </body>

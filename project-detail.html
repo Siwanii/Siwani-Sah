@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="css/vendor-bundle.min.26c458e6907dc03073573976b7f4044e.css" />
+  <link rel="stylesheet" href="css/wowchemy.32e2e32cf1a4c1ea152e519f8b1fda79.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" type="image/png" href="media/Siwani.png" />
+  <title>Project - Siwani Sah</title>
+  <script>
+    (function() {
+      const wcTheme = localStorage.getItem('wcTheme');
+      const savedTheme = localStorage.getItem('theme') || localStorage.getItem('wowchemy-theme');
+      let isDark = false;
+      if (wcTheme !== null) {
+        const v = parseInt(wcTheme, 10);
+        isDark = v === 1 || (v === 2 && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      } else if (savedTheme) {
+        isDark = savedTheme === 'dark' || (savedTheme === 'auto' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      }
+      document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      document.documentElement.classList.toggle('dark', isDark);
+      document.body.classList.toggle('dark', isDark);
+    })();
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      min-height: 100vh;
+      padding-top: 70px;
+      line-height: 1.6;
+    }
+    [data-theme="light"] body, html:not([data-theme="dark"]):not(.dark) body {
+      background: #f5f5f5;
+      color: #2F2F2F;
+    }
+    [data-theme="dark"] body, .dark body { background: #0b0e15e6 !important; color: #fff !important; }
+
+    .simple-navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(31, 41, 61, 0.41);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    [data-theme="light"] .simple-navbar { background: rgba(255, 255, 255, 0.95); border-bottom-color: rgba(0, 0, 0, 0.1); }
+    .simple-navbar a { color: #fff; text-decoration: none; font-weight: 600; transition: color 0.3s ease; }
+    [data-theme="light"] .simple-navbar a { color: #2F2F2F; }
+    .simple-navbar a:hover { color: #10b981; }
+
+    .detail-container { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem 4rem; font-size: 0.9375rem; }
+
+    /* Hero */
+    .detail-hero { margin-bottom: 3rem; }
+    .detail-year {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    [data-theme="light"] .detail-year { color: #666; }
+    .detail-title {
+      font-size: clamp(1.6rem, 3.6vw, 1rem);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    [data-theme="light"] .detail-title { color: #1a1a1a; }
+    .detail-tagline {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    [data-theme="light"] .detail-tagline { color: #444; }
+    .detail-hero-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .detail-hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #10b981;
+      color: #fff !important;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .detail-hero-links a:hover { background: #0d9668; transform: translateY(-1px); }
+    .detail-hero-image-wrap {
+      margin-top: 2rem;
+      cursor: pointer;
+      display: block;
+      border-radius: 12px;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .detail-hero-image-wrap:hover .detail-hero-image { opacity: 0.92; }
+    .detail-hero-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      transition: opacity 0.3s ease;
+    }
+    .detail-demo-video-wrap {
+      margin-top: 2rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      background: #000;
+    }
+    .detail-demo-video {
+      width: 100%;
+      max-height: 480px;
+      display: block;
+      vertical-align: top;
+    }
+    /* Image Lightbox */
+    .detail-image-lightbox {
+      display: none;
+      position: fixed;
+      z-index: 10001;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .detail-image-lightbox.active { display: flex; }
+    .detail-image-lightbox-content {
+      position: relative;
+      max-width: 95vw;
+      max-height: 95vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .detail-image-lightbox img {
+      max-width: 100%;
+      max-height: 95vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    }
+    .detail-image-lightbox-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      width: 50px; height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10002;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .detail-image-lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: rotate(90deg);
+    }
+
+    /* Sections */
+    .detail-section { margin-bottom: 3rem; }
+    .detail-section h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #fff;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #10b981;
+      display: inline-block;
+    }
+    [data-theme="light"] .detail-section h2 { color: #1a1a1a; border-bottom-color: #10b981; }
+    .detail-section h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: rgba(255, 255, 255, 0.95); font-weight: 600; }
+    [data-theme="light"] .detail-section h3 { color: #333; }
+    .detail-section h3:first-of-type { margin-top: 1rem; }
+    .detail-section p, .detail-section li {
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 0.75rem;
+    }
+    [data-theme="light"] .detail-section p, [data-theme="light"] .detail-section li { color: #444; }
+    .detail-section ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    .detail-section ul li { margin-bottom: 0.5rem; }
+
+    .tech-stack-grid { display: block; margin-top: 1rem; }
+    .tech-stack-item {
+      margin-bottom: 1.25rem;
+      padding: 0;
+      background: transparent;
+      border: none;
+      border-left: none;
+    }
+    .tech-stack-item h3 { margin: 1.25rem 0 0.35rem; font-size: 1rem; color: #10b981; }
+    .tech-stack-item p, .tech-stack-item ul { margin: 0 0 0.5rem; }
+    .tech-stack-item ul { padding-left: 1.5rem; }
+    .tech-stack-item li { margin-bottom: 0.25rem; }
+
+    .feature-item { margin-bottom: 1.5rem; }
+    .feature-item h3 { font-size: 0.98rem; margin: 1rem 0 0.35rem; color: #10b981; }
+    .feature-item h4 { font-size: 0.9rem; margin-bottom: 0.35rem; color: #10b981; }
+    .challenge-block { margin-bottom: 1.5rem; }
+    .challenge-block h3 { color: #10b981; margin-top: 1.25rem; }
+    .future-item { margin-bottom: 1rem; }
+    .future-item h3 { font-size: 0.98rem; color: #10b981; }
+    .detail-outro { margin-top: 1rem; font-style: italic; }
+    .detail-explore { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.15); text-align: center; }
+    [data-theme="light"] .detail-explore { border-top-color: rgba(0,0,0,0.1); }
+    .detail-explore a { color: #10b981; font-weight: 600; text-decoration: none; }
+    .detail-explore a:hover { text-decoration: underline; }
+
+    .detail-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      padding: 0.6rem 1rem;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 15px;
+      font-weight: 500;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    [data-theme="light"] .detail-back { background: rgba(0, 0, 0, 0.06); color: #2F2F2F; }
+    .detail-back:hover { background: #10b981; color: #fff !important; }
+
+    .detail-not-found { text-align: center; padding: 4rem 2rem; }
+    .detail-not-found h1 { margin-bottom: 1rem; }
+    .detail-not-found a { color: #10b981; text-decoration: none; font-weight: 600; }
+
+    /* Mouse cursor movement effect (same as index/projects) */
+    .smoke-particle {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      opacity: 0.8;
+      filter: blur(2.5px);
+      will-change: transform, opacity;
+      z-index: 2;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      animation: aboutSmokeParticle 1400ms ease-out forwards;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 65%);
+    }
+    @keyframes aboutSmokeParticle {
+      0%   { opacity: 0.85; transform: translate(calc(-50% + 0px), calc(-50% + 0px)) scale(1); }
+      60%  { opacity: 0.4; transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, -30px))) scale(var(--s, 2.2)); }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, -60px))) scale(var(--s, 3.2)); }
+    }
+    .smoke-burst {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(0.6);
+      opacity: 0.75;
+      filter: blur(26px) hue-rotate(0deg);
+      mix-blend-mode: screen;
+      z-index: 1;
+      background:
+        radial-gradient(closest-side at 35% 35%, hsla(350, 100%, 62%, 0.35), transparent 70%),
+        radial-gradient(closest-side at 70% 30%, hsla(45, 100%, 60%, 0.30), transparent 70%),
+        radial-gradient(closest-side at 30% 70%, hsla(165, 100%, 55%, 0.30), transparent 70%),
+        radial-gradient(closest-side at 75% 75%, hsla(265, 100%, 66%, 0.32), transparent 70%),
+        radial-gradient(closest-side at 50% 50%, hsla(200, 100%, 60%, 0.26), transparent 70%);
+      animation: aboutSmokeBurst 2200ms ease-out forwards;
+    }
+    #fx-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 50;
+      overflow: hidden;
+    }
+    @keyframes aboutSmokeBurst {
+      0%   { opacity: 0.85; transform: translate(-50%, -50%) scale(0.45) rotate(0deg);    filter: blur(24px) hue-rotate(0deg); }
+      40%  { opacity: 0.60; transform: translate(-50%, -50%) scale(1.00) rotate(8deg);   filter: blur(28px) hue-rotate(120deg); }
+      100% { opacity: 0.00; transform: translate(-50%, -50%) scale(1.55) rotate(18deg);  filter: blur(30px) hue-rotate(240deg); }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="simple-navbar">
+    <a href="projects.html">← Back to Projects</a>
+    <a href="index.html">Siwani Sah</a>
+  </nav>
+
+  <main id="detailMain" class="detail-container">
+    <div id="detailContent"></div>
+    <div id="detailNotFound" class="detail-not-found" style="display: none;">
+      <h1>Project not found</h1>
+      <p>This project may have been moved or removed.</p>
+      <a href="projects.html">← Back to Projects</a>
+    </div>
+  </main>
+
+  <!-- Image Lightbox (full image on click) -->
+  <div id="detailImageLightbox" class="detail-image-lightbox" onclick="closeDetailImageLightbox(event)">
+    <div class="detail-image-lightbox-content" onclick="event.stopPropagation()">
+      <button type="button" class="detail-image-lightbox-close" onclick="closeDetailImageLightbox()" aria-label="Close">&times;</button>
+      <img id="detailLightboxImage" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    const projectsData = {
+      agentflow: {
+        image: 'media/AgentFlow_AI_Snap.png',
+        video: 'project/AgentFlow_AI.mp4',
+        year: '2026',
+        title: 'AgentFlow AI Assistant',
+        tagline: 'Think ChatGPT, but it can search the web, read your documents, and decide when to use different tools all on Cloudflare\'s edge.',
+        overview: 'I built an AI assistant that actually picks which tools to use-search the web, run a calculation, or answer from your own PDFs. The chat UI is plain HTML/JS; the backend is a Cloudflare Worker that calls Workers AI (Llama 3.3 and vision), Vectorize for document search, and Durable Objects so it remembers the conversation. No servers to run; everything lives on the edge.',
+        goals: 'I got tired of assistants that only chat. I wanted one that could look things up, do math, and read my documents when it made sense. I also didn\'t want to manage servers, so I went with Cloudflare\'s edge. Supporting PDFs and images (so it can "see") was part of the plan from the start.',
+        techStack: [
+          { name: 'Cloudflare Workers & Durable Objects', desc: 'The API and chat logic run on Workers. Durable Objects hold the conversation so I didn\'t need a separate database.' },
+          { name: 'Workers AI: Llama 3.3 70B & Llama 3.2 Vision', desc: 'Llama 3.3 does the main reasoning. For images I use Llama Vision plus LLaVA and UForm when needed.' },
+          { name: 'RAG: BGE-small & Vectorize', desc: 'You upload a PDF, I chunk it, embed with BGE (384 dims), and store in Vectorize. When you ask, I pull relevant chunks and the model answers from that.' },
+          { name: 'Tools', desc: 'search_web, get_weather, calculate, get_current_time, convert_currency. I use keyword hints and auto-trigger logic so the agent calls them when it makes sense.' }
+        ],
+        features: [
+          { title: 'Tool use', desc: 'The agent figures out when to call search_web, get_weather, calculate, etc. based on what you ask.' },
+          { title: 'Document chat', desc: 'Upload PDFs. They get chunked, embedded, and stored. Ask questions and it answers from your docs.' },
+          { title: 'Vision', desc: 'Drop in an image and it can describe it or answer questions about it (Llama 3.2 Vision, LLaVA, UForm).' },
+          { title: 'Edge', desc: 'Chat on 3000, API on 8787 with Wrangler. No server to maintain; responses come from the edge.' }
+        ],
+        details: [
+          'I built an agent that decides on its own when to hit the web, run a calc, or use your docs-using keyword detection and some auto-trigger logic.',
+          'Everything runs on Cloudflare: one Worker for the API, Durable Objects for chat state, Vectorize for the document embeddings.',
+          'RAG flow: upload PDF → extract and chunk → embed with BGE → store in Vectorize. When you ask something, I search the vectors and feed the top chunks to the model.',
+          'Vision: you upload an image, Llama 3.2 Vision describe it, and the model can use that in the next reply.',
+          'Frontend is a simple chat page (HTML/CSS/JS) with file upload, voice input, dark mode. The Worker handles streaming and CORS.'
+        ],
+        challenges: [
+          { title: 'Edge vs. normal server', content: 'Workers don\'t keep state the same way. I used Durable Objects for chat history and kept tool calls stateless so nothing got stuck.' },
+          { title: 'RAG + vision + tools in one', content: 'Getting the agent to choose between querying docs, calling a tool, or using vision took a lot of prompt tweaking and context-window juggling.' }
+        ],
+        futureExpansions: [
+          { title: 'Streaming', desc: 'Let the reply stream in so it feels like the AI is typing.' },
+          { title: 'More tools', desc: 'Add calendar, email, code run so it can do more for you.' },
+          { title: 'UI and language', desc: 'Clean up the UI and add more languages.' }
+        ],
+        outro: 'Learned a ton about edge, RAG, and agent design. Took a lot of debugging to get here, if it\'s useful, a GitHub star means a lot!',
+        links: [{ url: 'https://github.com/Siwanii/AgentFlow_AI', text: 'View Code' }]
+      },
+      ican: {
+        image: 'media/Ican_Snap.png',
+        year: '2024/2025',
+        title: 'ICAN ERP System',
+        tagline: 'ERP for the Institute of Chartered Accountants of Nepal 16+ modules, separate portals for staff/members/students, and a microservices backend.',
+        overview: 'I worked on this ERP for ICAN. It covers a lot: accounting, HR, inventory, library, member management, payroll, e-learning, grievance, disciplinary, QA, fixed assets, memos, newsletter, and more. There are three portals-internal staff, members, and students, each with its own gateway and role-based access. Frontend is Next.js 13 (React 18, Redux, Redux Saga), with a big component set and Ant Design, Material-UI, AG Grid, etc. Backend is .NET Core microservices: each area (APP.ACCOUNT, APP.MEMBERMANAGEMENT, APP.SECURITY, etc.) is its own service. We used APP.DBHELPER so the same code could talk to PostgreSQL depending on the environment.',
+        goals: 'ICAN needed one system that could replace a bunch of manual processes and serve different user types. The idea was to keep the front and back ends separate so teams could work in parallel, and to make it easy to add or change modules without breaking the rest.',
+        techStack: [
+          { name: 'Frontend: Next.js 13 & Redux', desc: 'Next.js 13.4 with the app directory. Redux and Redux Saga for state and async stuff. TypeScript/JS, server-side rendering where it helped.' },
+          { name: 'UI: Ant Design, Material-UI, AG Grid, etc.', desc: 'We used several UI libraries (Ant Design, MUI, CoreUI, PrimeReact) so different parts could pick what fit. AG Grid for heavy tables, Chart.js for charts, TinyMCE/Quill/Editor.js for rich text, Formik/Yup for forms. Tailwind, SCSS, Styled Components.' },
+          { name: 'Backend: .NET Core microservices', desc: 'Each module (APP.ACCOUNT, APP.MEMBERMANAGEMENT, etc.) has its own APIs, models, data layer, repo layer, and services. Minimal APIs, repository pattern, Swagger for docs. JWT and RBAC; CORS set up for the frontend.' },
+          { name: 'Database: PostgreSQL', desc: 'APP.DBHELPER hides the DB so we can switch. Connection strings and config live in appsettings per module and environment (dev, staging, prod).' },
+          { name: 'Gateways & localization', desc: 'Four gateways:-internal, member, student, external, so the frontend hits the right backend. Nepali date support (Nepali Date Converter, Moment, Day.js); NextAuth for auth; Axios for API calls.' }
+        ],
+        features: [
+          { title: 'Security', desc: 'APP.SECURITY handles users, roles, permissions, and JWT. RBAC across all three portals.' },
+          { title: 'Core modules', desc: 'Accounting (chart of accounts, journals, budgets, reports), HR (employees, attendance, leave), member management (registration, profiles), inventory, library (catalog, lending), payroll (salary, deductions, tax).' },
+          { title: 'Other modules', desc: 'Committee, document tracking (Darta Chalani), memos, newsletter, grievance, disciplinary, e-learning, QA, fixed assets. Each is its own service.' },
+          { title: 'Portals and UX', desc: 'Three portals (internal, member, student) with shared login but separate data. Nepali calendar, rich text, Excel/CSV/PDF export, reporting, document uploads. Responsive so it works on smaller screens too.' }
+        ],
+        details: [
+          'I worked on the microservices backend: 16+ APP.* modules, each with its own APIs, models, data layer, repo layer, and services. That let us develop and deploy pieces independently.',
+          'On the frontend (ip-client) I built routes, components, Redux store and sagas, and styling. We plugged in Ant Design, MUI, AG Grid, Chart.js, and rich text editors so the UI stayed consistent.',
+          'We added four API gateways so the frontend could call the right microservices without caring which port they ran on.',
+          'APP.DBHELPER gave us one place for DB access and let the institute use PostgreSQL. Config is per module and per environment.',
+          'Backend modules follow the repository pattern; we documented the APIs with Swagger so the frontend team could integrate easily.',
+          'Nepali calendar and bilingual dates were a requirement. On the front we did code splitting and lazy loading to keep load times reasonable.'
+        ],
+        challenges: [
+          { title: 'Talking to 16+ services', content: 'The frontend needed to call the right service for each feature. We introduced the API gateways so routing and deployment could stay flexible.' },
+          { title: 'State in a big frontend', content: 'With so many components and pages, we needed a clear state story. Redux plus Redux Saga gave us predictable actions and async flows.' },
+          { title: 'Two databases', content: 'ICAN wanted the option to use PostgreSQL. We built APP.DBHELPER so we could swap without rewriting every module.' },
+          { title: 'Three portals, one login', content: 'Internal, member, and student portals share auth but need separate data and access. We got that with RBAC and gateway separation.' },
+          { title: 'Nepali dates and performance', content: 'We wired in the Nepali calendar and date converters. For performance we focused on code splitting and lazy loading so the bundle didn\'t blow up.' }
+        ],
+        futureExpansions: [
+          { title: 'More from the institute', desc: 'We\'ll extend reporting and workflows based on what ICAN asks for next.' }
+        ],
+        outro: 'This was really large ERP. Learned a lot about keeping many modules and portals in sync, keeping the codebase maintainable, and shipping on time for the Company.',
+        links: []
+      },
+      ntb: {
+        image: 'media/NTB image.jpg',
+        year: '2023/2024',
+        title: 'NTB ERP System',
+        tagline: 'ERP for Nepal Tourism Board accounting, inventory, billing, fixed assets, security, travel, and loan/investment.',
+        overview: 'I worked on this ERP for NTB. It handles accounting (chart of accounts, GL, financial reports, budget, bank), inventory (stock, PO, GRN, issues, returns, adjustments), billing (invoices, debit/credit notes), fixed assets (registration, maintenance, depreciation, disposal), plus security, verification, travel admin, and loan/investment. We built it with ASP.NET Core 6 and C#, using a layered setup: ATT (models), BLL (business logic), DLL (data access), and Razor Pages for the UI. Main app is NTB.ERP.Portal; DB is PostgreSQL (schema in APP.DATABASE, DbHelper for access). APIs are RESTful with versioning (URL, query, header, media type) and Swagger. Auth is cookie-based with RBAC and session. We used EPPlus and DocumentFormat.OpenXml for Excel, MailKit for email. CI/CD runs on Azure Pipelines.',
+        goals: 'NTB needed one place to manage finances, inventory, billing, and assets instead of spreadsheets and paper. We wanted a clear layered design so the code stayed maintainable and we could add modules without breaking things.',
+        techStack: [
+          { name: 'Backend: ASP.NET Core 6 & C#', desc: 'ATT/BLL/DLL layers. RESTful APIs with versioning, Swagger (Swashbuckle), Newtonsoft.Json. Cookie auth, RBAC, session. Connection strings kept secure; HTTPS in prod.' },
+          { name: 'Frontend: Razor Pages & JS', desc: 'Razor Pages for the UI, vanilla JS (ES6+). Static files and scripts from wwwroot. Responsive so it works on different screen sizes.' },
+          { name: 'Database: PostgreSQL', desc: 'Normalized schema, relationships between modules, indexes for reporting, triggers where we needed automation. Connection string in NTB.ERP.Portal/appsettings.json (DbConnString). Schema and helpers in APP.DATABASE and DbHelper.' },
+          { name: 'DevOps & libraries', desc: 'Git, Azure Pipelines (main, dev, live). Visual Studio 2022. EPPlus and DocumentFormat.OpenXml for Excel; MailKit for email.' }
+        ],
+        features: [
+          { title: 'Account management', desc: 'Chart of accounts, general ledger, financial reports (balance sheet, cash flow, GL statements), budget, bank setup, multi-level hierarchy, transaction processing.' },
+          { title: 'Inventory', desc: 'Stock tracking, purchase orders, GRN, issues and returns, adjustments, physical verification. Reports and basic analytics; stock updates in near real time.' },
+          { title: 'Billing & fixed assets', desc: 'Invoices, debit/credit notes, billing tied to accounts. Fixed assets: registration, maintenance, depreciation, disposal, reports.' },
+          { title: 'Security, verification, travel, loan/investment', desc: 'User management, RBAC, cookie auth, session. Verification workflows for documents. Travel requests and expenses. Loan and investment tracking and reports.' }
+        ],
+        details: [
+          'I helped design and implement the ATT/BLL/DLL/UI layers across Account, Billing, Inventory, FixedAsset, Security, Verification, Travel, LoanAndInvestment. We reused components where it made sense.',
+          'Auth is cookie-based with configurable session timeout and RBAC. Connection strings and secrets are handled securely.',
+          'We built RESTful APIs and documented them with Swagger. Versioning (URL, query, header, media type) so we could change things without breaking old clients.',
+          'PostgreSQL schema is normalized with clear relationships. We tuned queries and added indexes for reporting; triggers handle some automated updates.',
+          'I worked on the financial reporting (balance sheet, cash flow, GL) and the inventory module so stock updates and reports stayed in sync.',
+          'CI/CD is on Azure DevOps. We have Common, Utility, DbHelper for shared code. Error handling and logging in place. We shipped updates in sync with NTB\'s priorities.'
+        ],
+        challenges: [
+          { title: 'Money across modules', content: 'Financial transactions touch several modules. We used proper DB transactions so everything stayed consistent no partial updates.' },
+          { title: 'Data flow between modules', content: 'Modules had to share data without becoming one big ball. We used a common DLL and shared utilities (Common, Utility, DbHelper) so they could talk without tight coupling.' },
+          { title: 'Big reports and lists', content: 'Financial and inventory reports could get huge. We optimized queries, added indexes, and used pagination so the UI stayed usable.' },
+          { title: 'Auth without friction', content: 'We needed secure login and roles without making the UI annoying. Cookie-based auth plus RBAC and session management did the job.' }
+        ],
+        futureExpansions: [
+          { title: 'Mobile and alerts', desc: 'A mobile app for field use and real-time alerts could be next.' },
+          { title: 'Analytics and integrations', desc: 'Richer analytics and hooks into third-party systems are on the list.' },
+          { title: 'Scale and quality', desc: 'Moving to microservices and adding automated tests and monitoring would help as usage grows.' }
+        ],
+        outro: 'NTB now has one system for accounting, inventory, billing, and assets instead of scattered tools. The layered design made it easier to maintain and extend. I learned a lot about keeping financial data correct and building APIs that last.',
+        links: []
+      },
+      election: {
+        image: 'media/Nepal_Election_Commission.jpg',
+        year: '2022',
+        title: 'ERIS – Election Related Information System',
+        tagline: 'Web app for the full election lifecycle - setup, candidates, campaigns, vote counting, and reporting.',
+        overview: 'ERIS is the election management system I worked on. It handles the whole cycle: election setup and scheduling, candidate and party management, nominations and withdrawals, campaign tracking, symbol assignment, vote counting and results, claims and objections, plus document management, observers, events, and reporting. Built with ASP.NET Web Forms (.NET 4.0), C#, Oracle (ODAC), and Crystal Reports. The code is layered: ERIS (main web app), ATT (models), BLL (business logic), DLL (data access), COREDL (SQL Helper and connections), SECURITY, NEWSECURITY, VERIFICATION, UTILITY. We used Repository, Factory, and DI where it helped. It’s meant to scale from local to national - thousands of candidates and voters. Frontend is HTML/CSS/JS/jQuery; auth is Forms-based with RBAC. Session timeout is 120 minutes. Oracle connection goes through COREDL/SQLHelper or the credential manager. Deployed on IIS with a .NET 4.0 app pool. 15+ modules, a lot of source files.',
+        goals: 'The commission needed one system to run elections end to end: setup, candidates, campaigns, vote count, documents, and reports and it had to meet electoral rules and stay auditable. We wanted something election officials could actually use without getting lost.',
+        techStack: [
+          { name: 'Backend: ASP.NET Web Forms & .NET 4.0', desc: 'C#, Web Forms for UI and server logic. Visual Studio 2010+. Deployed on IIS with an app pool on .NET 4.0.' },
+          { name: 'Database: Oracle & ODAC', desc: 'Oracle with ODAC. Connection config in COREDL/SQLHelper or the credential manager (host, port, service name). We tuned the data access layer so it could handle large result sets.' },
+          { name: 'Reporting: Crystal Reports', desc: 'Crystal Reports for the main reports, with dynamic data binding. Runtime has to be on the server. Image cleaner and related settings live in Web.config.' },
+          { name: 'Layers and patterns', desc: 'ERIS (UI), ATT, BLL, DLL, COREDL, SECURITY, NEWSECURITY, VERIFICATION, UTILITY. Repository, Factory, and DI where they fit.' },
+          { name: 'Frontend & security', desc: 'HTML, CSS, JavaScript, jQuery. Forms auth, RBAC, 120-min session. Credentials stored and used securely.' }
+        ],
+        features: [
+          { title: 'Election management', desc: 'Election setup and config, scheduling, timeline, multi-level hierarchy.' },
+          { title: 'Candidates & nominations', desc: 'Candidate registration and profiles, nomination forms and validation, withdrawals, symbol assignment. Person and political party management.' },
+          { title: 'Campaign & vote count', desc: 'Campaign tracking and finance, event scheduling. Vote count: near real-time counting, result compilation, audit trail. Claims and objections.' },
+          { title: 'Documents & admin', desc: 'Document upload and storage, versioning, links to nomination and verification. Central lookup, observers, EDR, events, issue tracking, follow-up. Reporting dashboard.' },
+          { title: 'Security & reporting', desc: 'Auth and RBAC, session. Crystal Reports for election reports. UI built so officials can get their work done without fighting the system.' }
+        ],
+        details: [
+          'I worked on the layered design and implementation: ASP.NET Web Forms and Oracle, 15+ modules covering the full election workflow.',
+          'Auth and RBAC so only the right roles could do the right things. We used Oracle Data Access Components and tuned the data layer so it could handle big datasets.',
+          'Crystal Reports for the main reports; document management for election docs; vote counting and result handling with an audit trail.',
+          'We kept the code modular (ERIS, ATT, BLL, DLL, COREDL, SECURITY, etc.) so we could maintain and extend it. Tried to keep concerns separated and follow SOLID where practical.',
+          'Web.config holds connection strings, Forms auth, 120-min session, Crystal settings. We deployed to IIS with the right app pool and file permissions for uploads and reports.',
+          'During high-volume periods we focused on data integrity and performance. We stuck to the layered structure and C# conventions (PascalCase, clear names).'
+        ],
+        challenges: [
+          { title: 'Oracle at scale', content: 'With thousands of candidates and voters we had to tune Oracle queries and data access so reports and operations didn\'t slow to a crawl.' },
+          { title: 'Security for sensitive data', content: 'Election data is sensitive. We used Forms auth, RBAC, session handling, and secure credentials so only authorized users could see or change what they were supposed to.' },
+          { title: 'Crystal Reports in production', content: 'Getting Crystal Reports to work with dynamic data and run reliably on the server took some config—runtime, report paths, and data sources had to be right.' },
+          { title: 'Scale and integrity', content: 'The system had to work for local and national elections. We added validation and verification so critical data stayed correct and auditable.' }
+        ],
+        futureExpansions: [
+          { title: 'Newer stack and mobile', desc: 'Moving to .NET Core/ASP.NET MVC could improve performance. A mobile app for field work would help too.' },
+          { title: 'Analytics and integrations', desc: 'Real-time dashboards, links to other electoral systems, better visuals for reports, and APIs for third parties are possible next steps.' }
+        ],
+        outro: 'ERIS cut down a lot of manual work and gave the commission one place to run elections and keep audit trails. Working on it taught me a lot about Oracle at scale, securing sensitive data, and keeping a big codebase maintainable.',
+        links: []
+      },
+      bike: {
+        image: 'media/Bike_Snap.png',
+        year: '2019',
+        title: 'Bike Simulation (OpenGL/GLUT)',
+        tagline: '3D bike in C with OpenGL and GLUT - one file, frame, wheels, rider, camera, and steering.',
+        overview: 'I built this 3D bike sim in C using the old OpenGL fixed-function pipeline and GLUT (or freeglut). One source file, bike.c. The bike has a frame, wheels, spokes, gears, seat, headlight, exhaust, and a rider; there\'s basic lighting and materials. You control the camera with keyboard (arrows zoom/pan) and mouse (drag to orbit), and the bike with +/- for speed and 1/2 for steering. There\'s a welcome screen and a help screen (S for help, C to continue). Builds with clang or gcc; I\'ve run it on macOS, Linux, and Windows. Tested at 1920x1080.',
+        goals: 'I wanted to learn OpenGL and 3D in C without pulling in a big engine. The fixed-function pipeline is old but simple, good for a school project. I focused on making the bike and camera feel okay and keeping it portable.',
+        techStack: [
+          { name: 'C & OpenGL fixed-function', desc: 'Everything lives in bike.c. I used the legacy pipeline so I didn\'t have to deal with shaders; it\'s not fancy but it compiles everywhere.' },
+          { name: 'GLUT / freeglut', desc: 'GLUT handles the window and input. On macOS you can use the system framework or Homebrew freeglut; on Linux it\'s freeglut3-dev and Mesa; on Windows it\'s MinGW/MSYS2 and freeglut.' },
+          { name: 'Build', desc: 'macOS: clang -framework OpenGL -framework GLUT. Linux: gcc -lGL -lGLU -lglut -lm. Windows: gcc -lfreeglut -lopengl32 -lglu32 -lm.' }
+        ],
+        features: [
+          { title: 'Bike and rider', desc: 'Frame, wheels, spokes, gears, seat, headlight, exhaust, rider. Basic lighting and materials.' },
+          { title: 'Camera', desc: 'Arrows zoom and pan; mouse drag orbits. R resets the view.' },
+          { title: 'Movement', desc: '+/- for speed, 1 and 2 for left/right steering. Limits are in constants at the top of bike.c (INC_SPEED, HANDLE_LIMIT, etc.).' },
+          { title: 'Screens and tweaks', desc: 'Welcome and help screens (S and C). You can change window size and geometry in the constants (WIN_WIDTH, WIN_HEIGHT, RADIUS_WHEEL, GAS_TANK, etc.).' }
+        ],
+        details: [
+          'I drew the bike and rider in OpenGL, added simple lighting, and hooked up movement and steering with basic math.',
+          'Camera uses keyboard and mouse; bike uses +/- and 1/2. Everything updates in real time.',
+          'Single file so you can open it, tweak constants, and rebuild. I got it running on macOS, Linux, and Windows; default window is 1920x1080.'
+        ],
+        challenges: [
+          { title: 'Math and feel', content: 'Getting movement and steering to feel okay took a lot of tweaking. I messed with the coordinate transforms and the physics until the bike didn\'t feel like it was sliding. GLUT include paths and linker flags are different on each OS - macOS wants GLUT/glut.h, Linux wants GL/glut.h, so I had to handle that in the build.' }
+        ],
+        futureExpansions: [
+          { title: 'More environments', desc: 'Would be fun to add different tracks or terrains with different physics.' }
+        ],
+        outro: 'Fun project to learn C, OpenGL, and a bit of game-like interaction. The fixed-function pipeline is dated but it kept things simple and portable.',
+        links: [{ url: 'https://github.com/Siwanii/Bike-Simulation', text: 'View Code' }]
+      },
+      employee: {
+        image: 'media/Employee_Management_placeholder.svg',
+        year: '2022',
+        title: 'Employee Management System',
+        tagline: 'Full-stack app for employee and qualification data - ASP.NET Core 8, PostgreSQL, Bootstrap, Knockout.js.',
+        overview: 'I built this as a full-stack learning project. Two projects: EmployeeManagements (Web API—controllers, EmployeeDbContext, models for Employee, EmpQualification, QualificationList, migrations) and EmployeeManagementMVC (Razor views, HomeController, wwwroot with css, employee.js, libs). ASP.NET Core 8, EF Core 8, PostgreSQL (Npgsql), Swagger. Frontend uses Bootstrap 5, jQuery, Knockout.js. You can add/edit/delete employees and qualifications, track GPA, and validate required fields (Name, DOB, Salary, Entry By, Entry Date). Razor Runtime Compilation so you can change .cshtml and see it without restarting.',
+        goals: 'I wanted one project where I did both the API and the MVC frontend, with real CRUD, validation, and a DB. Clean API + a UI that actually talks to it. Educational/demo only.',
+        techStack: [
+          { name: 'Backend: ASP.NET Core 8 Web API & EF Core 8', desc: 'EmployeesController and QualificationListsController. EmployeeDbContext, PostgreSQL (Npgsql). Swagger for the API. JSON in camelCase.' },
+          { name: 'Frontend: MVC, Bootstrap, Knockout.js', desc: 'Razor views, jQuery, Knockout.js for reactive UI. Client-side validation. Runtime compilation and hot reload so .cshtml changes show up without a full restart.' },
+          { name: 'Structure', desc: 'EmployeeManagements has the API, Data, Models, Migrations. EmployeeManagementMVC has Controllers, Views, wwwroot (css, js, lib).' }
+        ],
+        features: [
+          { title: 'Employees', desc: 'Add, view, edit, delete employees. Validation on required fields: Name, DOB, Salary, Entry By, Entry Date.' },
+          { title: 'Qualifications', desc: 'Manage qualifications and GPA. Updates show up in the UI; error handling so mistakes don\'t silently fail.' },
+          { title: 'Dev experience', desc: 'Responsive layout. In dev, runtime compilation and no cache so view changes are instant.' }
+        ],
+        details: [
+          'I built the Web API first: controllers, DbContext, models, migrations. PostgreSQL for storage.',
+          'Then the MVC app: one main view, employee.js for the API calls, Bootstrap and Knockout for the UI. It calls the API for all CRUD.',
+          'I ran into CORS (frontend and API on different ports), DB auth, and serialization. Fixed those so the UI and API actually work together.'
+        ],
+        challenges: [
+          { title: 'CORS and the API', content: 'The MVC app and the API were on different ports, so the browser blocked the requests. I had to set up CORS correctly and fix auth/serialization so the UI could talk to the API without errors.' },
+          { title: 'DB and runtime', content: 'PostgreSQL connection and EF config took some trial and error. So did Razor Runtime Compilation—making sure it worked in dev and that the app still ran properly in production.' }
+        ],
+        futureExpansions: [
+          { title: 'Auth and roles', desc: 'Right now there\'s no login. Adding real auth and roles so users only see/edit what they\'re allowed to would be the next step.' }
+        ],
+        outro: 'Good project to practice full-stack: API, DB, and a real UI that uses both. Learned a lot about CORS, EF Core, and keeping the front and back in sync. It\'s for learning/demo only.',
+        links: [{ url: 'https://github.com/Siwanii/EmployeeManagement', text: 'View Code' }]
+      },
+      hostel: {
+        image: 'media/Hostel_Management_placeholder.svg',
+        year: '2020',
+        title: 'Academic Project (Hostel Management System)',
+        tagline: 'Academic project for hostel operations - student registration, room allocation, and admin tasks.',
+        overview: 'I built this for a course. It\'s a hostel management system: students can register and manage their profiles, rooms get assigned based on availability and preferences, and staff have a dashboard for records, occupancy, maintenance requests, and reports. Role-based access so students, admins, and staff see and do different things. Data lives in a database - students, rooms, and admin records.',
+        goals: 'The assignment was to build something that handled registration, room assignment, and admin workflows. I wanted clear roles (student vs staff vs admin) and a DB design that didn\'t fight the use cases.',
+        techStack: [
+          { name: 'Database', desc: 'Student info, room details, and admin data. I designed the schema so registration, allocation, and reporting could work without weird joins.' },
+          { name: 'Role-based access', desc: 'Students register and see their own stuff. Staff manage occupancy and maintenance. Admins get the full picture. Permissions per role.' }
+        ],
+        features: [
+          { title: 'Student registration', desc: 'Students can register for hostel and update their profile. They see their own allocation and details.' },
+          { title: 'Room allocation', desc: 'Rooms are assigned from availability and preferences. The logic is in the backend so staff don\'t have to do it manually.' },
+          { title: 'Admin dashboard', desc: 'Staff can see records, occupancy, maintenance requests, and run reports. Admins have broader access.' }
+        ],
+        details: [
+          'I designed and built the system for the course: registration flow, room allocation logic, and admin dashboard.',
+          'Students get a registration and profile flow; they can see their room and update their info.',
+          'Room allocation uses availability and preferences. I kept the logic in one place so we could change rules without touching the UI too much.',
+          'Staff dashboard shows student records, room occupancy, maintenance requests, and basic reports.',
+          'I added role-based access so students, staff, and admins each get the right screens and actions.',
+          'All of it backed by a DB- student, room, and admin data stored and retrieved in a way that made the above possible.'
+        ],
+        challenges: [
+          { title: 'Scope and roles', content: 'As a course project we had to keep scope realistic. Defining who does what (student vs staff vs admin) early helped. I designed the DB and UI around those roles so each user had a clear path and we didn\'t overbuild.' }
+        ],
+        outro: 'Good first full application with roles, workflows, and a real database. Learned a lot about scoping a project and designing for different user types.',
+        links: []
+      }
+    };
+
+    function renderProject(id) {
+      const project = projectsData[id];
+      const content = document.getElementById('detailContent');
+      const notFound = document.getElementById('detailNotFound');
+
+      if (!project) {
+        content.innerHTML = '';
+        notFound.style.display = 'block';
+        return;
+      }
+
+      document.title = project.title + ' - Siwani Sah';
+      notFound.style.display = 'none';
+
+      let html = '';
+
+      html += '<article class="detail-hero">';
+      html += '<div class="detail-year">' + escapeHtml(project.year) + '</div>';
+      html += '<h1 class="detail-title">' + escapeHtml(project.title) + '</h1>';
+      html += '<p class="detail-tagline">' + escapeHtml(project.tagline || project.description) + '</p>';
+      if (project.links && project.links.length) {
+        html += '<div class="detail-hero-links">';
+        project.links.forEach(function(link) {
+          html += '<a href="' + escapeAttr(link.url) + '" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> ' + escapeHtml(link.text) + '</a>';
+        });
+        html += '</div>';
+      }
+      if (project.image) {
+        html += '<div class="detail-hero-image-wrap" role="button" tabindex="0" data-image="' + escapeAttr(project.image) + '" data-alt="' + escapeAttr(project.title) + '" onclick="openDetailImageLightbox(this)" onkeydown="if(event.key===\'Enter\')openDetailImageLightbox(this)">';
+        html += '<img src="' + escapeAttr(project.image) + '" alt="' + escapeAttr(project.title) + '" class="detail-hero-image">';
+        html += '</div>';
+      }
+      html += '</article>';
+
+      html += '<div class="detail-section"><h2>Overview</h2><p>' + escapeHtml(project.overview || project.description) + '</p></div>';
+
+      if (project.goals) {
+        html += '<div class="detail-section"><h2>Goals and Motivation</h2><p>' + escapeHtml(project.goals) + '</p></div>';
+      }
+
+      if (project.techStack && project.techStack.length) {
+        html += '<div class="detail-section"><h2>Meet my tech stack</h2><div class="tech-stack-grid">';
+        project.techStack.forEach(function(t) {
+          html += '<div class="tech-stack-item"><h3>' + escapeHtml(t.name) + '</h3><p>' + escapeHtml(t.desc) + '</p></div>';
+        });
+        html += '</div></div>';
+      }
+
+      if (project.features && project.features.length) {
+        html += '<div class="detail-section"><h2>Features</h2>';
+        project.features.forEach(function(f) {
+          html += '<div class="feature-item"><h3>' + escapeHtml(f.title) + '</h3><p>' + escapeHtml(f.desc) + '</p></div>';
+        });
+        html += '</div>';
+      }
+
+      if (project.details && project.details.length) {
+        html += '<div class="detail-section"><h2>What I built</h2><ul>';
+        project.details.forEach(function(d) {
+          html += '<li>' + escapeHtml(d) + '</li>';
+        });
+        html += '</ul></div>';
+      }
+
+      if (project.video) {
+        html += '<div class="detail-section"><h2>Demo</h2><div class="detail-demo-video-wrap">';
+        html += '<video class="detail-demo-video" src="' + escapeAttr(project.video) + '" controls playsinline preload="metadata" poster="' + (project.image ? escapeAttr(project.image) : '') + '">Your browser does not support the video tag.</video>';
+        html += '</div></div>';
+      }
+
+      if (project.challenges && project.challenges.length) {
+        html += '<div class="detail-section"><h2>Challenges and how I overcame them</h2>';
+        project.challenges.forEach(function(c) {
+          html += '<div class="challenge-block"><h3>' + escapeHtml(c.title) + '</h3><p>' + escapeHtml(c.content) + '</p></div>';
+        });
+        html += '</div>';
+      }
+
+      if (project.futureExpansions && project.futureExpansions.length) {
+        html += '<div class="detail-section"><h2>Future expansions</h2>';
+        project.futureExpansions.forEach(function(f) {
+          html += '<div class="future-item"><h3>' + escapeHtml(f.title) + '</h3><p>' + escapeHtml(f.desc) + '</p></div>';
+        });
+        html += '</div>';
+      }
+
+      if (project.outro) {
+        html += '<div class="detail-section"><h2>Takeaway</h2><p class="detail-outro">' + escapeHtml(project.outro) + '</p></div>';
+      }
+
+      if (project.links && project.links.length) {
+        html += '<div class="detail-section"><h2>Repositories</h2><div class="detail-hero-links">';
+        project.links.forEach(function(link) {
+          html += '<a href="' + escapeAttr(link.url) + '" target="_blank" rel="noopener"><i class="fab fa-github"></i> ' + escapeHtml(link.text) + '</a>';
+        });
+        html += '</div></div>';
+      }
+
+      html += '<div class="detail-explore"><a href="projects.html">Explore more projects →</a></div>';
+      html += '<a href="projects.html" class="detail-back"><i class="fas fa-arrow-left"></i> Back to Projects</a>';
+      content.innerHTML = html;
+    }
+
+    function escapeHtml(s) {
+      if (!s) return '';
+      const div = document.createElement('div');
+      div.textContent = s;
+      return div.innerHTML;
+    }
+    function escapeAttr(s) {
+      if (!s) return '';
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    function openDetailImageLightbox(el) {
+      const src = el.getAttribute('data-image');
+      const alt = el.getAttribute('data-alt') || '';
+      const lightbox = document.getElementById('detailImageLightbox');
+      const img = document.getElementById('detailLightboxImage');
+      if (lightbox && img && src) {
+        img.src = src;
+        img.alt = alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeDetailImageLightbox(event) {
+      if (event && event.target !== event.currentTarget) return;
+      const lightbox = document.getElementById('detailImageLightbox');
+      if (lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeDetailImageLightbox();
+    });
+
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id') || '';
+      renderProject(id);
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const overlay = document.createElement('div');
+      overlay.id = 'fx-overlay';
+      document.body.appendChild(overlay);
+
+      const palette = [
+        '#ff4c78', '#00b9ff', '#ffd200', '#7850ff', '#00ffc8', '#ff8a00'
+      ];
+
+      function hexToRgba(hex, alpha) {
+        const h = hex.replace('#', '');
+        const bigint = parseInt(h, 16);
+        const r = (bigint >> 16) & 255;
+        const g = (bigint >> 8) & 255;
+        const b = bigint & 255;
+        return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
+      }
+
+      function spawnParticle(container, x, y, opts) {
+        const p = document.createElement('span');
+        p.className = 'smoke-particle';
+        const color = palette[Math.floor(Math.random() * palette.length)];
+        const dx = (Math.random() * 100 - 50);
+        const dy = -((opts && opts.dyMin !== undefined ? opts.dyMin : 30) + Math.random() * (opts && opts.dyRange !== undefined ? opts.dyRange : 60));
+        const s = (opts && opts.scaleMin !== undefined ? opts.scaleMin : 1.8) + Math.random() * (opts && opts.scaleRange !== undefined ? opts.scaleRange : 1.8);
+        p.style.left = x + 'px';
+        p.style.top = y + 'px';
+        p.style.setProperty('--dx', dx + 'px');
+        p.style.setProperty('--dy', dy + 'px');
+        p.style.setProperty('--s', s);
+        p.style.background = 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), ' + hexToRgba(color, 0.85) + ' 45%, rgba(255,255,255,0) 70%)';
+        container.appendChild(p);
+        p.addEventListener('animationend', function () { p.remove(); });
+      }
+
+      function spawnBurst(container, x, y) {
+        const b = document.createElement('span');
+        b.className = 'smoke-burst';
+        b.style.left = x + 'px';
+        b.style.top = y + 'px';
+        container.appendChild(b);
+        b.addEventListener('animationend', function () { b.remove(); });
+      }
+
+      function relativeToOverlay(evt) {
+        const rect = overlay.getBoundingClientRect();
+        return { x: evt.clientX - rect.left, y: evt.clientY - rect.top };
+      }
+
+      function handleGlobalClick(evt) {
+        const xy = relativeToOverlay(evt);
+        spawnBurst(overlay, xy.x, xy.y);
+        const count = 10 + Math.floor(Math.random() * 8);
+        for (let i = 0; i < count; i++) {
+          const jitterX = xy.x + (Math.random() * 16 - 8);
+          const jitterY = xy.y + (Math.random() * 10 - 5);
+          spawnParticle(overlay, jitterX, jitterY);
+        }
+      }
+
+      var lastOverlayMove = 0;
+      function handleGlobalMove(evt) {
+        var now = Date.now();
+        if (now - lastOverlayMove < 90) return;
+        lastOverlayMove = now;
+        const xy = relativeToOverlay(evt);
+        const count = 1 + Math.floor(Math.random() * 2);
+        for (let i = 0; i < count; i++) {
+          const jitterX = xy.x + (Math.random() * 10 - 5);
+          const jitterY = xy.y + (Math.random() * 8 - 4);
+          spawnParticle(overlay, jitterX, jitterY, { dyMin: 14, dyRange: 22, scaleMin: 1.4, scaleRange: 1.2 });
+        }
+      }
+
+      window.addEventListener('click', handleGlobalClick);
+      window.addEventListener('mousemove', handleGlobalMove);
+      window.addEventListener('touchstart', function (evt) {
+        const t = evt.touches[0];
+        if (!t) return;
+        const rect = overlay.getBoundingClientRect();
+        const x = t.clientX - rect.left;
+        const y = t.clientY - rect.top;
+        spawnBurst(overlay, x, y);
+        const count = 10 + Math.floor(Math.random() * 8);
+        for (let i = 0; i < count; i++) spawnParticle(overlay, x, y);
+      }, { passive: true });
+    })();
+  </script>
+</body>
+
+</html>

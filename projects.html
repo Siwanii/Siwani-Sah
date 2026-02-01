@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap"
+    media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/vendor-bundle.min.26c458e6907dc03073573976b7f4044e.css" media="print"
+    onload="this.media='all'">
+  <link rel="stylesheet" href="/css/wowchemy.32e2e32cf1a4c1ea152e519f8b1fda79.css" />
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" type="image/png" href="/media/Siwani.png" />
+  <title>All Projects - Siwani Sah</title>
+  <script>
+    /* Initialize theme immediately to prevent flash */
+    (function() {
+      // Check URL parameters first
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlTheme = urlParams.get('theme');
+      
+      // Wowchemy uses 'wcTheme' in localStorage: 0=light, 1=dark, 2=auto
+      const wcTheme = localStorage.getItem('wcTheme');
+      
+      // Also check for other possible keys
+      const savedTheme = urlTheme || localStorage.getItem('theme') || localStorage.getItem('wowchemy-theme');
+      
+      let isDark = false;
+      
+      // Check wowchemy theme (numeric)
+      if (wcTheme !== null) {
+        const themeValue = parseInt(wcTheme, 10);
+        if (themeValue === 1) {
+          isDark = true;
+        } else if (themeValue === 2) {
+          // Auto mode - check system preference
+          isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        } else {
+          isDark = false;
+        }
+      } else if (savedTheme) {
+        // Fallback to string-based theme detection
+        isDark = savedTheme === 'dark' || 
+                 (savedTheme === 'auto' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      }
+      
+      if (isDark) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        document.documentElement.classList.remove('dark');
+        document.body.classList.remove('dark');
+      }
+    })();
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      min-height: 100vh;
+      padding-top: 70px;
+    }
+
+    [data-theme="dark"] body,
+    .dark body,
+    html.dark body {
+      background: #0b0e15e6 !important;
+      color: #ffffff !important;
+    }
+
+    [data-theme="light"] body,
+    html:not([data-theme="dark"]):not(.dark) body {
+      background: #f5f5f5;
+      color: #2F2F2F;
+    }
+
+    /* Simple Navbar */
+    .simple-navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(31, 41, 61, 0.41);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    [data-theme="light"] .simple-navbar,
+    html:not([data-theme="dark"]):not(.dark) .simple-navbar {
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .simple-navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    [data-theme="light"] .simple-navbar a,
+    html:not([data-theme="dark"]):not(.dark) .simple-navbar a {
+      color: #2F2F2F;
+    }
+
+    .simple-navbar a:hover {
+      color: #10b981;
+    }
+
+    /* Home Section Background */
+    .home-section-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      z-index: -1;
+    }
+
+    [data-theme="dark"] .home-section-bg,
+    .dark .home-section-bg,
+    html.dark .home-section-bg {
+      background: linear-gradient(135deg, #0b0e1500 0%, #0b0e1500 50%, #0b0e1500 100%) !important;
+    }
+
+    [data-theme="light"] .home-section-bg,
+    html:not([data-theme="dark"]):not(.dark) .home-section-bg {
+      background: linear-gradient(236deg, #fffefe 100%, #f0f0f000 100%, #f0f0f000 100%);
+    }
+
+    /* Projects Section */
+    #projects {
+      position: relative;
+      padding: 4rem 0;
+      min-height: calc(100vh - 70px);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Projects Header Section */
+    .projects-header-section {
+      margin-bottom: 3rem;
+    }
+
+    .projects-header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Green Pill Badge */
+    .projects-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #10b981;
+      color: #fff;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .projects-pill-badge i {
+      font-size: 0.875rem;
+    }
+
+    /* Projects Main Heading */
+    .projects-main-heading {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      margin-top: -0.5rem;
+    }
+
+    [data-theme="dark"] .projects-main-heading,
+    .dark .projects-main-heading,
+    html.dark .projects-main-heading {
+      color: #ffffff !important;
+    }
+
+    [data-theme="light"] .projects-main-heading,
+    html:not([data-theme="dark"]):not(.dark) .projects-main-heading {
+      color: #2F2F2F;
+    }
+
+    /* Projects Description */
+    .projects-description {
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 700px;
+    }
+
+    [data-theme="dark"] .projects-description,
+    .dark .projects-description,
+    html.dark .projects-description {
+      color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    [data-theme="light"] .projects-description,
+    html:not([data-theme="dark"]):not(.dark) .projects-description {
+      color: #555;
+    }
+
+    /* Projects Grid Container */
+    .projects-grid-container {
+      margin-top: 3rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Project Card */
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      position: relative;
+      width: 100%;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    [data-theme="dark"] .project-card,
+    .dark .project-card,
+    html.dark .project-card {
+      background: rgba(20, 20, 20, 0.95) !important;
+      border-color: rgba(255, 255, 255, 0.2) !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    [data-theme="dark"] .project-card:hover,
+    .dark .project-card:hover,
+    html.dark .project-card:hover {
+      background: rgba(30, 30, 30, 1) !important;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6) !important;
+      border-color: rgba(255, 255, 255, 0.3) !important;
+      transform: translateY(-5px);
+    }
+
+    [data-theme="light"] .project-card,
+    html:not([data-theme="dark"]):not(.dark) .project-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="light"] .project-card:hover,
+    html:not([data-theme="dark"]):not(.dark) .project-card:hover {
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      border-color: rgba(0, 0, 0, 0.2);
+    }
+
+    /* Project Image */
+    .project-image-wrapper {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    [data-theme="dark"] .project-image-wrapper,
+    .dark .project-image-wrapper,
+    html.dark .project-image-wrapper {
+      background: rgba(0, 0, 0, 0.5) !important;
+    }
+
+    [data-theme="light"] .project-image-wrapper,
+    html:not([data-theme="dark"]):not(.dark) .project-image-wrapper {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.05);
+    }
+
+    .project-image-wrapper {
+      cursor: pointer;
+    }
+
+    .project-image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="dark"] .project-image-placeholder,
+    .dark .project-image-placeholder,
+    html.dark .project-image-placeholder {
+      background: rgba(0, 0, 0, 0.6) !important;
+    }
+
+    [data-theme="dark"] .project-image-placeholder i,
+    .dark .project-image-placeholder i,
+    html.dark .project-image-placeholder i {
+      color: rgba(255, 255, 255, 0.4) !important;
+    }
+
+    [data-theme="light"] .project-image-placeholder,
+    html:not([data-theme="dark"]):not(.dark) .project-image-placeholder {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    /* Project Year */
+    .project-year {
+      padding: 1rem 1rem 0.25rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 500;
+    }
+
+    [data-theme="dark"] .project-year,
+    .dark .project-year,
+    html.dark .project-year {
+      color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    [data-theme="light"] .project-year,
+    html:not([data-theme="dark"]):not(.dark) .project-year {
+      color: #666;
+    }
+
+    /* Project Title */
+    .project-title {
+      padding: 0 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+      margin-top: 0.5rem;
+    }
+
+    [data-theme="dark"] .project-title,
+    .dark .project-title,
+    html.dark .project-title {
+      color: #ffffff !important;
+    }
+
+    [data-theme="light"] .project-title,
+    html:not([data-theme="dark"]):not(.dark) .project-title {
+      color: #2F2F2F;
+    }
+
+    /* Project Summary */
+    .project-summary {
+      padding: 0 1rem;
+    font-size: 0.7rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+    }
+
+    [data-theme="dark"] .project-summary,
+    .dark .project-summary,
+    html.dark .project-summary {
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    [data-theme="light"] .project-summary,
+    html:not([data-theme="dark"]):not(.dark) .project-summary {
+      color: #555;
+    }
+
+    /* Read More Link */
+    .project-read-more {
+      display: inline-block;
+      padding: 0 1rem 1rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      font-size: 0.7rem;
+    }
+
+    .project-read-more:hover {
+      color: #10b981;
+    }
+
+    [data-theme="dark"] .project-read-more,
+    .dark .project-read-more,
+    html.dark .project-read-more {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    [data-theme="dark"] .project-read-more:hover,
+    .dark .project-read-more:hover,
+    html.dark .project-read-more:hover {
+      color: #10b981 !important;
+    }
+
+    [data-theme="light"] .project-read-more,
+    html:not([data-theme="dark"]):not(.dark) .project-read-more {
+      color: #2F2F2F;
+    }
+
+    [data-theme="light"] .project-read-more:hover,
+    html:not([data-theme="dark"]):not(.dark) .project-read-more:hover {
+      color: #4C1D95;
+    }
+
+    /* Image Lightbox Modal */
+    .image-lightbox {
+      display: none;
+      position: fixed;
+      z-index: 10001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+
+    .image-lightbox.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .image-lightbox-content {
+      position: relative;
+      max-width: 95vw;
+      max-height: 95vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-lightbox img {
+      max-width: 100%;
+      max-height: 95vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .image-lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      z-index: 10002;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .image-lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(90deg);
+    }
+
+    /* Project Modal */
+    .project-modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      overflow-y: auto;
+    }
+
+    .project-modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .project-modal-content {
+      background: #1a1a1a;
+      border-radius: 12px;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    [data-theme="light"] .project-modal-content,
+    html:not([data-theme="dark"]):not(.dark) .project-modal-content {
+      background: #fff;
+    }
+
+    .project-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      z-index: 10001;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .project-modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
+    }
+
+    [data-theme="light"] .project-modal-close,
+    html:not([data-theme="dark"]):not(.dark) .project-modal-close {
+      color: #2F2F2F;
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    #projectModalBody {
+      padding: 3rem;
+    }
+
+    .project-modal-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .project-modal-image:hover {
+      transform: scale(1.02);
+      opacity: 0.9;
+    }
+
+    .project-modal-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    [data-theme="light"] .project-modal-title,
+    html:not([data-theme="dark"]):not(.dark) .project-modal-title {
+      color: #2F2F2F;
+    }
+
+    .project-modal-year {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 1.5rem;
+    }
+
+    [data-theme="light"] .project-modal-year,
+    html:not([data-theme="dark"]):not(.dark) .project-modal-year {
+      color: #666;
+    }
+
+    .project-modal-description {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+    }
+
+    [data-theme="light"] .project-modal-description,
+    html:not([data-theme="dark"]):not(.dark) .project-modal-description {
+      color: #555;
+    }
+
+    .project-modal-details ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .project-modal-details li {
+      padding: 0.75rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.5;
+    font-size: 0.8rem;
+    }
+
+    .project-modal-details li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #10b981;
+    }
+
+    [data-theme="light"] .project-modal-details li,
+    html:not([data-theme="dark"]):not(.dark) .project-modal-details li {
+      color: #555;
+    }
+
+    .project-modal-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #10b981;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .project-modal-link:hover {
+      background: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .projects-main-heading {
+        font-size: 1.75rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-header-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .project-modal-content {
+        margin: 1rem;
+        max-height: 95vh;
+      }
+
+      #projectModalBody {
+        padding: 2rem 1.5rem;
+      }
+
+      .container {
+        padding: 0 1rem;
+      }
+
+      .image-lightbox.active {
+        padding: 1rem;
+      }
+
+      .image-lightbox-close {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 40px;
+        height: 40px;
+        font-size: 2rem;
+      }
+    }
+
+    /* Mouse cursor movement effect (same as index) */
+    .smoke-particle {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      opacity: 0.8;
+      filter: blur(2.5px);
+      will-change: transform, opacity;
+      z-index: 2;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      animation: aboutSmokeParticle 1400ms ease-out forwards;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 65%);
+    }
+    @keyframes aboutSmokeParticle {
+      0%   { opacity: 0.85; transform: translate(calc(-50% + 0px), calc(-50% + 0px)) scale(1); }
+      60%  { opacity: 0.4; transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, -30px))) scale(var(--s, 2.2)); }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, -60px))) scale(var(--s, 3.2)); }
+    }
+    .smoke-burst {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(0.6);
+      opacity: 0.75;
+      filter: blur(26px) hue-rotate(0deg);
+      mix-blend-mode: screen;
+      z-index: 1;
+      background:
+        radial-gradient(closest-side at 35% 35%, hsla(350, 100%, 62%, 0.35), transparent 70%),
+        radial-gradient(closest-side at 70% 30%, hsla(45, 100%, 60%, 0.30), transparent 70%),
+        radial-gradient(closest-side at 30% 70%, hsla(165, 100%, 55%, 0.30), transparent 70%),
+        radial-gradient(closest-side at 75% 75%, hsla(265, 100%, 66%, 0.32), transparent 70%),
+        radial-gradient(closest-side at 50% 50%, hsla(200, 100%, 60%, 0.26), transparent 70%);
+      animation: aboutSmokeBurst 2200ms ease-out forwards;
+    }
+    #fx-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 50;
+      overflow: hidden;
+    }
+    @keyframes aboutSmokeBurst {
+      0%   { opacity: 0.85; transform: translate(-50%, -50%) scale(0.45) rotate(0deg);    filter: blur(24px) hue-rotate(0deg); }
+      40%  { opacity: 0.60; transform: translate(-50%, -50%) scale(1.00) rotate(8deg);   filter: blur(28px) hue-rotate(120deg); }
+      100% { opacity: 0.00; transform: translate(-50%, -50%) scale(1.55) rotate(18deg);  filter: blur(30px) hue-rotate(240deg); }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Simple Navbar -->
+  <nav class="simple-navbar">
+    <a href="/">← Back to Home</a>
+    <a href="/">Siwani Sah</a>
+  </nav>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="home-section-bg"></div>
+    <div class="container">
+      <!-- Projects Header -->
+      <div class="projects-header-section">
+        <h3 class="projects-main-heading">Milestones in the learning journey</h3>
+        <p class="projects-description">
+          Each project marks a step forward, showcasing my growth and journey as a developer. Explore how I've tackled challenges and built solutions along the way.
+        </p>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid-container">
+        <div class="projects-grid">
+          <!-- Project 1: AgentFlow AI Assistant Project -->
+          <div class="project-card" onclick="window.location.href='project-detail.html?id=agentflow'">
+            <div class="project-image-wrapper" onclick="event.stopPropagation(); openImageLightbox('/media/AgentFlow_AI_Snap.png', 'AgentFlow AI Assistant');">
+              <img src="/media/AgentFlow_AI_Snap.png" alt="AgentFlow AI Assistant" class="project-image">
+            </div>
+            <div class="project-year">2026</div>
+            <h3 class="project-title">AgentFlow AI Assistant Project</h3>
+            <p class="project-summary">An autonomous AI agent with RAG pipeline, vision support, and edge computing on Cloudflare Workers.</p>
+            <a href="project-detail.html?id=agentflow" class="project-read-more">
+              Read more →
+            </a>
+          </div>
+
+          <!-- Project 2: ICAN ERP -->
+          <div class="project-card" onclick="window.location.href='project-detail.html?id=ican'">
+            <div class="project-image-wrapper" onclick="event.stopPropagation(); openImageLightbox('/media/Ican_Snap.png', 'ICAN ERP');">
+              <img src="/media/Ican_Snap.png" alt="ICAN ERP" class="project-image">
+            </div>
+            <div class="project-year">2024/2025</div>
+            <h3 class="project-title">Institute of Chartered Accountants of Nepal (ICAN) ERP</h3>
+            <p class="project-summary">Enterprise ERP system serving 20,000+ members with microservices architecture and scalable solutions.</p>
+            <a href="project-detail.html?id=ican" class="project-read-more">
+              Read more →
+            </a>
+          </div>
+
+          <!-- Project 3: NTB ERP -->
+          <div class="project-card" onclick="window.location.href='project-detail.html?id=ntb'">
+            <div class="project-image-wrapper" onclick="event.stopPropagation(); openImageLightbox('/media/NTB image.jpg', 'NTB ERP');">
+              <img src="/media/NTB image.jpg" alt="NTB ERP" class="project-image">
+            </div>
+            <div class="project-year">2023/2024</div>
+            <h3 class="project-title">Nepal Tourism Board (NTB) ERP</h3>
+            <p class="project-summary">Tourism management system with optimized MySQL database and enhanced user experience features.</p>
+            <a href="project-detail.html?id=ntb" class="project-read-more">
+              Read more →
+            </a>
+          </div>
+
+          <!-- Project 4: Nepal Election Commission ERP -->
+          <div class="project-card" onclick="window.location.href='project-detail.html?id=election'">
+            <div class="project-image-wrapper" onclick="event.stopPropagation(); openImageLightbox('/media/Nepal_Election_Commission.jpg', 'Nepal Election Commission ERP');">
+              <img src="/media/Nepal_Election_Commission.jpg" alt="Nepal Election Commission ERP" class="project-image">
+            </div>
+            <div class="project-year">2022</div>
+            <h3 class="project-title">Nepal Election Commission ERP</h3>
+            <p class="project-summary">High-volume election management system with secure modules and .NET backend for critical operations.</p>
+            <a href="project-detail.html?id=election" class="project-read-more">
+              Read more →
+            </a>
+          </div>
+
+          <!-- Project 5: Bike Simulation System -->
+          <div class="project-card" onclick="window.location.href='project-detail.html?id=bike'">
+            <div class="project-image-wrapper" onclick="event.stopPropagation(); openImageLightbox('/media/Bike_Snap.png', 'Bike Simulation System');">
+              <img src="/media/Bike_Snap.png" alt="Bike Simulation System" class="project-image">
+            </div>
+            <div class="project-year">2019</div>
+            <h3 class="project-title">Bike Simulation System</h3>
+            <p class="project-summary">3D bike simulation with realistic physics, movement dynamics, and interactive controls using C programming.</p>
+            <a href="project-detail.html?id=bike" class="project-read-more">
+              Read more →
+            </a>
+          </div>
+
+          <!-- Project 6: Employee Management System -->
+          <div class="project-card" onclick="window.location.href='project-detail.html?id=employee'">
+            <div class="project-image-wrapper" onclick="event.stopPropagation(); openImageLightbox('/media/Employee_Management_placeholder.svg', 'Employee Management System');">
+              <img src="/media/Employee_Management_placeholder.svg" alt="Employee Management System" class="project-image">
+            </div>
+            <div class="project-year">2022</div>
+            <h3 class="project-title">Employee Management System</h3>
+            <p class="project-summary">Full-stack web application with ASP.NET Core 8, PostgreSQL, and responsive UI for employee data management.</p>
+            <a href="project-detail.html?id=employee" class="project-read-more">
+              Read more →
+            </a>
+          </div>
+
+          <!-- Project 7: Hostel Management System -->
+          <div class="project-card" onclick="window.location.href='project-detail.html?id=hostel'">
+            <div class="project-image-wrapper" onclick="event.stopPropagation(); openImageLightbox('/media/Hostel_Management_placeholder.svg', 'Academic Project (Hostel Management System)');">
+              <img src="/media/Hostel_Management_placeholder.svg" alt="Academic Project (Hostel Management System)" class="project-image">
+            </div>
+            <div class="project-year">2020</div>
+            <h3 class="project-title">Academic Project (Hostel Management System)</h3>
+            <p class="project-summary">Academic project for managing hostel operations including student registration, room allocation, and administrative tasks.</p>
+            <a href="project-detail.html?id=hostel" class="project-read-more">
+              Read more →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Detail Modal -->
+  <div id="projectModal" class="project-modal">
+    <div class="project-modal-content">
+      <span class="project-modal-close" onclick="closeProjectModal()">&times;</span>
+      <div id="projectModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Image Lightbox Modal -->
+  <div id="imageLightbox" class="image-lightbox" onclick="closeImageLightbox()">
+    <div class="image-lightbox-content" onclick="event.stopPropagation();">
+      <span class="image-lightbox-close" onclick="closeImageLightbox()">&times;</span>
+      <img id="lightboxImage" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    /* ============================================
+       PROJECT MODAL FUNCTIONALITY
+       ============================================ */
+    
+    // Project data
+    const projectsData = {
+      'agentflow': {
+        image: '/media/AgentFlow_AI_Snap.png',
+        year: '2026',
+        title: 'AgentFlow AI Assistant Project',
+        description: 'An autonomous AI agent that intelligently decides which tools it needs to answer questions, featuring RAG pipeline, vision support, and edge computing.',
+        details: [
+          'I built an autonomous agent that doesn\'t just respond, it actually decides which tools it needs, like jumping on the web to find live info or running a calculation to answer your question.',
+          'Instead of using a standard server, I hosted everything on Cloudflare\'s edge network using Workers and Durable Objects to keep the chat history fast and responsive.',
+          'I set up a RAG pipeline so you can upload PDFs and have a conversation with your own data; the assistant embeds the text and searches through it to find the right context.',
+          'I added vision support using Llama 3.2, which lets the assistant "see" and describe any images you drop into the chat.',
+          'For the heavy lifting, I integrated the Llama 3.3 70B model and used BGE-small embeddings to make sure the document retrieval is both accurate and quick.'
+        ],
+        link: 'https://github.com/Siwanii/AgentFlow_AI',
+        linkText: 'View Code'
+      },
+      'ican': {
+        image: '/media/Ican_Snap.png',
+        year: '2024/2025',
+        title: 'Institute of Chartered Accountants of Nepal (ICAN) ERP',
+        description: 'Enterprise ERP system serving over 20,000 members with microservices architecture and scalable solutions.',
+        details: [
+          'Improved operational efficiency and data accuracy for over 20,000 members by designing, developing, and deploying enterprise modules within a microservices architecture.',
+          'Coordinated directly with clients, translated requirements into scalable solutions and delivered within deadlines.',
+          'Ensured high reliability and performance by deploying and maintaining applications on Windows Server (IIS), overseeing security and updates.'
+        ],
+        link: null,
+        linkText: null
+      },
+      'ntb': {
+        image: '/media/NTB image.jpg',
+        year: '2023/2024',
+        title: 'Nepal Tourism Board (NTB) ERP',
+        description: 'Tourism management system with optimized MySQL database and enhanced user experience features.',
+        details: [
+          'Developed and enhanced tourism-related application modules across frontend and backend layers.',
+          'Improved application stability and user experience by implementing MySQL database optimizations, bug fixes, and new support features.',
+          'Delivered timely updates and new features on schedule by collaborating directly with NTB stakeholders to translate requirements into technical solutions.'
+        ],
+        link: null,
+        linkText: null
+      },
+      'election': {
+        image: '/media/Nepal_Election_Commission.jpg',
+        year: '2022',
+        title: 'Nepal Election Commission ERP',
+        description: 'High-volume election management system with secure modules and .NET backend for critical operations.',
+        details: [
+          'Supported high-volume election operations by immediate Code Release and bug fix, ensured system stability by building and maintaining secure application modules.',
+          'Maintained data integrity and application reliability during critical election periods by contributing to .NET backend enhancements.'
+        ],
+        link: null,
+        linkText: null
+      },
+      'bike': {
+        image: '/media/Bike_Snap.png',
+        year: '2019',
+        title: 'Bike Simulation System',
+        description: '3D bike simulation with realistic physics, movement dynamics, and interactive controls using C programming.',
+        details: [
+          'Developed a 3D Bike Simulation System using C programming language to create realistic bike movement and physics simulation.',
+          'Implemented advanced 3D graphics rendering and mathematical algorithms for accurate bike positioning, rotation, and movement dynamics.',
+          'Created interactive bike movement controls with real-time physics calculations including acceleration, braking, and steering mechanics.',
+          'Designed comprehensive simulation environment with 3D coordinate systems, collision detection, and realistic bike behavior modeling.'
+        ],
+        link: 'https://github.com/Siwanii/Bike-Simulation',
+        linkText: 'View Code'
+      },
+      'employee': {
+        image: null,
+        year: '2022',
+        title: 'Employee Management System',
+        description: 'Full-stack web application with ASP.NET Core 8, PostgreSQL, and responsive UI for employee data management.',
+        details: [
+          'Built a full-stack web application using ASP.NET Core 8 (MVC & Web API) to manage employee records, qualifications, and organizational data efficiently.',
+          'Designed and implemented RESTful APIs with Entity Framework Core and PostgreSQL, ensuring secure data handling, proper JSON serialization, and smooth frontend–backend communication.',
+          'Developed a responsive and interactive UI using MVC, JavaScript, jQuery, Knockout.js, and Bootstrap 5, focusing on usability, form validation, and clean layouts.',
+          'Implemented complete CRUD functionality for employee and qualification management, including GPA tracking, real-time data updates, and user-friendly error handling.',
+          'Solved real-world engineering challenges, such as database authentication issues, CORS configuration, API integration, and runtime compilation for faster development and debugging.'
+        ],
+        link: 'https://github.com/Siwanii/EmployeeManagement',
+        linkText: 'View Code'
+      },
+      'hostel': {
+        image: null,
+        year: '2020',
+        title: 'Academic Project (Hostel Management System)',
+        description: 'Academic project for managing hostel operations including student registration, room allocation, and administrative tasks.',
+        details: [
+          'Developed a comprehensive hostel management system as part of academic coursework to streamline hostel operations and administrative processes.',
+          'Implemented student registration and profile management features, allowing students to register for hostel accommodation and update their information.',
+          'Designed room allocation system with automated assignment algorithms to efficiently manage room assignments based on availability and preferences.',
+          'Created administrative dashboard for hostel staff to manage student records, track room occupancy, handle maintenance requests, and generate reports.',
+          'Built user-friendly interface with role-based access control for students, administrators, and staff members with appropriate permissions.',
+          'Integrated database management system to store and retrieve student information, room details, and administrative records efficiently.'
+        ],
+        link: null,
+        linkText: null
+      }
+    };
+
+    function openProjectModal(projectId) {
+      const project = projectsData[projectId];
+      if (!project) return;
+
+      const modal = document.getElementById('projectModal');
+      const modalBody = document.getElementById('projectModalBody');
+
+      let html = '';
+      
+      if (project.image) {
+        // Escape quotes and special characters for onclick attribute
+        const escapedTitle = project.title.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        html += `<img src="${project.image}" alt="${project.title}" class="project-modal-image" onclick="event.stopPropagation(); openImageLightbox('${project.image}', '${escapedTitle}');">`;
+      }
+      
+      html += `
+        <div class="project-modal-year">${project.year}</div>
+        <h2 class="project-modal-title">${project.title}</h2>
+        <p class="project-modal-description">${project.description}</p>
+        <div class="project-modal-details">
+          <ul>
+      `;
+      
+      project.details.forEach(detail => {
+        html += `<li>${detail}</li>`;
+      });
+      
+      html += `</ul></div>`;
+      
+      if (project.link) {
+        html += `<a href="${project.link}" target="_blank" rel="noopener" class="project-modal-link">${project.linkText}</a>`;
+      }
+      
+      modalBody.innerHTML = html;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProjectModal() {
+      const modal = document.getElementById('projectModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('projectModal');
+      if (event.target === modal) {
+        closeProjectModal();
+      }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeProjectModal();
+      }
+    });
+
+    // Image Lightbox Functions
+    function openImageLightbox(imageSrc, imageAlt) {
+      const lightbox = document.getElementById('imageLightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      
+      if (lightbox && lightboxImage) {
+        lightboxImage.src = imageSrc;
+        lightboxImage.alt = imageAlt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeImageLightbox() {
+      const lightbox = document.getElementById('imageLightbox');
+      if (lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Close image lightbox on Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeImageLightbox();
+      }
+    });
+
+    // Make functions globally available
+    window.openProjectModal = openProjectModal;
+    window.closeProjectModal = closeProjectModal;
+    window.openImageLightbox = openImageLightbox;
+    window.closeImageLightbox = closeImageLightbox;
+
+    /* ============================================
+       THEME INITIALIZATION (Additional check on load)
+       ============================================ */
+    (function() {
+      // Function to initialize/update theme from localStorage
+      function initTheme() {
+        // Wowchemy uses 'wcTheme' in localStorage: 0=light, 1=dark, 2=auto
+        const wcTheme = localStorage.getItem('wcTheme');
+        const htmlElement = document.documentElement;
+        
+        let isDark = false;
+        
+        // Check wowchemy theme (numeric)
+        if (wcTheme !== null) {
+          const themeValue = parseInt(wcTheme, 10);
+          if (themeValue === 1) {
+            isDark = true;
+          } else if (themeValue === 2) {
+            // Auto mode - check system preference
+            isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } else {
+            isDark = false;
+          }
+        } else {
+          // Fallback to string-based theme detection
+          const savedTheme = localStorage.getItem('theme') || localStorage.getItem('wowchemy-theme');
+          if (savedTheme) {
+            isDark = savedTheme === 'dark' || 
+                     (savedTheme === 'auto' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          }
+        }
+        
+        if (isDark) {
+          htmlElement.setAttribute('data-theme', 'dark');
+          htmlElement.classList.add('dark');
+          document.body.classList.add('dark');
+        } else {
+          htmlElement.setAttribute('data-theme', 'light');
+          htmlElement.classList.remove('dark');
+          document.body.classList.remove('dark');
+        }
+      }
+
+      // Re-initialize theme on page load (in case head script didn't catch it)
+      initTheme();
+
+      // Listen for storage events (when theme changes in another tab/window)
+      window.addEventListener('storage', function(e) {
+        if (e.key === 'wcTheme' || e.key === 'theme' || e.key === 'wowchemy-theme') {
+          initTheme();
+        }
+      });
+
+      // Poll localStorage periodically to catch theme changes from main page
+      // This is needed because storage event only fires in other tabs/windows
+      setInterval(function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const wcTheme = localStorage.getItem('wcTheme');
+        
+        let shouldBeDark = false;
+        
+        if (wcTheme !== null) {
+          const themeValue = parseInt(wcTheme, 10);
+          if (themeValue === 1) {
+            shouldBeDark = true;
+          } else if (themeValue === 2) {
+            shouldBeDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          }
+        } else {
+          const savedTheme = localStorage.getItem('theme') || localStorage.getItem('wowchemy-theme');
+          shouldBeDark = savedTheme === 'dark' || 
+                        (savedTheme === 'auto' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        }
+        
+        if ((shouldBeDark && currentTheme !== 'dark') || (!shouldBeDark && currentTheme === 'dark')) {
+          initTheme();
+        }
+      }, 500); // Check every 500ms
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const overlay = document.createElement('div');
+      overlay.id = 'fx-overlay';
+      document.body.appendChild(overlay);
+
+      const palette = [
+        '#ff4c78', '#00b9ff', '#ffd200', '#7850ff', '#00ffc8', '#ff8a00'
+      ];
+
+      function hexToRgba(hex, alpha) {
+        const h = hex.replace('#', '');
+        const bigint = parseInt(h, 16);
+        const r = (bigint >> 16) & 255;
+        const g = (bigint >> 8) & 255;
+        const b = bigint & 255;
+        return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
+      }
+
+      function spawnParticle(container, x, y, opts) {
+        const p = document.createElement('span');
+        p.className = 'smoke-particle';
+        const color = palette[Math.floor(Math.random() * palette.length)];
+        const dx = (Math.random() * 100 - 50);
+        const dy = -((opts && opts.dyMin !== undefined ? opts.dyMin : 30) + Math.random() * (opts && opts.dyRange !== undefined ? opts.dyRange : 60));
+        const s = (opts && opts.scaleMin !== undefined ? opts.scaleMin : 1.8) + Math.random() * (opts && opts.scaleRange !== undefined ? opts.scaleRange : 1.8);
+        p.style.left = x + 'px';
+        p.style.top = y + 'px';
+        p.style.setProperty('--dx', dx + 'px');
+        p.style.setProperty('--dy', dy + 'px');
+        p.style.setProperty('--s', s);
+        p.style.background = 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), ' + hexToRgba(color, 0.85) + ' 45%, rgba(255,255,255,0) 70%)';
+        container.appendChild(p);
+        p.addEventListener('animationend', function () { p.remove(); });
+      }
+
+      function spawnBurst(container, x, y) {
+        const b = document.createElement('span');
+        b.className = 'smoke-burst';
+        b.style.left = x + 'px';
+        b.style.top = y + 'px';
+        container.appendChild(b);
+        b.addEventListener('animationend', function () { b.remove(); });
+      }
+
+      function relativeToOverlay(evt) {
+        const rect = overlay.getBoundingClientRect();
+        return { x: evt.clientX - rect.left, y: evt.clientY - rect.top };
+      }
+
+      function handleGlobalClick(evt) {
+        const xy = relativeToOverlay(evt);
+        spawnBurst(overlay, xy.x, xy.y);
+        const count = 10 + Math.floor(Math.random() * 8);
+        for (let i = 0; i < count; i++) {
+          const jitterX = xy.x + (Math.random() * 16 - 8);
+          const jitterY = xy.y + (Math.random() * 10 - 5);
+          spawnParticle(overlay, jitterX, jitterY);
+        }
+      }
+
+      var lastOverlayMove = 0;
+      function handleGlobalMove(evt) {
+        var now = Date.now();
+        if (now - lastOverlayMove < 90) return;
+        lastOverlayMove = now;
+        const xy = relativeToOverlay(evt);
+        const count = 1 + Math.floor(Math.random() * 2);
+        for (let i = 0; i < count; i++) {
+          const jitterX = xy.x + (Math.random() * 10 - 5);
+          const jitterY = xy.y + (Math.random() * 8 - 4);
+          spawnParticle(overlay, jitterX, jitterY, { dyMin: 14, dyRange: 22, scaleMin: 1.4, scaleRange: 1.2 });
+        }
+      }
+
+      window.addEventListener('click', handleGlobalClick);
+      window.addEventListener('mousemove', handleGlobalMove);
+      window.addEventListener('touchstart', function (evt) {
+        const t = evt.touches[0];
+        if (!t) return;
+        const rect = overlay.getBoundingClientRect();
+        const x = t.clientX - rect.left;
+        const y = t.clientY - rect.top;
+        spawnBurst(overlay, x, y);
+        const count = 10 + Math.floor(Math.random() * 8);
+        for (let i = 0; i < count; i++) spawnParticle(overlay, x, y);
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+
+</html>

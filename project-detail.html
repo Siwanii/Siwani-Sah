@@ -16,7 +16,7 @@
   <link rel="icon" type="image/png" href="media/Siwani.png" />
   <title>Project - Siwani Sah</title>
   <script>
-    (function() {
+    (function () {
       const wcTheme = localStorage.getItem('wcTheme');
       const savedTheme = localStorage.getItem('theme') || localStorage.getItem('wowchemy-theme');
       let isDark = false;
@@ -32,7 +32,12 @@
     })();
   </script>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Roboto', sans-serif;
       background: #0a0a0a;
@@ -41,15 +46,24 @@
       padding-top: 70px;
       line-height: 1.6;
     }
-    [data-theme="light"] body, html:not([data-theme="dark"]):not(.dark) body {
+
+    [data-theme="light"] body,
+    html:not([data-theme="dark"]):not(.dark) body {
       background: #f5f5f5;
       color: #2F2F2F;
     }
-    [data-theme="dark"] body, .dark body { background: #0b0e15e6 !important; color: #fff !important; }
+
+    [data-theme="dark"] body,
+    .dark body {
+      background: #0b0e15e6 !important;
+      color: #fff !important;
+    }
 
     .simple-navbar {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       background: rgba(31, 41, 61, 0.41);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -59,15 +73,39 @@
       justify-content: space-between;
       align-items: center;
     }
-    [data-theme="light"] .simple-navbar { background: rgba(255, 255, 255, 0.95); border-bottom-color: rgba(0, 0, 0, 0.1); }
-    .simple-navbar a { color: #fff; text-decoration: none; font-weight: 600; transition: color 0.3s ease; }
-    [data-theme="light"] .simple-navbar a { color: #2F2F2F; }
-    .simple-navbar a:hover { color: #10b981; }
 
-    .detail-container { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem 4rem; font-size: 0.9375rem; }
+    [data-theme="light"] .simple-navbar {
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .simple-navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    [data-theme="light"] .simple-navbar a {
+      color: #2F2F2F;
+    }
+
+    .simple-navbar a:hover {
+      color: #10b981;
+    }
+
+    .detail-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+      font-size: 0.9375rem;
+    }
 
     /* Hero */
-    .detail-hero { margin-bottom: 3rem; }
+    .detail-hero {
+      margin-bottom: 3rem;
+    }
+
     .detail-year {
       font-size: 0.85rem;
       color: rgba(255, 255, 255, 0.6);
@@ -75,7 +113,11 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    [data-theme="light"] .detail-year { color: #666; }
+
+    [data-theme="light"] .detail-year {
+      color: #666;
+    }
+
     .detail-title {
       font-size: clamp(1.6rem, 3.6vw, 1rem);
       font-weight: 700;
@@ -83,15 +125,28 @@
       margin-bottom: 1rem;
       color: #fff;
     }
-    [data-theme="light"] .detail-title { color: #1a1a1a; }
+
+    [data-theme="light"] .detail-title {
+      color: #1a1a1a;
+    }
+
     .detail-tagline {
       font-size: 1rem;
       color: rgba(255, 255, 255, 0.8);
       margin-bottom: 1.5rem;
       font-style: italic;
     }
-    [data-theme="light"] .detail-tagline { color: #444; }
-    .detail-hero-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+    [data-theme="light"] .detail-tagline {
+      color: #444;
+    }
+
+    .detail-hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
     .detail-hero-links a {
       display: inline-flex;
       align-items: center;
@@ -104,7 +159,12 @@
       font-weight: 500;
       transition: background 0.3s ease, transform 0.2s ease;
     }
-    .detail-hero-links a:hover { background: #0d9668; transform: translateY(-1px); }
+
+    .detail-hero-links a:hover {
+      background: #0d9668;
+      transform: translateY(-1px);
+    }
+
     .detail-hero-image-wrap {
       margin-top: 2rem;
       cursor: pointer;
@@ -113,7 +173,11 @@
       overflow: hidden;
       line-height: 0;
     }
-    .detail-hero-image-wrap:hover .detail-hero-image { opacity: 0.92; }
+
+    .detail-hero-image-wrap:hover .detail-hero-image {
+      opacity: 0.92;
+    }
+
     .detail-hero-image {
       width: 100%;
       max-height: 400px;
@@ -122,6 +186,7 @@
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
       transition: opacity 0.3s ease;
     }
+
     .detail-demo-video-wrap {
       margin-top: 2rem;
       border-radius: 12px;
@@ -129,26 +194,34 @@
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
       background: #000;
     }
+
     .detail-demo-video {
       width: 100%;
       max-height: 480px;
       display: block;
       vertical-align: top;
     }
+
     /* Image Lightbox */
     .detail-image-lightbox {
       display: none;
       position: fixed;
       z-index: 10001;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
       background: rgba(0, 0, 0, 0.95);
       backdrop-filter: blur(10px);
       align-items: center;
       justify-content: center;
       padding: 2rem;
     }
-    .detail-image-lightbox.active { display: flex; }
+
+    .detail-image-lightbox.active {
+      display: flex;
+    }
+
     .detail-image-lightbox-content {
       position: relative;
       max-width: 95vw;
@@ -157,6 +230,7 @@
       align-items: center;
       justify-content: center;
     }
+
     .detail-image-lightbox img {
       max-width: 100%;
       max-height: 95vh;
@@ -164,10 +238,13 @@
       border-radius: 8px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
     }
+
     .detail-image-lightbox-close {
       position: absolute;
-      top: 1rem; right: 1rem;
-      width: 50px; height: 50px;
+      top: 1rem;
+      right: 1rem;
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -181,13 +258,17 @@
       z-index: 10002;
       transition: background 0.3s ease, transform 0.3s ease;
     }
+
     .detail-image-lightbox-close:hover {
       background: rgba(255, 255, 255, 0.35);
       transform: rotate(90deg);
     }
 
     /* Sections */
-    .detail-section { margin-bottom: 3rem; }
+    .detail-section {
+      margin-bottom: 3rem;
+    }
+
     .detail-section h2 {
       font-size: 1.2rem;
       font-weight: 700;
@@ -197,19 +278,52 @@
       border-bottom: 2px solid #10b981;
       display: inline-block;
     }
-    [data-theme="light"] .detail-section h2 { color: #1a1a1a; border-bottom-color: #10b981; }
-    .detail-section h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: rgba(255, 255, 255, 0.95); font-weight: 600; }
-    [data-theme="light"] .detail-section h3 { color: #333; }
-    .detail-section h3:first-of-type { margin-top: 1rem; }
-    .detail-section p, .detail-section li {
+
+    [data-theme="light"] .detail-section h2 {
+      color: #1a1a1a;
+      border-bottom-color: #10b981;
+    }
+
+    .detail-section h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 0.5rem;
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 600;
+    }
+
+    [data-theme="light"] .detail-section h3 {
+      color: #333;
+    }
+
+    .detail-section h3:first-of-type {
+      margin-top: 1rem;
+    }
+
+    .detail-section p,
+    .detail-section li {
       color: rgba(255, 255, 255, 0.85);
       margin-bottom: 0.75rem;
     }
-    [data-theme="light"] .detail-section p, [data-theme="light"] .detail-section li { color: #444; }
-    .detail-section ul { padding-left: 1.5rem; margin-bottom: 1rem; }
-    .detail-section ul li { margin-bottom: 0.5rem; }
 
-    .tech-stack-grid { display: block; margin-top: 1rem; }
+    [data-theme="light"] .detail-section p,
+    [data-theme="light"] .detail-section li {
+      color: #444;
+    }
+
+    .detail-section ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .detail-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .tech-stack-grid {
+      display: block;
+      margin-top: 1rem;
+    }
+
     .tech-stack-item {
       margin-bottom: 1.25rem;
       padding: 0;
@@ -217,23 +331,85 @@
       border: none;
       border-left: none;
     }
-    .tech-stack-item h3 { margin: 1.25rem 0 0.35rem; font-size: 1rem; color: #10b981; }
-    .tech-stack-item p, .tech-stack-item ul { margin: 0 0 0.5rem; }
-    .tech-stack-item ul { padding-left: 1.5rem; }
-    .tech-stack-item li { margin-bottom: 0.25rem; }
 
-    .feature-item { margin-bottom: 1.5rem; }
-    .feature-item h3 { font-size: 0.98rem; margin: 1rem 0 0.35rem; color: #10b981; }
-    .feature-item h4 { font-size: 0.9rem; margin-bottom: 0.35rem; color: #10b981; }
-    .challenge-block { margin-bottom: 1.5rem; }
-    .challenge-block h3 { color: #10b981; margin-top: 1.25rem; }
-    .future-item { margin-bottom: 1rem; }
-    .future-item h3 { font-size: 0.98rem; color: #10b981; }
-    .detail-outro { margin-top: 1rem; font-style: italic; }
-    .detail-explore { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.15); text-align: center; }
-    [data-theme="light"] .detail-explore { border-top-color: rgba(0,0,0,0.1); }
-    .detail-explore a { color: #10b981; font-weight: 600; text-decoration: none; }
-    .detail-explore a:hover { text-decoration: underline; }
+    .tech-stack-item h3 {
+      margin: 1.25rem 0 0.35rem;
+      font-size: 1rem;
+      color: #10b981;
+    }
+
+    .tech-stack-item p,
+    .tech-stack-item ul {
+      margin: 0 0 0.5rem;
+    }
+
+    .tech-stack-item ul {
+      padding-left: 1.5rem;
+    }
+
+    .tech-stack-item li {
+      margin-bottom: 0.25rem;
+    }
+
+    .feature-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-item h3 {
+      font-size: 0.98rem;
+      margin: 1rem 0 0.35rem;
+      color: #10b981;
+    }
+
+    .feature-item h4 {
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+      color: #10b981;
+    }
+
+    .challenge-block {
+      margin-bottom: 1.5rem;
+    }
+
+    .challenge-block h3 {
+      color: #10b981;
+      margin-top: 1.25rem;
+    }
+
+    .future-item {
+      margin-bottom: 1rem;
+    }
+
+    .future-item h3 {
+      font-size: 0.98rem;
+      color: #10b981;
+    }
+
+    .detail-outro {
+      margin-top: 1rem;
+      font-style: italic;
+    }
+
+    .detail-explore {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      text-align: center;
+    }
+
+    [data-theme="light"] .detail-explore {
+      border-top-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .detail-explore a {
+      color: #10b981;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .detail-explore a:hover {
+      text-decoration: underline;
+    }
 
     .detail-back {
       display: inline-flex;
@@ -248,12 +424,31 @@
       font-weight: 500;
       transition: background 0.3s ease, color 0.3s ease;
     }
-    [data-theme="light"] .detail-back { background: rgba(0, 0, 0, 0.06); color: #2F2F2F; }
-    .detail-back:hover { background: #10b981; color: #fff !important; }
 
-    .detail-not-found { text-align: center; padding: 4rem 2rem; }
-    .detail-not-found h1 { margin-bottom: 1rem; }
-    .detail-not-found a { color: #10b981; text-decoration: none; font-weight: 600; }
+    [data-theme="light"] .detail-back {
+      background: rgba(0, 0, 0, 0.06);
+      color: #2F2F2F;
+    }
+
+    .detail-back:hover {
+      background: #10b981;
+      color: #fff !important;
+    }
+
+    .detail-not-found {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .detail-not-found h1 {
+      margin-bottom: 1rem;
+    }
+
+    .detail-not-found a {
+      color: #10b981;
+      text-decoration: none;
+      font-weight: 600;
+    }
 
     /* Mouse cursor movement effect (same as index/projects) */
     .smoke-particle {
@@ -270,11 +465,24 @@
       animation: aboutSmokeParticle 1400ms ease-out forwards;
       background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 65%);
     }
+
     @keyframes aboutSmokeParticle {
-      0%   { opacity: 0.85; transform: translate(calc(-50% + 0px), calc(-50% + 0px)) scale(1); }
-      60%  { opacity: 0.4; transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, -30px))) scale(var(--s, 2.2)); }
-      100% { opacity: 0; transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, -60px))) scale(var(--s, 3.2)); }
+      0% {
+        opacity: 0.85;
+        transform: translate(calc(-50% + 0px), calc(-50% + 0px)) scale(1);
+      }
+
+      60% {
+        opacity: 0.4;
+        transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, -30px))) scale(var(--s, 2.2));
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, -60px))) scale(var(--s, 3.2));
+      }
     }
+
     .smoke-burst {
       position: absolute;
       width: 520px;
@@ -294,6 +502,7 @@
         radial-gradient(closest-side at 50% 50%, hsla(200, 100%, 60%, 0.26), transparent 70%);
       animation: aboutSmokeBurst 2200ms ease-out forwards;
     }
+
     #fx-overlay {
       position: fixed;
       inset: 0;
@@ -301,10 +510,25 @@
       z-index: 50;
       overflow: hidden;
     }
+
     @keyframes aboutSmokeBurst {
-      0%   { opacity: 0.85; transform: translate(-50%, -50%) scale(0.45) rotate(0deg);    filter: blur(24px) hue-rotate(0deg); }
-      40%  { opacity: 0.60; transform: translate(-50%, -50%) scale(1.00) rotate(8deg);   filter: blur(28px) hue-rotate(120deg); }
-      100% { opacity: 0.00; transform: translate(-50%, -50%) scale(1.55) rotate(18deg);  filter: blur(30px) hue-rotate(240deg); }
+      0% {
+        opacity: 0.85;
+        transform: translate(-50%, -50%) scale(0.45) rotate(0deg);
+        filter: blur(24px) hue-rotate(0deg);
+      }
+
+      40% {
+        opacity: 0.60;
+        transform: translate(-50%, -50%) scale(1.00) rotate(8deg);
+        filter: blur(28px) hue-rotate(120deg);
+      }
+
+      100% {
+        opacity: 0.00;
+        transform: translate(-50%, -50%) scale(1.55) rotate(18deg);
+        filter: blur(30px) hue-rotate(240deg);
+      }
     }
   </style>
 </head>
@@ -327,7 +551,8 @@
   <!-- Image Lightbox (full image on click) -->
   <div id="detailImageLightbox" class="detail-image-lightbox" onclick="closeDetailImageLightbox(event)">
     <div class="detail-image-lightbox-content" onclick="event.stopPropagation()">
-      <button type="button" class="detail-image-lightbox-close" onclick="closeDetailImageLightbox()" aria-label="Close">&times;</button>
+      <button type="button" class="detail-image-lightbox-close" onclick="closeDetailImageLightbox()"
+        aria-label="Close">&times;</button>
       <img id="detailLightboxImage" src="" alt="">
     </div>
   </div>
@@ -590,6 +815,119 @@
         ],
         outro: 'Good first full application with roles, workflows, and a real database. Learned a lot about scoping a project and designing for different user types.',
         links: []
+      },
+      algo: {
+        image: null,
+        year: '2025',
+        title: 'Diverse Strings – Max Hamming Distance in a Σ-DAG',
+        tagline: 'Pure-Python brute-force and DP algorithm to find the maximum Hamming distance between any two paths in a DNA-alphabet layered graph.',
+        overview: 'This project answers a deceptively simple question: given a Σ-DAG (a layered directed acyclic graph whose edges are labeled with characters from {A, C, G, T}), what is the largest possible Hamming distance between any two paths from source to sink? Every path spells out a string of equal length, so comparing paths reduces to comparing strings position-by-position. I implemented two solutions — brute-force and dynamic programming — both in a single Python file with no external dependencies, and verified they always agree.',
+        goals: 'The goal was to understand the algorithmic gap between naive enumeration and a smarter DP approach on the same combinatorial problem, and to ground it in a real research context: finding maximally diverse Longest Common Subsequences (LCSs) in bioinformatics.',
+        techStack: [
+          { name: 'Python 3.6+ (standard library only)', desc: 'argparse for CLI, itertools for pair enumeration in brute-force, time for benchmarking, random for reproducible graph generation. Zero external dependencies.' },
+          { name: 'Σ-DAG data structure', desc: 'A layered directed acyclic graph where each layer has a configurable number of nodes and each edge carries a character label. Depth controls string length; width controls branching.' }
+        ],
+        features: [
+          { title: 'Brute-force (Part A)', desc: 'Enumerates all paths → strings, then compares every pair to find the maximum Hamming distance. Exponential but always correct.' },
+          { title: 'Dynamic programming (Part B)', desc: 'Tracks (node1, node2, accumulated_distance) triples layer-by-layer for two simultaneous walks. Polynomial time — much faster on large graphs.' },
+          { title: 'Built-in correctness check', desc: 'Both methods are run on every graph and results are compared. Mismatches raise an error immediately.' },
+          { title: 'Reproducible CLI', desc: '--depth, --width, --seed flags. Same seed → same random graph every time, making experiments repeatable.' }
+        ],
+        details: [
+          'Implemented a random Σ-DAG generator: configurable depth (string length) and width (nodes per internal layer), seeded for reproducibility.',
+          'Part A: collects all source-to-sink paths via DFS, converts to strings, then compares every (i, j) pair with a Hamming distance function.',
+          'Part B: BFS/DP over the product graph of two simultaneous walkers; state is (node_A, node_B, distance_so_far). Final answer is max over all sink states.',
+          'Verified on dozens of random graphs at various depths/widths — both methods always return the same answer.',
+          'Benchmarked both: DP is orders of magnitude faster at depth=10, width=2 (exponential vs polynomial path counts).'
+        ],
+        challenges: [
+          { title: 'Exponential blowup in brute-force', content: 'At depth=10, width=2 the graph produces 2^10 = 1024 strings, making the O(n²) comparison slow. The DP sidesteps this entirely by never materializing the full string list.' },
+          { title: 'State-space design for DP', content: 'The key insight was treating two simultaneous walkers as a single state (node1, node2, dist). Getting the transition logic right — matching edge labels position-by-position — took careful design.' }
+        ],
+        futureExpansions: [
+          { title: 'K > 2 diverse paths', desc: 'Extending to find K mutually diverse paths (the full LCS diversity problem) would require a higher-dimensional DP or heuristic search.' },
+          { title: 'Visualization', desc: 'A graph visualization showing the two maximally-different paths highlighted would make the results much more intuitive.' }
+        ],
+        outro: 'A clean illustration of how a clever state representation turns an exponential search into a polynomial one. Inspired by real bioinformatics research on diverse LCS discovery.',
+        links: [{ url: 'https://github.com/Siwanii/DiverseStringsSigmaDAG', text: 'View Code' }]
+      },
+      llmtest: {
+        image: null,
+        year: '2025',
+        title: 'LLM-Based Automatic Unit Test Generation',
+        tagline: 'End-to-end pipeline — from Python method extraction to interactive Streamlit dashboard — using Llama3 to auto-generate and evaluate pytest unit tests.',
+        overview: 'This project explores how Large Language Models can automatically generate unit tests for real-world Python functions. I built a 7-stage pipeline: extract methods from the pyMethods2Test dataset, sample a working set, generate tests with Llama3 (via Ollama) using three prompt strategies, evaluate them on assertion count / edge-case coverage / syntax validity, classify failures, and visualize everything in a Streamlit dashboard. The pipeline produced 300 tests with 2,814 total assertions and 100% edge-case inclusion — though syntax errors in 141 tests highlighted the need for post-processing validation.',
+        goals: 'To answer three research questions: Does prompt design matter? (Yes.) How good are LLM-generated tests in practice? (Strong coverage, weak executability.) What are the key LLM limitations for test generation? (Syntax errors, extra prose, incorrect assumptions.)',
+        techStack: [
+          { name: 'Python + Ollama (Llama3)', desc: 'All scripts in Python. Ollama runs Llama3 locally — no cloud API calls, no cost per token.' },
+          { name: 'Streamlit dashboard', desc: 'Interactive visualization of metrics, test validity breakdown, edge-case heatmap, and a live test viewer.' },
+          { name: 'pyMethods2Test dataset', desc: 'Open-source dataset of real Python methods paired with test stubs, used as the focal-method source.' },
+          { name: 'JSON pipeline state', desc: 'Each stage writes/reads JSON files (sampled_methods.json, generated_tests_advanced.json, evaluation_summary.json, failure_summary.json) for easy debugging and replay.' }
+        ],
+        features: [
+          { title: 'Three prompt strategies', desc: 'Baseline (function name only), Context (structured instructions), Advanced (edge cases + multiple assertions + parameterized tests). Advanced consistently wins.' },
+          { title: 'Evaluation metrics', desc: 'Total assertions, average assertions/test, edge-case coverage %, syntax validity %, failure type breakdown.' },
+          { title: 'Failure analysis', desc: 'Classifies failures into: syntax errors (141), no assertions (215), extra non-code text (88). Drives actionable post-processing rules.' },
+          { title: 'Streamlit dashboard', desc: 'Live metrics, charts, interactive test viewer — shareable without code knowledge.' }
+        ],
+        details: [
+          'Stage 1-2: extract and sample Python methods from pyMethods2Test; store as JSON for reproducibility.',
+          'Stage 3-4: send each method to Llama3 with Baseline then Advanced prompts; collect raw LLM output.',
+          'Stage 5: evaluate each generated test — count asserts, detect edge-case keywords, attempt AST parse for syntax check.',
+          'Stage 6: classify every failure; build failure_summary.json for dashboard consumption.',
+          'Stage 7: Streamlit dashboard pulls all JSON files and renders live charts, a validity pie, and a scrollable test viewer.',
+          'Key numbers: 300 tests, 2,814 assertions, 9.38 avg assertions/test, 100% edge-case inclusion, 53% syntax-valid.'
+        ],
+        challenges: [
+          { title: 'LLM outputs extra prose', content: 'Llama3 often wraps code in markdown fences or adds explanatory text. I added a stripping step to remove code fences and non-code lines before evaluation, which cut extra-text failures significantly.' },
+          { title: 'Syntax errors despite good coverage', content: 'High assertion counts didn\'t guarantee executability. Many tests used undefined fixtures or wrong indentation. Post-processing (AST validation + auto-fix heuristics) improved pass rates but human review is still needed.' }
+        ],
+        futureExpansions: [
+          { title: 'Pytest execution in sandbox', desc: 'Actually running generated tests in an isolated environment and measuring real code coverage would close the feedback loop.' },
+          { title: 'Fine-tuned model', desc: 'Fine-tuning a smaller model on high-quality (method, test) pairs from the dataset could outperform general Llama3 at lower latency.' }
+        ],
+        outro: 'LLMs can generate diverse, assertion-rich tests at scale — but prompt engineering and post-processing are non-negotiable. Human validation remains essential for production use.',
+        links: [{ url: 'https://github.com/Siwanii/LLM_Test_Generator', text: 'View Code' }]
+      },
+      reposprint: {
+        image: null,
+        year: '2025',
+        title: 'Intelligent Sprint Analysis (Repo-Sprint)',
+        tagline: 'Local-first 11-agent LLM pipeline that ingests GitHub data, builds a ChromaDB vector store, and delivers evidence-backed sprint health scores and recommendations.',
+        overview: 'Repo-Sprint is a sprint intelligence system for GitHub-based software teams that runs entirely on local hardware. It ingests repository data (issues, PRs, commits, discussions), embeds everything into a ChromaDB vector store, then routes queries through an 11-agent LLM pipeline powered by Ollama. The result is a per-sprint health score, risk assessment, and actionable recommendations — surfaced in a FastAPI + Streamlit UI with zero cloud LLM dependencies.',
+        goals: 'Teams waste hours manually reading GitHub activity before retrospectives. I wanted a system that could do that automatically, stay local (no data leaves the machine), and be flexible enough to swap models at runtime.',
+        techStack: [
+          { name: 'FastAPI + Streamlit', desc: 'FastAPI serves the backend (uvicorn, port 8000). Streamlit renders the Ingestion and Sprint Analysis tabs. npm scripts wire them together.' },
+          { name: 'Ollama (local LLMs)', desc: 'Default model: qwen3:0.6b (~400 MB). Supports llama2:7b, mistral:7b, and any other locally-installed Ollama model via runtime dropdown.' },
+          { name: 'ChromaDB (vector store)', desc: 'GitHub items are chunked, embedded, and stored in ChromaDB. At inference time, relevant chunks are retrieved and injected into agent prompts (RAG).' },
+          { name: 'GitHub API', desc: 'Authenticated ingestion via GITHUB_TOKEN. Collects issues, PRs, commits, and discussions. Local repos can also be ingested without a token.' },
+          { name: 'Python 3.11+', desc: 'Async-friendly stack. requirements.txt covers all dependencies. .env.example documents all configuration knobs.' }
+        ],
+        features: [
+          { title: 'Data ingestion pipeline', desc: 'Provide org URL + repo names → pipeline collects GitHub data, embeds it, and stores in ChromaDB. Supports synthetic data generation for testing.' },
+          { title: '11-agent analysis pipeline', desc: 'Router → Data Collector → Feature Engineer → Risk Assessor → Sprint Planner → Recommender + supporting agents. All run locally via Ollama.' },
+          { title: 'Sprint health report', desc: 'Per-sprint health score, risk metrics, and prioritized recommendations — all grounded in retrieved evidence from the vector store.' },
+          { title: 'Runtime model switching', desc: 'Dropdown in the Sprint Analysis tab lets you swap Ollama models between runs without restarting the app.' },
+          { title: 'Local-first', desc: 'No cloud LLM calls. All data stays on your machine. Works fully offline after initial model download.' }
+        ],
+        details: [
+          'Built the ingestion pipeline: GitHub API → raw data → chunking → embedding → ChromaDB upsert. Configurable batch size and synthetic data mode.',
+          'Designed the 11-agent architecture: each agent has a focused role; the Router decides which agents to invoke based on query type.',
+          'RAG flow: at inference time, sprint JSON + agent query → vector search in ChromaDB → top-k chunks injected into the agent prompt.',
+          'FastAPI backend exposes /ingest and /analyze endpoints; Streamlit consumes them and renders results reactively.',
+          'Tested three evaluation modes: Resilient (graceful fallbacks), Synthetic (mock data), Real (live GitHub data).',
+          'npm script (npm run fastapi) and uvicorn CLI both supported for launching; .env.example documents all environment variables.'
+        ],
+        challenges: [
+          { title: 'Coordinating 11 agents without a cloud orchestrator', content: 'With everything local, I had to build lightweight orchestration in Python. The Router agent dispatches to specialist agents sequentially, and each agent\'s output feeds the next via a shared context dict.' },
+          { title: 'Keeping RAG relevant for sprint data', content: 'Generic embeddings sometimes retrieved off-topic chunks. I tuned chunking strategy (by issue/PR boundary rather than fixed token count) to keep retrieved context tightly scoped to the sprint under analysis.' }
+        ],
+        futureExpansions: [
+          { title: 'Parallel agent execution', desc: 'Running independent agents (Risk Assessor, Feature Engineer, etc.) in parallel would cut inference time significantly.' },
+          { title: 'Persistent sprint history', desc: 'Storing past sprint reports and trending health scores over time would enable predictive risk forecasting.' }
+        ],
+        outro: 'Proved that a fully local, multi-agent RAG system can deliver meaningful sprint intelligence without any cloud dependencies. The hardest part was keeping 11 agents coherent — worth it for the privacy and cost benefits.',
+        links: [{ url: 'https://github.com/Siwanii/RepoSprint', text: 'View Code' }]
       }
     };
 
@@ -615,7 +953,7 @@
       html += '<p class="detail-tagline">' + escapeHtml(project.tagline || project.description) + '</p>';
       if (project.links && project.links.length) {
         html += '<div class="detail-hero-links">';
-        project.links.forEach(function(link) {
+        project.links.forEach(function (link) {
           html += '<a href="' + escapeAttr(link.url) + '" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> ' + escapeHtml(link.text) + '</a>';
         });
         html += '</div>';
@@ -635,7 +973,7 @@
 
       if (project.techStack && project.techStack.length) {
         html += '<div class="detail-section"><h2>Meet my tech stack</h2><div class="tech-stack-grid">';
-        project.techStack.forEach(function(t) {
+        project.techStack.forEach(function (t) {
           html += '<div class="tech-stack-item"><h3>' + escapeHtml(t.name) + '</h3><p>' + escapeHtml(t.desc) + '</p></div>';
         });
         html += '</div></div>';
@@ -643,7 +981,7 @@
 
       if (project.features && project.features.length) {
         html += '<div class="detail-section"><h2>Features</h2>';
-        project.features.forEach(function(f) {
+        project.features.forEach(function (f) {
           html += '<div class="feature-item"><h3>' + escapeHtml(f.title) + '</h3><p>' + escapeHtml(f.desc) + '</p></div>';
         });
         html += '</div>';
@@ -651,7 +989,7 @@
 
       if (project.details && project.details.length) {
         html += '<div class="detail-section"><h2>What I built</h2><ul>';
-        project.details.forEach(function(d) {
+        project.details.forEach(function (d) {
           html += '<li>' + escapeHtml(d) + '</li>';
         });
         html += '</ul></div>';
@@ -665,7 +1003,7 @@
 
       if (project.challenges && project.challenges.length) {
         html += '<div class="detail-section"><h2>Challenges and how I overcame them</h2>';
-        project.challenges.forEach(function(c) {
+        project.challenges.forEach(function (c) {
           html += '<div class="challenge-block"><h3>' + escapeHtml(c.title) + '</h3><p>' + escapeHtml(c.content) + '</p></div>';
         });
         html += '</div>';
@@ -673,7 +1011,7 @@
 
       if (project.futureExpansions && project.futureExpansions.length) {
         html += '<div class="detail-section"><h2>Future expansions</h2>';
-        project.futureExpansions.forEach(function(f) {
+        project.futureExpansions.forEach(function (f) {
           html += '<div class="future-item"><h3>' + escapeHtml(f.title) + '</h3><p>' + escapeHtml(f.desc) + '</p></div>';
         });
         html += '</div>';
@@ -685,7 +1023,7 @@
 
       if (project.links && project.links.length) {
         html += '<div class="detail-section"><h2>Repositories</h2><div class="detail-hero-links">';
-        project.links.forEach(function(link) {
+        project.links.forEach(function (link) {
           html += '<a href="' + escapeAttr(link.url) + '" target="_blank" rel="noopener"><i class="fab fa-github"></i> ' + escapeHtml(link.text) + '</a>';
         });
         html += '</div></div>';
@@ -734,11 +1072,11 @@
       }
     }
 
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeDetailImageLightbox();
     });
 
-    (function() {
+    (function () {
       const params = new URLSearchParams(window.location.search);
       const id = params.get('id') || '';
       renderProject(id);

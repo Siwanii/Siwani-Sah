@@ -3483,6 +3483,45 @@
                 Read more →
                     </a>
                   </div>
+
+            <!-- Project 8: Algo Project -->
+            <div class="project-card" onclick="window.location.href='project-detail.html?id=algo'">
+              <div class="project-image-wrapper">
+                <div class="project-image" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1e1b4b 0%,#4c1d95 100%);font-size:3rem;">🧬</div>
+              </div>
+              <div class="project-year">2025</div>
+              <h3 class="project-title">Diverse Strings – Max Hamming Distance in a Σ-DAG</h3>
+              <p class="project-summary">Brute-force vs. dynamic programming to find the maximum Hamming distance between paths in a layered DNA-alphabet graph.</p>
+              <a href="project-detail.html?id=algo" class="project-read-more">
+                Read more →
+              </a>
+            </div>
+
+            <!-- Project 9: LLM Generated Testcases -->
+            <div class="project-card" onclick="window.location.href='project-detail.html?id=llmtest'">
+              <div class="project-image-wrapper">
+                <div class="project-image" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#064e3b 0%,#10b981 100%);font-size:3rem;">🤖</div>
+              </div>
+              <div class="project-year">2025</div>
+              <h3 class="project-title">LLM-Based Automatic Unit Test Generation</h3>
+              <p class="project-summary">End-to-end pipeline using Llama3 via Ollama to automatically generate, evaluate, and visualize pytest unit tests for Python functions.</p>
+              <a href="project-detail.html?id=llmtest" class="project-read-more">
+                Read more →
+              </a>
+            </div>
+
+            <!-- Project 10: Repo-Sprint -->
+            <div class="project-card" onclick="window.location.href='project-detail.html?id=reposprint'">
+              <div class="project-image-wrapper">
+                <div class="project-image" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1e3a5f 0%,#2563eb 100%);font-size:3rem;">🚀</div>
+              </div>
+              <div class="project-year">2025</div>
+              <h3 class="project-title">Intelligent Sprint Analysis (Repo-Sprint)</h3>
+              <p class="project-summary">Local-first 11-agent LLM pipeline that ingests GitHub data, runs RAG with ChromaDB, and generates evidence-backed sprint recommendations.</p>
+              <a href="project-detail.html?id=reposprint" class="project-read-more">
+                Read more →
+              </a>
+            </div>
                     </div>
                   </div>
                 </div>
@@ -4255,6 +4294,54 @@
         ],
         link: null,
         linkText: null
+      },
+      'algo': {
+        image: null,
+        year: '2025',
+        title: 'Diverse Strings – Max Hamming Distance in a Σ-DAG',
+        description: 'Brute-force vs. dynamic programming solution to find the maximum Hamming distance between any two paths in a layered DNA-alphabet directed acyclic graph.',
+        details: [
+          'Implemented a Σ-DAG generator that builds a layered directed acyclic graph with edges labeled from the DNA alphabet {A, C, G, T}, producing paths of equal length.',
+          'Built a brute-force (Part A) approach that enumerates every string produced by the graph and compares all pairs to find the maximum Hamming distance; correct but exponential in complexity.',
+          'Built a dynamic programming (Part B) approach that tracks (node1, node2, distance) state pairs layer-by-layer for two simultaneous paths, running in polynomial time.',
+          'Both methods always yield identical answers, serving as a built-in correctness check — verified on dozens of randomly-seeded graphs.',
+          'Command-line interface supports --depth, --width, and --seed flags for fully reproducible experiments; no external libraries required (pure Python 3.6+ standard library).',
+          'Inspired by research on finding diverse Longest Common Subsequences (LCSs), where this exact problem arises when K=2 paths must be maximally different.'
+        ],
+        link: 'https://github.com/Siwanii/Algo_Project',
+        linkText: 'View Code'
+      },
+      'llmtest': {
+        image: null,
+        year: '2025',
+        title: 'LLM-Based Automatic Unit Test Generation',
+        description: 'End-to-end pipeline using Llama3 via Ollama to automatically generate, evaluate, and visualize pytest unit tests for Python functions from the pyMethods2Test dataset.',
+        details: [
+          'Built a 7-step pipeline: method extraction → sampling → baseline test generation → advanced test generation → evaluation → failure analysis → Streamlit dashboard.',
+          'Used Ollama (Llama3) locally with three prompt strategies — Baseline, Context, and Advanced — achieving 100% edge-case inclusion and an average of 9.38 assertions per test across 300 tests.',
+          'Implemented an evaluation module tracking total assertions (2,814), edge-case coverage, syntax validity, and failure classification (141 syntax errors, 215 missing assertions, 88 extra-text issues).',
+          'Developed an interactive Streamlit dashboard for live metrics, test validity breakdown, edge-case coverage display, and an interactive test viewer.',
+          'Key finding: structured Advanced prompts outperform raw context prompts; LLM outputs require post-processing validation before execution.',
+          'Technologies: Python, Ollama, Llama3, Streamlit, JSON — entirely local, no cloud dependencies.'
+        ],
+        link: 'https://github.com/Siwanii/LLM_Generated_Testcases',
+        linkText: 'View Code'
+      },
+      'reposprint': {
+        image: null,
+        year: '2025',
+        title: 'Intelligent Sprint Analysis (Repo-Sprint)',
+        description: 'Local-first 11-agent LLM pipeline that ingests GitHub repository data, runs retrieval-augmented generation with ChromaDB, and delivers evidence-backed sprint health scores and recommendations.',
+        details: [
+          'Designed a multi-agent architecture with 11 specialized LLM agents: Router, Data Collector, Feature Engineer, Risk Assessor, Sprint Planner, Recommender, and supporting agents — all orchestrated locally via Ollama.',
+          'Built a GitHub data ingestion pipeline that collects issues, pull requests, commits, and discussions, then embeds them into a ChromaDB vector store for retrieval-augmented generation (RAG).',
+          'Implemented a FastAPI + Streamlit UI with an Ingestion tab (configure repo, run pipeline) and a Sprint Analysis tab (upload sprint JSON or use demo data, select model, run inference).',
+          'Delivered sprint health scores, risk metrics, and actionable recommendations — all processed locally with no cloud LLM dependencies (default model: qwen3:0.6b).',
+          'Supports runtime model switching via a dropdown so teams can test different Ollama models (llama2:7b, mistral:7b, etc.) without restarting the app.',
+          'Technologies: Python 3.11+, FastAPI, Streamlit, ChromaDB, Ollama, GitHub API, uvicorn — runs fully on local hardware.'
+        ],
+        link: 'https://github.com/Siwanii/RepoSprint',
+        linkText: 'View Code'
       }
     };
 

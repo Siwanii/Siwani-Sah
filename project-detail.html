@@ -390,6 +390,38 @@
       font-style: italic;
     }
 
+    /* Screenshot gallery */
+    .detail-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .detail-gallery-item {
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      line-height: 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .detail-gallery-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+
+    .detail-gallery-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+
+    .detail-gallery-item:hover img { opacity: 0.9; }
+
     .detail-explore {
       margin-top: 2.5rem;
       padding-top: 2rem;
@@ -817,7 +849,7 @@
         links: []
       },
       algo: {
-        image: null,
+        image: 'media/output/AlgoProjectOutput.png',
         year: '2026',
         title: 'Diverse Strings – Max Hamming Distance in a Σ-DAG',
         tagline: 'Pure-Python brute-force and DP algorithm to find the maximum Hamming distance between any two paths in a DNA-alphabet layered graph.',
@@ -849,10 +881,11 @@
           { title: 'Visualization', desc: 'A graph visualization showing the two maximally-different paths highlighted would make the results much more intuitive.' }
         ],
         outro: 'A clean illustration of how a clever state representation turns an exponential search into a polynomial one. Inspired by real bioinformatics research on diverse LCS discovery.',
+        gallery: [],
         links: [{ url: 'https://github.com/Siwanii/DiverseStringsSigmaDAG', text: 'View Code' }]
       },
       llmtest: {
-        image: null,
+        image: 'media/output/llm_generated_tc_output1.png',
         year: '2026',
         title: 'LLM-Based Automatic Unit Test Generation',
         tagline: 'End-to-end pipeline — from Python method extraction to interactive Streamlit dashboard — using Llama3 to auto-generate and evaluate pytest unit tests.',
@@ -887,10 +920,14 @@
           { title: 'Fine-tuned model', desc: 'Fine-tuning a smaller model on high-quality (method, test) pairs from the dataset could outperform general Llama3 at lower latency.' }
         ],
         outro: 'LLMs can generate diverse, assertion-rich tests at scale — but prompt engineering and post-processing are non-negotiable. Human validation remains essential for production use.',
+        gallery: [
+          { src: 'media/output/llm_generated_tc_output2.png', alt: 'LLM Test Generation – Output 2' },
+          { src: 'media/output/llm_generated_tc_output3.png', alt: 'LLM Test Generation – Output 3' }
+        ],
         links: [{ url: 'https://github.com/Siwanii/LLM_Test_Generator', text: 'View Code' }]
       },
       reposprint: {
-        image: null,
+        image: 'media/output/RepoSprintOutput/output1.png',
         year: '2026',
         title: 'Intelligent Sprint Analysis (Repo-Sprint)',
         tagline: 'Local-first 11-agent LLM pipeline that ingests GitHub data, builds a ChromaDB vector store, and delivers evidence-backed sprint health scores and recommendations.',
@@ -927,6 +964,14 @@
           { title: 'Persistent sprint history', desc: 'Storing past sprint reports and trending health scores over time would enable predictive risk forecasting.' }
         ],
         outro: 'Proved that a fully local, multi-agent RAG system can deliver meaningful sprint intelligence without any cloud dependencies. The hardest part was keeping 11 agents coherent — worth it for the privacy and cost benefits.',
+        gallery: [
+          { src: 'media/output/RepoSprintOutput/EnvironmentSet.jpeg', alt: 'Repo-Sprint – Environment Setup' },
+          { src: 'media/output/RepoSprintOutput/Ingestion.jpeg', alt: 'Repo-Sprint – Data Ingestion' },
+          { src: 'media/output/RepoSprintOutput/output2.png', alt: 'Repo-Sprint – Output 2' },
+          { src: 'media/output/RepoSprintOutput/output3.png', alt: 'Repo-Sprint – Output 3' },
+          { src: 'media/output/RepoSprintOutput/output4.png', alt: 'Repo-Sprint – Output 4' },
+          { src: 'media/output/RepoSprintOutput/output5.png', alt: 'Repo-Sprint – Output 5' }
+        ],
         links: [{ url: 'https://github.com/Siwanii/RepoSprint', text: 'View Code' }]
       }
     };
@@ -964,6 +1009,17 @@
         html += '</div>';
       }
       html += '</article>';
+
+      // Screenshot gallery (hero image counts as first; show remaining in a grid)
+      if (project.gallery && project.gallery.length) {
+        html += '<div class="detail-section"><h2>Screenshots</h2><div class="detail-gallery">';
+        project.gallery.forEach(function (g) {
+          html += '<div class="detail-gallery-item" role="button" tabindex="0" data-image="' + escapeAttr(g.src) + '" data-alt="' + escapeAttr(g.alt) + '" onclick="openDetailImageLightbox(this)" onkeydown="if(event.key===\'Enter\')openDetailImageLightbox(this)">';
+          html += '<img src="' + escapeAttr(g.src) + '" alt="' + escapeAttr(g.alt) + '" loading="lazy">';
+          html += '</div>';
+        });
+        html += '</div></div>';
+      }
 
       html += '<div class="detail-section"><h2>Overview</h2><p>' + escapeHtml(project.overview || project.description) + '</p></div>';
 

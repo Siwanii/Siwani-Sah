@@ -852,9 +852,9 @@
         image: 'media/output/AlgoProjectOutput.png',
         year: '2026',
         title: 'Diverse Strings – Max Hamming Distance in a Σ-DAG',
-        tagline: 'Pure-Python brute-force and DP algorithm to find the maximum Hamming distance between any two paths in a DNA-alphabet layered graph.',
-        overview: 'This project answers a deceptively simple question: given a Σ-DAG (a layered directed acyclic graph whose edges are labeled with characters from {A, C, G, T}), what is the largest possible Hamming distance between any two paths from source to sink? Every path spells out a string of equal length, so comparing paths reduces to comparing strings position-by-position. I implemented two solutions — brute-force and dynamic programming — both in a single Python file with no external dependencies, and verified they always agree.',
-        goals: 'The goal was to understand the algorithmic gap between naive enumeration and a smarter DP approach on the same combinatorial problem, and to ground it in a real research context: finding maximally diverse Longest Common Subsequences (LCSs) in bioinformatics.',
+        tagline: 'A Python project that finds the most different pair of paths through a DNA-style graph — comparing the slow way with the smart way.',
+        overview: 'This project tackles a simple-sounding question: given a layered graph where every edge is labeled with a DNA letter (A, C, G, or T), what\'s the biggest possible difference between any two paths from start to finish? Every path spells out a string, so comparing paths just means counting how many positions differ. I wrote two solutions — one that checks every pair (slow but guaranteed correct) and one that uses dynamic programming to skip the redundant work — and verified they always agree.',
+        goals: 'I wanted to really understand the difference between brute-force and dynamic programming on the same problem, and connect it to something real: finding maximally diverse DNA subsequences, which matters in bioinformatics research.',
         techStack: [
           { name: 'Python 3.6+ (standard library only)', desc: 'argparse for CLI, itertools for pair enumeration in brute-force, time for benchmarking, random for reproducible graph generation. Zero external dependencies.' },
           { name: 'Σ-DAG data structure', desc: 'A layered directed acyclic graph where each layer has a configurable number of nodes and each edge carries a character label. Depth controls string length; width controls branching.' }
@@ -888,9 +888,9 @@
         image: 'media/output/llm_generated_tc_output1.png',
         year: '2026',
         title: 'LLM-Based Automatic Unit Test Generation',
-        tagline: 'End-to-end pipeline — from Python method extraction to interactive Streamlit dashboard — using Llama3 to auto-generate and evaluate pytest unit tests.',
-        overview: 'This project explores how Large Language Models can automatically generate unit tests for real-world Python functions. I built a 7-stage pipeline: extract methods from the pyMethods2Test dataset, sample a working set, generate tests with Llama3 (via Ollama) using three prompt strategies, evaluate them on assertion count / edge-case coverage / syntax validity, classify failures, and visualize everything in a Streamlit dashboard. The pipeline produced 300 tests with 2,814 total assertions and 100% edge-case inclusion — though syntax errors in 141 tests highlighted the need for post-processing validation.',
-        goals: 'To answer three research questions: Does prompt design matter? (Yes.) How good are LLM-generated tests in practice? (Strong coverage, weak executability.) What are the key LLM limitations for test generation? (Syntax errors, extra prose, incorrect assumptions.)',
+        tagline: 'Give it your Python code, and it writes the tests for you — then shows you exactly how good they are.',
+        overview: 'This project explores whether an AI model can write useful unit tests for real Python code. I built a seven-step pipeline: it picks functions from an open-source dataset, sends them to a locally-running Llama3 model with different prompting styles, checks the generated tests for things like assertion count and edge-case coverage, figures out why some tests fail, and puts everything into a Streamlit dashboard you can explore. Out of 300 generated tests, the system produced over 2,800 assertions and covered edge cases in every single one — though about half had syntax issues, which showed me where the model still needs help.',
+        goals: 'I wanted to answer three questions: Does the way you ask the model matter? (Definitely.) Are the tests it writes actually useful? (They cover a lot, but many don\'t run cleanly.) What trips up the model most? (It adds extra text around the code, makes wrong assumptions about imports, and sometimes gets indentation wrong.)',
         techStack: [
           { name: 'Python + Ollama (Llama3)', desc: 'All scripts in Python. Ollama runs Llama3 locally — no cloud API calls, no cost per token.' },
           { name: 'Streamlit dashboard', desc: 'Interactive visualization of metrics, test validity breakdown, edge-case heatmap, and a live test viewer.' },
@@ -930,9 +930,9 @@
         image: 'media/output/RepoSprintOutput/output1.png',
         year: '2026',
         title: 'Intelligent Sprint Analysis (Repo-Sprint)',
-        tagline: 'Local-first 11-agent LLM pipeline that ingests GitHub data, builds a ChromaDB vector store, and delivers evidence-backed sprint health scores and recommendations.',
-        overview: 'Repo-Sprint is a sprint intelligence system for GitHub-based software teams that runs entirely on local hardware. It ingests repository data (issues, PRs, commits, discussions), embeds everything into a ChromaDB vector store, then routes queries through an 11-agent LLM pipeline powered by Ollama. The result is a per-sprint health score, risk assessment, and actionable recommendations — surfaced in a FastAPI + Streamlit UI with zero cloud LLM dependencies.',
-        goals: 'Teams waste hours manually reading GitHub activity before retrospectives. I wanted a system that could do that automatically, stay local (no data leaves the machine), and be flexible enough to swap models at runtime.',
+        tagline: 'A local tool that reads your GitHub sprints and uses AI agents to tell you how things are going and what to improve.',
+        overview: 'Repo-Sprint helps software teams understand their sprints without having to manually dig through GitHub. It pulls in your issues, pull requests, commits, and discussions, stores them in a local database, and then runs them through 11 specialized AI agents — each looking at a different angle like risk, workload, or code quality. At the end, you get a health score for the sprint and clear suggestions for what to focus on next. Everything runs on your own machine, so no data ever leaves it.',
+        goals: 'I built this because sprint retrospectives often feel like guesswork. Teams scroll through GitHub for half an hour trying to piece together what happened. I wanted something that could do that legwork automatically, stay completely local for privacy, and be flexible enough to swap out AI models whenever needed.',
         techStack: [
           { name: 'FastAPI + Streamlit', desc: 'FastAPI serves the backend (uvicorn, port 8000). Streamlit renders the Ingestion and Sprint Analysis tabs. npm scripts wire them together.' },
           { name: 'Ollama (local LLMs)', desc: 'Default model: qwen3:0.6b (~400 MB). Supports llama2:7b, mistral:7b, and any other locally-installed Ollama model via runtime dropdown.' },

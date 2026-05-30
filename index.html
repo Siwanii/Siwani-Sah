@@ -259,16 +259,8 @@
     #section-experience .section-heading {
       margin-top: 0 !important;
       padding-top: 0 !important;
-      background: white;
       padding-bottom: 0.5rem;
       margin-bottom: 0.5rem !important;
-    }
-
-    /* Dark mode for sticky header */
-    [data-theme="dark"] #section-experience .section-heading,
-    .dark #section-experience .section-heading,
-    html.dark #section-experience .section-heading {
-      background: #3f3f3f00;
     }
 
     /* Experience card-text font size */
@@ -1781,7 +1773,7 @@
     [data-theme="dark"] #about .about-card,
     .dark #about .about-card,
     html.dark #about .about-card {
-      background: rgba(0, 0, 0, 0.30) !important;
+      background: rgba(30, 41, 59, 0.75) !important;
       border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
     }
 
@@ -2694,7 +2686,7 @@
     [data-theme="dark"] .project-card,
     .dark .project-card,
     html.dark .project-card {
-      background: rgba(20, 20, 20, 0.95) !important;
+      background: rgba(30, 41, 59, 0.75) !important;
       border-color: rgba(255, 255, 255, 0.2) !important;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
     }
@@ -3494,9 +3486,9 @@
                 <p class="home-hero-description">
                   A Software Engineer and Graduate Assistant pursuing my Master's in Computer Science at Florida
                   Polytechnic University.
-                  I specialize in web development, with expertise in both front-end and back-end technologies, building
-                  scalable web
-                  applications and enterprise ERP systems.
+                  I specialize in Software and AI development, with expertise in both front-end and back-end
+                  technologies,
+                  building scalable Web and Enterprise applications.
                 </p>
 
                 <!-- Social Links - Keyboard Key Style -->
@@ -3852,8 +3844,8 @@
             </div>
             <div class="project-year">2026</div>
             <h3 class="project-title">Intelligent Sprint Analysis (Repo-Sprint)</h3>
-            <p class="project-summary">Local-first 11-agent LLM pipeline that ingests GitHub data, runs RAG with
-              ChromaDB, and generates evidence-backed sprint recommendations.</p>
+            <p class="project-summary">A local-first tool that pulls your GitHub activity and uses a team of 11 AI
+              agents to score each sprint's health and suggest what to focus on next.</p>
             <a href="project-detail.html?id=reposprint" class="project-read-more">
               Read more →
             </a>
@@ -3868,30 +3860,16 @@
             </div>
             <div class="project-year">2026</div>
             <h3 class="project-title">LLM-Based Automatic Unit Test Generation</h3>
-            <p class="project-summary">End-to-end pipeline using Llama3 via Ollama to automatically generate,
-              evaluate, and visualize pytest unit tests for Python functions.</p>
+            <p class="project-summary">An automated system that reads your Python code and writes unit tests for it
+              using a local LLM, then shows you how well the tests turned out in an interactive dashboard.</p>
             <a href="project-detail.html?id=llmtest" class="project-read-more">
               Read more →
             </a>
           </div>
 
-          <!-- Project 3: Algo Project -->
-          <div class="project-card" onclick="window.location.href='project-detail.html?id=algo'">
-            <div class="project-image-wrapper"
-              onclick="event.stopPropagation(); openImageLightbox('media/output/AlgoProjectOutput.png', 'Diverse Strings – Max Hamming Distance in a Σ-DAG');">
-              <img src="media/output/AlgoProjectOutput.png" alt="Diverse Strings – Max Hamming Distance in a Σ-DAG"
-                class="project-image">
-            </div>
-            <div class="project-year">2026</div>
-            <h3 class="project-title">Diverse Strings – Max Hamming Distance in a Σ-DAG</h3>
-            <p class="project-summary">Brute-force vs. dynamic programming to find the maximum Hamming distance
-              between paths in a layered DNA-alphabet graph.</p>
-            <a href="project-detail.html?id=algo" class="project-read-more">
-              Read more →
-            </a>
-          </div>
 
-          <!-- Project 4: AgentFlow AI Assistant Project -->
+
+          <!-- Project 3: AgentFlow AI Assistant Project -->
           <div class="project-card" onclick="window.location.href='project-detail.html?id=agentflow'">
             <div class="project-image-wrapper"
               onclick="event.stopPropagation(); openImageLightbox('media/AgentFlow_AI_Snap.png', 'AgentFlow AI Assistant');">
@@ -3905,6 +3883,23 @@
               Read more →
             </a>
           </div>
+
+          <!-- Project 4: Algo Project -->
+          <div class="project-card" onclick="window.location.href='project-detail.html?id=algo'">
+            <div class="project-image-wrapper"
+              onclick="event.stopPropagation(); openImageLightbox('media/output/AlgoProjectOutput.png', 'Diverse Strings – Max Hamming Distance in a Σ-DAG');">
+              <img src="media/output/AlgoProjectOutput.png" alt="Diverse Strings – Max Hamming Distance in a Σ-DAG"
+                class="project-image">
+            </div>
+            <div class="project-year">2026</div>
+            <h3 class="project-title">Diverse Strings – Max Hamming Distance in a Σ-DAG</h3>
+            <p class="project-summary">Compares a brute-force approach with a smarter dynamic programming solution to
+              find the most different pair of paths through a DNA-style layered graph.</p>
+            <a href="project-detail.html?id=algo" class="project-read-more">
+              Read more →
+            </a>
+          </div>
+
 
           <!-- Project 5: ICAN ERP -->
           <div class="project-card" onclick="window.location.href='project-detail.html?id=ican'">
@@ -4201,57 +4196,9 @@
   <script src="js/wowchemy-publication.9137013a66774049159934c29c3f0205.js" type="module"></script>
 
   <script>
-    // Experience header scroll behavior - allow header to scroll when last card is about to stick
+    // Experience header scroll behavior - disabled (now scrolls normally like other sections)
     (function () {
-      const experienceHeader = document.querySelector('#section-experience .section-heading');
-      const experienceCards = document.querySelectorAll('.sticky-experience-card');
-      const lastCard = experienceCards[experienceCards.length - 1];
-
-      if (!experienceHeader || !lastCard) return;
-
-      const navbarHeight = 70;
-      const headerStickyTop = navbarHeight; // Header sticks at 70px
-      const lastCardStickyTop = 8.5 * 16; // Last card sticks at 8.5rem = 136px
-
-      function checkLastCardPosition() {
-        if (!lastCard) return;
-
-        const lastCardRect = lastCard.getBoundingClientRect();
-        const headerRect = experienceHeader.getBoundingClientRect();
-
-        // Calculate when last card is about to reach its sticky position
-        // Last card's sticky top is 8.5rem (136px) from viewport top
-        // When last card's top is close to its sticky position, allow header to scroll
-        const distanceToSticky = lastCardRect.top - lastCardStickyTop;
-
-        // When last card is within 100px of its sticky position, make header scrollable
-        if (distanceToSticky <= 100 && distanceToSticky >= -50) {
-          // Last card is about to stick - allow header to scroll
-          experienceHeader.style.position = 'relative';
-          experienceHeader.style.top = 'auto';
-          experienceHeader.classList.add('header-scrollable');
-        } else if (distanceToSticky > 100) {
-          // Last card hasn't reached sticky position yet - keep header sticky
-          experienceHeader.style.position = 'sticky';
-          experienceHeader.style.top = '70px';
-          experienceHeader.classList.remove('header-scrollable');
-        }
-      }
-
-      // Check on scroll
-      let ticking = false;
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            checkLastCardPosition();
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
-
-      // Initial check
-      checkLastCardPosition();
+      // No-op: sticky behavior removed for timeline layout
     })();
 
     // Projects header scroll behavior - allow header to scroll when last card is about to stick

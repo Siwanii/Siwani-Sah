@@ -849,14 +849,14 @@
           <!-- Project 2: LLM Generated Testcases -->
           <div class="project-card" onclick="window.location.href='project-detail.html?id=llmtest'">
             <div class="project-image-wrapper"
-              onclick="event.stopPropagation(); openImageLightbox('media/output/llm_generated_tc_output1.png', 'LLM-Based Automatic Unit Test Generation');">
-              <img src="media/output/llm_generated_tc_output1.png" alt="LLM-Based Automatic Unit Test Generation"
+              onclick="event.stopPropagation(); openImageLightbox('media/output/llm_generated_tc_output1.png', 'Autonomous Self-Healing LLM Unit Test Generator');">
+              <img src="media/output/llm_generated_tc_output1.png" alt="Autonomous Self-Healing LLM Unit Test Generator"
                 class="project-image">
             </div>
             <div class="project-year">2026</div>
-            <h3 class="project-title">LLM-Based Automatic Unit Test Generation</h3>
-            <p class="project-summary">An automated system that reads your Python code and writes unit tests for it
-              using a local LLM, then shows you how well the tests turned out in an interactive dashboard.</p>
+            <h3 class="project-title">Autonomous Self-Healing LLM Unit Test Generator</h3>
+            <p class="project-summary">An autonomous AI pipeline that writes Python unit tests using local LLMs,
+              validates them in an isolated sandbox, and self-repairs failing tests using runtime tracebacks.</p>
             <a href="project-detail.html?id=llmtest" class="project-read-more">
               Read more →
             </a>
@@ -1129,15 +1129,15 @@
       'llmtest': {
         image: 'media/output/llm_generated_tc_output1.png',
         year: '2026',
-        title: 'LLM-Based Automatic Unit Test Generation',
-        description: 'End-to-end pipeline using Llama3 via Ollama to automatically generate, evaluate, and visualize pytest unit tests for Python functions from the pyMethods2Test dataset.',
+        title: 'Autonomous Self-Healing LLM Unit Test Generator',
+        description: 'An advanced AI engineering pipeline that automatically generates, executes, validates, and self-repairs Python unit tests using local LLMs (Llama3 via Ollama) and grounded sandbox execution.',
         details: [
-          'Built a 7-step pipeline: method extraction → sampling → baseline test generation → advanced test generation → evaluation → failure analysis → Streamlit dashboard.',
-          'Used Ollama (Llama3) locally with three prompt strategies — Baseline, Context, and Advanced — achieving 100% edge-case inclusion and an average of 9.38 assertions per test across 300 tests.',
-          'Implemented an evaluation module tracking total assertions (2,814), edge-case coverage, syntax validity, and failure classification (141 syntax errors, 215 missing assertions, 88 extra-text issues).',
-          'Developed an interactive Streamlit dashboard for live metrics, test validity breakdown, edge-case coverage display, and an interactive test viewer.',
-          'Key finding: structured Advanced prompts outperform raw context prompts; LLM outputs require post-processing validation before execution.',
-          'Technologies: Python, Ollama, Llama3, Streamlit, JSON — entirely local, no cloud dependencies.'
+          'Built a 7-step pipeline: Ingestion and extraction of Python functions from the pyMethods2Test dataset → sampling → code enrichment → LLM generation → sandbox execution → AST grading → Streamlit telemetry dashboard.',
+          'Designed a self-healing feedback loop that captures execution failures, guiding the local Llama3 model through up to 3 iterative self-repair attempts based on exact runtime tracebacks, achieving a 31.25% recovery rate.',
+          'Implemented an isolated sandbox execution module using pytest to safely run dynamically generated code, protecting the host system from executing untested test suites.',
+          'Developed a compiler-grade grading system using Python\'s ast package to programmatically parse test files and grade 11 critical edge-case categories (like exceptions and empty collections) without executing the code.',
+          'Built an interactive Streamlit telemetry dashboard featuring Sankey diagrams to trace self-repair paths, radar charts showing edge-case footprints, strategy comparisons, and side-by-side code diffs.',
+          'Validated the pipeline on a robust benchmark of 1,000+ test cases, demonstrating 97.8% syntactic compilation accuracy and revealing that structured Advanced and Chain-of-Thought prompting strategies drove deep edge-case coverage to a top average of 40.3%.'
         ],
         link: 'https://github.com/Siwanii/LLM_Generated_Testcases',
         linkText: 'View Code'

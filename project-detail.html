@@ -403,13 +403,13 @@
       overflow: hidden;
       cursor: pointer;
       line-height: 0;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .detail-gallery-item:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
     }
 
     .detail-gallery-item img {
@@ -420,7 +420,9 @@
       transition: opacity 0.3s ease;
     }
 
-    .detail-gallery-item:hover img { opacity: 0.9; }
+    .detail-gallery-item:hover img {
+      opacity: 0.9;
+    }
 
     .detail-explore {
       margin-top: 2.5rem;
@@ -852,7 +854,7 @@
         image: 'media/output/AlgoProjectOutput.png',
         year: '2026',
         title: 'Diverse Strings – Max Hamming Distance in a Σ-DAG',
-        tagline: 'A Python project that finds the most different pair of paths through a DNA-style graph — comparing the slow way with the smart way.',
+        tagline: 'A Python project that finds the most different pair of paths through a DNA-style graph - comparing the slow way with the smart way.',
         overview: 'This project tackles a simple-sounding question: given a layered graph where every edge is labeled with a DNA letter (A, C, G, or T), what\'s the biggest possible difference between any two paths from start to finish? Every path spells out a string, so comparing paths just means counting how many positions differ. I wrote two solutions — one that checks every pair (slow but guaranteed correct) and one that uses dynamic programming to skip the redundant work — and verified they always agree.',
         goals: 'I wanted to really understand the difference between brute-force and dynamic programming on the same problem, and connect it to something real: finding maximally diverse DNA subsequences, which matters in bioinformatics research.',
         techStack: [
@@ -887,51 +889,52 @@
       llmtest: {
         image: 'media/output/llm_generated_tc_output1.png',
         year: '2026',
-        title: 'LLM-Based Automatic Unit Test Generation',
-        tagline: 'Give it your Python code, and it writes the tests for you — then shows you exactly how good they are.',
-        overview: 'This project explores whether an AI model can write useful unit tests for real Python code. I built a seven-step pipeline: it picks functions from an open-source dataset, sends them to a locally-running Llama3 model with different prompting styles, checks the generated tests for things like assertion count and edge-case coverage, figures out why some tests fail, and puts everything into a Streamlit dashboard you can explore. Out of 300 generated tests, the system produced over 2,800 assertions and covered edge cases in every single one — though about half had syntax issues, which showed me where the model still needs help.',
-        goals: 'I wanted to answer three questions: Does the way you ask the model matter? (Definitely.) Are the tests it writes actually useful? (They cover a lot, but many don\'t run cleanly.) What trips up the model most? (It adds extra text around the code, makes wrong assumptions about imports, and sometimes gets indentation wrong.)',
+        title: 'Autonomous Self-Healing LLM Unit Test Generator',
+        tagline: 'An advanced AI pipeline that automatically generates, executes, validates, and self-repairs Python unit tests.',
+        overview: 'An advanced AI engineering pipeline that automatically generates, executes, validates, and self-repairs unit tests for Python applications. By combining local Large Language Models (Llama3 via Ollama) with grounded sandbox execution and compiler-grade static analysis, this system achieves a high-resiliency test generation pipeline that autonomously recovers from runtime and logical errors.',
+        goals: 'To bridge the gap between AI-generated code and production reliability by building a fully autonomous, sandboxed, self-healing pipeline that iteratively executes and self-corrects unit tests based on runtime failures, verified via dynamic syntax trees.',
         techStack: [
-          { name: 'Python + Ollama (Llama3)', desc: 'All scripts in Python. Ollama runs Llama3 locally — no cloud API calls, no cost per token.' },
-          { name: 'Streamlit dashboard', desc: 'Interactive visualization of metrics, test validity breakdown, edge-case heatmap, and a live test viewer.' },
-          { name: 'pyMethods2Test dataset', desc: 'Open-source dataset of real Python methods paired with test stubs, used as the focal-method source.' },
-          { name: 'JSON pipeline state', desc: 'Each stage writes/reads JSON files (sampled_methods.json, generated_tests_advanced.json, evaluation_summary.json, failure_summary.json) for easy debugging and replay.' }
+          { name: 'Python + Ollama (Llama3)', desc: 'Orchestrates the pipeline and runs Llama3 locally for secure, token-cost-free test generation.' },
+          { name: 'Isolated Sandbox Execution', desc: 'Executes all generated pytest runs in temporary directories to prevent untrusted code execution on the host machine.' },
+          { name: 'AST-Based Grading & Static Analysis', desc: 'Utilizes Python\'s ast module to programmatically parse files into Abstract Syntax Trees to score edge-case coverage without executing code.' },
+          { name: 'Streamlit & Plotly Dashboard', desc: 'Interactive telemetry dashboard visualizing Sankey repair flow transitions, radar charts of edge-case coverage footprints, and side-by-side code diffs.' }
         ],
         features: [
-          { title: 'Three prompt strategies', desc: 'Baseline (function name only), Context (structured instructions), Advanced (edge cases + multiple assertions + parameterized tests). Advanced consistently wins.' },
-          { title: 'Evaluation metrics', desc: 'Total assertions, average assertions/test, edge-case coverage %, syntax validity %, failure type breakdown.' },
-          { title: 'Failure analysis', desc: 'Classifies failures into: syntax errors (141), no assertions (215), extra non-code text (88). Drives actionable post-processing rules.' },
-          { title: 'Streamlit dashboard', desc: 'Live metrics, charts, interactive test viewer — shareable without code knowledge.' }
+          { title: 'Self-Healing Feedback Loop', desc: 'Captures execution failures and guides Llama3 through up to 3 iterative self-repair attempts using detailed traceback contexts.' },
+          { title: 'Four Prompting Strategies', desc: 'Evaluates and compares Baseline (Name-Only), Advanced (Code + Edge Cases), Strict Import, and Chain-of-Thought (CoT) to optimize prompt quality.' },
+          { title: 'Compiler-Grade Grading', desc: 'Evaluates passing tests across 11 critical edge-case categories (exceptions, empty structures, boundary values).' },
+          { title: 'Side-by-Side Telemetry', desc: 'Renders live metrics, pass/fail distributions, and a code differential viewer.' }
         ],
         details: [
-          'Stage 1-2: extract and sample Python methods from pyMethods2Test; store as JSON for reproducibility.',
-          'Stage 3-4: send each method to Llama3 with Baseline then Advanced prompts; collect raw LLM output.',
-          'Stage 5: evaluate each generated test — count asserts, detect edge-case keywords, attempt AST parse for syntax check.',
-          'Stage 6: classify every failure; build failure_summary.json for dashboard consumption.',
-          'Stage 7: Streamlit dashboard pulls all JSON files and renders live charts, a validity pie, and a scrollable test viewer.',
-          'Key numbers: 300 tests, 2,814 assertions, 9.38 avg assertions/test, 100% edge-case inclusion, 53% syntax-valid.'
+          'Built a 7-step pipeline: Ingestion & extraction of focal methods from the pyMethods2Test dataset → sampling → enrichment → LLM generation → sandbox execution/repair → AST grading → Streamlit telemetry.',
+          'Designed a self-healing loop that intercepts pytest errors and allows the Llama3 model up to 3 repair cycles, achieving a 31.25% self-healing recovery rate (fixing 25/80 initially failing tests).',
+          'Developed an AST-based analyzer that programmatically parses generated tests into Abstract Syntax Trees, grading 11 critical edge-case categories.',
+          'Constructed a professional Streamlit dashboard to render pipeline telemetry, including Sankey diagrams of self-repair paths, strategy comparisons, and interactive code views.',
+          'Validated the pipeline using a robust benchmark of 1,000+ distinct test cases, demonstrating 97.8% syntactic compilation accuracy on Llama3.',
+          'Synthesized prompt findings showing that structured Advanced and Chain-of-Thought prompts outperform standard stubs, driving average edge-case coverage to a top average of 40.3%.'
         ],
         challenges: [
-          { title: 'LLM outputs extra prose', content: 'Llama3 often wraps code in markdown fences or adds explanatory text. I added a stripping step to remove code fences and non-code lines before evaluation, which cut extra-text failures significantly.' },
-          { title: 'Syntax errors despite good coverage', content: 'High assertion counts didn\'t guarantee executability. Many tests used undefined fixtures or wrong indentation. Post-processing (AST validation + auto-fix heuristics) improved pass rates but human review is still needed.' }
+          { title: 'LLM outputs extra markdown prose', content: 'Llama3 often wraps code in markdown fences or adds conversational text. I resolved this by adding a sanitization step to clean and strip code blocks.' },
+          { title: 'Logical discrepancies vs. compilable syntax', content: 'While Llama3 has excellent syntactic accuracy (97.8%), logical errors (like asserting against empty stubs) were common. I resolved this by feeding tracebacks back to the self-healing loop for context-grounded repair.' }
         ],
         futureExpansions: [
-          { title: 'Pytest execution in sandbox', desc: 'Actually running generated tests in an isolated environment and measuring real code coverage would close the feedback loop.' },
-          { title: 'Fine-tuned model', desc: 'Fine-tuning a smaller model on high-quality (method, test) pairs from the dataset could outperform general Llama3 at lower latency.' }
+          { title: 'Real-time sandbox coverage integration', desc: 'Measure dynamic code coverage metrics directly inside the sandbox.' },
+          { title: 'Targeted LLM Fine-Tuning', desc: 'Train smaller, localized models specifically on high-quality (method, test) pairs.' }
         ],
-        outro: 'LLMs can generate diverse, assertion-rich tests at scale — but prompt engineering and post-processing are non-negotiable. Human validation remains essential for production use.',
+        outro: 'This project proved that with the right feedback loop, an AI can do much more than just write code - it can actively run, test, and fix its own mistakes. By letting the AI see why its tests failed and try again, we raised the pass rate to almost 60%. It shows that self-healing systems are the real future of automated, reliable software development.',
         gallery: [
           { src: 'media/output/llm_generated_tc_output2.png', alt: 'LLM Test Generation – Output 2' },
-          { src: 'media/output/llm_generated_tc_output3.png', alt: 'LLM Test Generation – Output 3' }
+          { src: 'media/output/llm_generated_tc_output3.png', alt: 'LLM Test Generation – Output 3' },
+          { src: 'media/output/llm_generated_tc_output4.png', alt: 'LLM Test Generation – Output 4' },
         ],
-        links: [{ url: 'https://github.com/Siwanii/LLM_Test_Generator', text: 'View Code' }]
+        links: [{ url: 'https://github.com/Siwanii/LLM_Generated_Testcases', text: 'View Code' }]
       },
       reposprint: {
         image: 'media/output/RepoSprintOutput/output1.png',
         year: '2026',
         title: 'Intelligent Sprint Analysis (Repo-Sprint)',
         tagline: 'A local tool that reads your GitHub sprints and uses AI agents to tell you how things are going and what to improve.',
-        overview: 'Repo-Sprint helps software teams understand their sprints without having to manually dig through GitHub. It pulls in your issues, pull requests, commits, and discussions, stores them in a local database, and then runs them through 11 specialized AI agents — each looking at a different angle like risk, workload, or code quality. At the end, you get a health score for the sprint and clear suggestions for what to focus on next. Everything runs on your own machine, so no data ever leaves it.',
+        overview: 'Repo-Sprint helps software teams understand their sprints without having to manually dig through GitHub. It pulls in your issues, pull requests, commits, and discussions, stores them in a local database, and then runs them through 11 specialized AI agents - each looking at a different angle like risk, workload, or code quality. At the end, you get a health score for the sprint and clear suggestions for what to focus on next. Everything runs on your own machine, so no data ever leaves it.',
         goals: 'I built this because sprint retrospectives often feel like guesswork. Teams scroll through GitHub for half an hour trying to piece together what happened. I wanted something that could do that legwork automatically, stay completely local for privacy, and be flexible enough to swap out AI models whenever needed.',
         techStack: [
           { name: 'FastAPI + Streamlit', desc: 'FastAPI serves the backend (uvicorn, port 8000). Streamlit renders the Ingestion and Sprint Analysis tabs. npm scripts wire them together.' },
@@ -943,7 +946,7 @@
         features: [
           { title: 'Data ingestion pipeline', desc: 'Provide org URL + repo names → pipeline collects GitHub data, embeds it, and stores in ChromaDB. Supports synthetic data generation for testing.' },
           { title: '11-agent analysis pipeline', desc: 'Router → Data Collector → Feature Engineer → Risk Assessor → Sprint Planner → Recommender + supporting agents. All run locally via Ollama.' },
-          { title: 'Sprint health report', desc: 'Per-sprint health score, risk metrics, and prioritized recommendations — all grounded in retrieved evidence from the vector store.' },
+          { title: 'Sprint health report', desc: 'Per-sprint health score, risk metrics, and prioritized recommendations - all grounded in retrieved evidence from the vector store.' },
           { title: 'Runtime model switching', desc: 'Dropdown in the Sprint Analysis tab lets you swap Ollama models between runs without restarting the app.' },
           { title: 'Local-first', desc: 'No cloud LLM calls. All data stays on your machine. Works fully offline after initial model download.' }
         ],
@@ -963,7 +966,7 @@
           { title: 'Parallel agent execution', desc: 'Running independent agents (Risk Assessor, Feature Engineer, etc.) in parallel would cut inference time significantly.' },
           { title: 'Persistent sprint history', desc: 'Storing past sprint reports and trending health scores over time would enable predictive risk forecasting.' }
         ],
-        outro: 'Proved that a fully local, multi-agent RAG system can deliver meaningful sprint intelligence without any cloud dependencies. The hardest part was keeping 11 agents coherent — worth it for the privacy and cost benefits.',
+        outro: 'Proved that a fully local, multi-agent RAG system can deliver meaningful sprint intelligence without any cloud dependencies. The hardest part was keeping 11 agents coherent - worth it for the privacy and cost benefits.',
         gallery: [
           { src: 'media/output/RepoSprintOutput/EnvironmentSet.jpeg', alt: 'Repo-Sprint – Environment Setup' },
           { src: 'media/output/RepoSprintOutput/Ingestion.jpeg', alt: 'Repo-Sprint – Data Ingestion' },
